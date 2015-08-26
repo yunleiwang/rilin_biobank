@@ -1,0 +1,29 @@
+<%= form_for(@boxer_storage) do |f| %>
+  <% if @boxer_storage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boxer_storage.errors.count, "error") %> prohibited this boxer_storage from being saved:</h2>
+
+      <ul>
+      <% @boxer_storage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :position_index %><br>
+    <%= f.number_field :position_index %>
+  </div>
+  <div class="field">
+    <%= f.label :boxer_id %><br>
+    <%= f.number_field :boxer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_id %><br>
+    <%= f.number_field :frame_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

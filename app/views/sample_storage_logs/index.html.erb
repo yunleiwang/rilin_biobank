@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sample Storage Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sample</th>
+      <th>User name</th>
+      <th>Out percent</th>
+      <th>Left volume</th>
+      <th>Out use for</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sample_storage_logs.each do |sample_storage_log| %>
+      <tr>
+        <td><%= sample_storage_log.sample_id %></td>
+        <td><%= sample_storage_log.user_name %></td>
+        <td><%= sample_storage_log.out_percent %></td>
+        <td><%= sample_storage_log.left_volume %></td>
+        <td><%= sample_storage_log.out_use_for %></td>
+        <td><%= link_to 'Show', sample_storage_log %></td>
+        <td><%= link_to 'Edit', edit_sample_storage_log_path(sample_storage_log) %></td>
+        <td><%= link_to 'Destroy', sample_storage_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sample storage log', new_sample_storage_log_path %>

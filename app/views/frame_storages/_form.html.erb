@@ -1,0 +1,29 @@
+<%= form_for(@frame_storage) do |f| %>
+  <% if @frame_storage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@frame_storage.errors.count, "error") %> prohibited this frame_storage from being saved:</h2>
+
+      <ul>
+      <% @frame_storage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :position_index %><br>
+    <%= f.text_field :position_index %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_id %><br>
+    <%= f.number_field :frame_id %>
+  </div>
+  <div class="field">
+    <%= f.label :container_id %><br>
+    <%= f.number_field :container_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

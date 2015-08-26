@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sample_no: MyString
+  sample_seq: MyString
+  user_id: 1
+  storage_status: MyString
+  freezing_thawing_times: 1
+
+two:
+  sample_no: MyString
+  sample_seq: MyString
+  user_id: 1
+  storage_status: MyString
+  freezing_thawing_times: 1

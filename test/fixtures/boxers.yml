@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  box_name: MyString
+  box_seq: MyString
+  box_row: 1
+  box_column: 1
+  remark: MyText
+
+two:
+  box_name: MyString
+  box_seq: MyString
+  box_row: 1
+  box_column: 1
+  remark: MyText

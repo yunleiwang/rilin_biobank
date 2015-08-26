@@ -1,0 +1,33 @@
+<%= form_for(@container_type) do |f| %>
+  <% if @container_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@container_type.errors.count, "error") %> prohibited this container_type from being saved:</h2>
+
+      <ul>
+      <% @container_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :container_catalog %><br>
+    <%= f.text_field :container_catalog %>
+  </div>
+  <div class="field">
+    <%= f.label :container_icon %><br>
+    <%= f.text_field :container_icon %>
+  </div>
+  <div class="field">
+    <%= f.label :alia_name %><br>
+    <%= f.text_field :alia_name %>
+  </div>
+  <div class="field">
+    <%= f.label :add_link_url %><br>
+    <%= f.text_field :add_link_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Frame seq:</strong>
+  <%= @frame.frame_seq %>
+</p>
+
+<p>
+  <strong>Frame name:</strong>
+  <%= @frame.frame_name %>
+</p>
+
+<p>
+  <strong>Frame type:</strong>
+  <%= @frame.frame_type %>
+</p>
+
+<p>
+  <strong>Code order:</strong>
+  <%= @frame.code_order %>
+</p>
+
+<p>
+  <strong>Horizontal direction:</strong>
+  <%= @frame.horizontal_direction %>
+</p>
+
+<p>
+  <strong>Vertiacal direction:</strong>
+  <%= @frame.vertiacal_direction %>
+</p>
+
+<p>
+  <strong>Frame rows:</strong>
+  <%= @frame.frame_rows %>
+</p>
+
+<p>
+  <strong>Frame columns:</strong>
+  <%= @frame.frame_columns %>
+</p>
+
+<%= link_to 'Edit', edit_frame_path(@frame) %> |
+<%= link_to 'Back', frames_path %>

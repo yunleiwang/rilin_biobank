@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  container_name: MyString
+  container_type_id: MyString
+  code_style: 1
+  frame_num: 1
+  container_rows: 1
+  container_columns: 1
+
+two:
+  container_name: MyString
+  container_type_id: MyString
+  code_style: 1
+  frame_num: 1
+  container_rows: 1
+  container_columns: 1

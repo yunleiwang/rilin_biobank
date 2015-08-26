@@ -1,0 +1,37 @@
+<%= form_for(@boxer) do |f| %>
+  <% if @boxer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@boxer.errors.count, "error") %> prohibited this boxer from being saved:</h2>
+
+      <ul>
+      <% @boxer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :box_name %><br>
+    <%= f.text_field :box_name %>
+  </div>
+  <div class="field">
+    <%= f.label :box_seq %><br>
+    <%= f.text_field :box_seq %>
+  </div>
+  <div class="field">
+    <%= f.label :box_row %><br>
+    <%= f.number_field :box_row %>
+  </div>
+  <div class="field">
+    <%= f.label :box_column %><br>
+    <%= f.number_field :box_column %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br>
+    <%= f.text_area :remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

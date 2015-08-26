@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position index:</strong>
+  <%= @sample_storage.position_index %>
+</p>
+
+<p>
+  <strong>Boxer:</strong>
+  <%= @sample_storage.boxer_id %>
+</p>
+
+<p>
+  <strong>Sample:</strong>
+  <%= @sample_storage.sample_id %>
+</p>
+
+<%= link_to 'Edit', edit_sample_storage_path(@sample_storage) %> |
+<%= link_to 'Back', sample_storages_path %>

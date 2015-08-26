@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Container name:</strong>
+  <%= @container.container_name %>
+</p>
+
+<p>
+  <strong>Container type:</strong>
+  <%= @container.container_type_id %>
+</p>
+
+<p>
+  <strong>Code style:</strong>
+  <%= @container.code_style %>
+</p>
+
+<p>
+  <strong>Frame num:</strong>
+  <%= @container.frame_num %>
+</p>
+
+<p>
+  <strong>Container rows:</strong>
+  <%= @container.container_rows %>
+</p>
+
+<p>
+  <strong>Container columns:</strong>
+  <%= @container.container_columns %>
+</p>
+
+<%= link_to 'Edit', edit_container_path(@container) %> |
+<%= link_to 'Back', containers_path %>

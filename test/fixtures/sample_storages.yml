@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position_index: 1
+  boxer_id: 1
+  sample_id: 1
+
+two:
+  position_index: 1
+  boxer_id: 1
+  sample_id: 1

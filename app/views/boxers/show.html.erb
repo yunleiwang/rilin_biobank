@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Box name:</strong>
+  <%= @boxer.box_name %>
+</p>
+
+<p>
+  <strong>Box seq:</strong>
+  <%= @boxer.box_seq %>
+</p>
+
+<p>
+  <strong>Box row:</strong>
+  <%= @boxer.box_row %>
+</p>
+
+<p>
+  <strong>Box column:</strong>
+  <%= @boxer.box_column %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @boxer.remark %>
+</p>
+
+<%= link_to 'Edit', edit_boxer_path(@boxer) %> |
+<%= link_to 'Back', boxers_path %>

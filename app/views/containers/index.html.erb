@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Containers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Container name</th>
+      <th>Container type</th>
+      <th>Code style</th>
+      <th>Frame num</th>
+      <th>Container rows</th>
+      <th>Container columns</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @containers.each do |container| %>
+      <tr>
+        <td><%= container.container_name %></td>
+        <td><%= container.container_type_id %></td>
+        <td><%= container.code_style %></td>
+        <td><%= container.frame_num %></td>
+        <td><%= container.container_rows %></td>
+        <td><%= container.container_columns %></td>
+        <td><%= link_to 'Show', container %></td>
+        <td><%= link_to 'Edit', edit_container_path(container) %></td>
+        <td><%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Container', new_container_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Frames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Frame seq</th>
+      <th>Frame name</th>
+      <th>Frame type</th>
+      <th>Code order</th>
+      <th>Horizontal direction</th>
+      <th>Vertiacal direction</th>
+      <th>Frame rows</th>
+      <th>Frame columns</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @frames.each do |frame| %>
+      <tr>
+        <td><%= frame.frame_seq %></td>
+        <td><%= frame.frame_name %></td>
+        <td><%= frame.frame_type %></td>
+        <td><%= frame.code_order %></td>
+        <td><%= frame.horizontal_direction %></td>
+        <td><%= frame.vertiacal_direction %></td>
+        <td><%= frame.frame_rows %></td>
+        <td><%= frame.frame_columns %></td>
+        <td><%= link_to 'Show', frame %></td>
+        <td><%= link_to 'Edit', edit_frame_path(frame) %></td>
+        <td><%= link_to 'Destroy', frame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Frame', new_frame_path %>

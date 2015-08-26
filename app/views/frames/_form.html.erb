@@ -1,0 +1,49 @@
+<%= form_for(@frame) do |f| %>
+  <% if @frame.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@frame.errors.count, "error") %> prohibited this frame from being saved:</h2>
+
+      <ul>
+      <% @frame.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :frame_seq %><br>
+    <%= f.text_field :frame_seq %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_name %><br>
+    <%= f.text_field :frame_name %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_type %><br>
+    <%= f.text_field :frame_type %>
+  </div>
+  <div class="field">
+    <%= f.label :code_order %><br>
+    <%= f.text_field :code_order %>
+  </div>
+  <div class="field">
+    <%= f.label :horizontal_direction %><br>
+    <%= f.text_field :horizontal_direction %>
+  </div>
+  <div class="field">
+    <%= f.label :vertiacal_direction %><br>
+    <%= f.text_field :vertiacal_direction %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_rows %><br>
+    <%= f.number_field :frame_rows %>
+  </div>
+  <div class="field">
+    <%= f.label :frame_columns %><br>
+    <%= f.number_field :frame_columns %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

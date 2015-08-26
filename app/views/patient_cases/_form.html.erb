@@ -1,0 +1,54 @@
+<%= form_for(@patient_case) do |f| %>
+  <% if @patient_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
+
+      <ul>
+      <% @patient_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :patient_info_id,:value=>1%>
+  <fieldset>
+    <legend>patient_case</legend>
+    <div class="field">
+      <%= f.label :case_number %><br>
+      <%= f.text_field :case_number %>
+    </div>
+    <div class="field">
+      <%= f.label :patient_info_id %><br>
+      <%= f.text_field :patient_info_id %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>sample_info</legend>
+     <%= label :sample,:sample_no %>  <%= text_field :sample,:sample_no %>
+    <div>
+      <%= label :sample,:sample_seq %><br>
+      <%= text_field :sample,:sample_seq %>
+    </div>
+    <div>
+      <%= label :sample,:storage_status %><br>
+      <%= text_field :sample,:storage_status %>
+    </div>
+    <div>
+      <%= label :sample,:freezing_thawing_times %><br>
+      <%= text_field :sample,:freezing_thawing_times %>
+    </div>
+    <div>
+      <%= label :sample,:initial_sample_volume %><br>
+      <%= text_field :sample,:initial_sample_volume %>
+    </div>
+    <div>
+      <%= label :sample,:current_sample_volume %><br>
+      <%= text_field :sample,:current_sample_volume %>
+    </div>
+    
+  </fieldset>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

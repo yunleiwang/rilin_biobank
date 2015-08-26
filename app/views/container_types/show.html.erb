@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Container catalog:</strong>
+  <%= @container_type.container_catalog %>
+</p>
+
+<p>
+  <strong>Container icon:</strong>
+  <%= @container_type.container_icon %>
+</p>
+
+<p>
+  <strong>Alia name:</strong>
+  <%= @container_type.alia_name %>
+</p>
+
+<p>
+  <strong>Add link url:</strong>
+  <%= @container_type.add_link_url %>
+</p>
+
+<%= link_to 'Edit', edit_container_type_path(@container_type) %> |
+<%= link_to 'Back', container_types_path %>

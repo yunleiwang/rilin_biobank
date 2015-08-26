@@ -1,0 +1,37 @@
+<%= form_for(@sample_storage_log) do |f| %>
+  <% if @sample_storage_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sample_storage_log.errors.count, "error") %> prohibited this sample_storage_log from being saved:</h2>
+
+      <ul>
+      <% @sample_storage_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sample_id %><br>
+    <%= f.number_field :sample_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :out_percent %><br>
+    <%= f.number_field :out_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :left_volume %><br>
+    <%= f.number_field :left_volume %>
+  </div>
+  <div class="field">
+    <%= f.label :out_use_for %><br>
+    <%= f.text_area :out_use_for %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

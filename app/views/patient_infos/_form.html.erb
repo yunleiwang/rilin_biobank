@@ -1,0 +1,132 @@
+<%= form_for(@patient_info) do |f| %>
+  <% if @patient_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient_info.errors.count, "error") %> prohibited this patient_info from being saved:</h2>
+
+      <ul>
+      <% @patient_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <fieldset>
+    <legend>patient_info</legend>
+    <div class="field">
+      <%= f.label :patient_id %><br>
+      <%= f.text_field :patient_id %>
+    </div>
+    <div class="field">
+      <%= f.label :patient_name %><br>
+      <%= f.text_field :patient_name %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.text_field :gender %>
+    </div>
+    <div class="field">
+      <%= f.label :birthday %><br>
+      <%= f.date_select :birthday %>
+    </div>
+  </fieldset>
+   <fieldset>
+    <legend>self_info</legend>
+    <div class="field">
+      <%= f.label :cell_phone %><br>
+      <%= f.text_field :cell_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :home_phone %><br>
+      <%= f.text_field :home_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :other_phone %><br>
+      <%= f.text_field :other_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :zip_code %><br>
+      <%= f.text_field :zip_code %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>company_info</legend>
+    <div class="field">
+      <%= f.label :company_name %><br>
+      <%= f.text_field :company_name %>
+    </div>
+    <div class="field">
+      <%= f.label :company_phone %><br>
+      <%= f.text_field :company_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :company_zip %><br>
+      <%= f.text_field :company_zip %>
+    </div>
+    <div class="field">
+      <%= f.label :company_address %><br>
+      <%= f.text_field :company_address %>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>family_info</legend>
+    <div class="field">
+      <%= f.label :relationship_first %><br>
+      <%= f.text_field :relationship_first %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_name_first %><br>
+      <%= f.text_field :relative_name_first %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone1_first %><br>
+      <%= f.text_field :relative_phone1_first %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone2_first %><br>
+      <%= f.text_field :relative_phone2_first %>
+    </div>
+    <div class="field">
+      <%= f.label :relationship_second %><br>
+      <%= f.text_field :relationship_second %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_name_second %><br>
+      <%= f.text_field :relative_name_second %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone1_second %><br>
+      <%= f.text_field :relative_phone1_second %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone2_second %><br>
+      <%= f.text_field :relative_phone2_second %>
+    </div>
+    <div class="field">
+      <%= f.label :relationship_third %><br>
+      <%= f.text_field :relationship_third %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_name_third %><br>
+      <%= f.text_field :relative_name_third %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone1_third %><br>
+      <%= f.text_field :relative_phone1_third %>
+    </div>
+    <div class="field">
+      <%= f.label :relative_phone2_third %><br>
+      <%= f.text_field :relative_phone2_third %>
+    </div>
+  </fieldset>
+
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

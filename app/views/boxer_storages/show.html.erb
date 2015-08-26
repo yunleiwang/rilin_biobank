@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position index:</strong>
+  <%= @boxer_storage.position_index %>
+</p>
+
+<p>
+  <strong>Boxer:</strong>
+  <%= @boxer_storage.boxer_id %>
+</p>
+
+<p>
+  <strong>Frame:</strong>
+  <%= @boxer_storage.frame_id %>
+</p>
+
+<%= link_to 'Edit', edit_boxer_storage_path(@boxer_storage) %> |
+<%= link_to 'Back', boxer_storages_path %>

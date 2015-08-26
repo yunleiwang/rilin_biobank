@@ -1,0 +1,2 @@
+module SampleStorageLogsHelper
+end

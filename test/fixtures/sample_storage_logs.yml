@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sample_id: 1
+  user_name: MyString
+  out_percent: 1
+  left_volume: 1
+  out_use_for: MyText
+
+two:
+  sample_id: 1
+  user_name: MyString
+  out_percent: 1
+  left_volume: 1
+  out_use_for: MyText

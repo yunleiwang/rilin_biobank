@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  container_catalog: MyString
+  container_icon: MyString
+  alia_name: MyString
+  add_link_url: MyString
+
+two:
+  container_catalog: MyString
+  container_icon: MyString
+  alia_name: MyString
+  add_link_url: MyString

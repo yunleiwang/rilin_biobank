@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient_id: MyString
+  patient_name: MyString
+  gender: MyString
+  birthday: 2015-08-24
+  cell_phone: MyString
+  home_phone: MyString
+  other_phone: MyString
+  zip_code: MyString
+  address: MyString
+  company_name: MyString
+  company_phone: MyString
+  company_zip: MyString
+  company_address: MyString
+  relationship_first: MyString
+  relative_name_first: MyString
+  relative_phone1_first: MyString
+  relative_phone2_first: MyString
+  relationship_second: MyString
+  relative_name_second: MyString
+  relative_phone1_second: MyString
+  relative_phone2_second: MyString
+  relationship_third: MyString
+  relative_name_third: MyString
+  relative_phone1_third: MyString
+  relative_phone2_third: MyString
+
+two:
+  patient_id: MyString
+  patient_name: MyString
+  gender: MyString
+  birthday: 2015-08-24
+  cell_phone: MyString
+  home_phone: MyString
+  other_phone: MyString
+  zip_code: MyString
+  address: MyString
+  company_name: MyString
+  company_phone: MyString
+  company_zip: MyString
+  company_address: MyString
+  relationship_first: MyString
+  relative_name_first: MyString
+  relative_phone1_first: MyString
+  relative_phone2_first: MyString
+  relationship_second: MyString
+  relative_name_second: MyString
+  relative_phone1_second: MyString
+  relative_phone2_second: MyString
+  relationship_third: MyString
+  relative_name_third: MyString
+  relative_phone1_third: MyString
+  relative_phone2_third: MyString

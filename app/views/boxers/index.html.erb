@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Boxers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Box name</th>
+      <th>Box seq</th>
+      <th>Box row</th>
+      <th>Box column</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boxers.each do |boxer| %>
+      <tr>
+        <td><%= boxer.box_name %></td>
+        <td><%= boxer.box_seq %></td>
+        <td><%= boxer.box_row %></td>
+        <td><%= boxer.box_column %></td>
+        <td><%= boxer.remark %></td>
+        <td><%= link_to 'Show', boxer %></td>
+        <td><%= link_to 'Edit', edit_boxer_path(boxer) %></td>
+        <td><%= link_to 'Destroy', boxer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Boxer', new_boxer_path %>

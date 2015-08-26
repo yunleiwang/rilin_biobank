@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position index:</strong>
+  <%= @frame_storage.position_index %>
+</p>
+
+<p>
+  <strong>Frame:</strong>
+  <%= @frame_storage.frame_id %>
+</p>
+
+<p>
+  <strong>Container:</strong>
+  <%= @frame_storage.container_id %>
+</p>
+
+<%= link_to 'Edit', edit_frame_storage_path(@frame_storage) %> |
+<%= link_to 'Back', frame_storages_path %>

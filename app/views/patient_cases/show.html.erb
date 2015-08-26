@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Case number:</strong>
+  <%= @patient_case.case_number %>
+</p>
+
+<p>
+  <strong>Patient info:</strong>
+  <%= @patient_case.patient_info_id %>
+</p>
+
+<%= link_to 'Edit', edit_patient_case_path(@patient_case) %> |
+<%= link_to 'Back', patient_cases_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sample Storages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position index</th>
+      <th>Boxer</th>
+      <th>Sample</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sample_storages.each do |sample_storage| %>
+      <tr>
+        <td><%= sample_storage.position_index %></td>
+        <td><%= sample_storage.boxer_id %></td>
+        <td><%= sample_storage.sample_id %></td>
+        <td><%= link_to 'Show', sample_storage %></td>
+        <td><%= link_to 'Edit', edit_sample_storage_path(sample_storage) %></td>
+        <td><%= link_to 'Destroy', sample_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sample storage', new_sample_storage_path %>

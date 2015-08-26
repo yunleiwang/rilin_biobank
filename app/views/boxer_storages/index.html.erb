@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Boxer Storages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Position index</th>
+      <th>Boxer</th>
+      <th>Frame</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @boxer_storages.each do |boxer_storage| %>
+      <tr>
+        <td><%= boxer_storage.position_index %></td>
+        <td><%= boxer_storage.boxer_id %></td>
+        <td><%= boxer_storage.frame_id %></td>
+        <td><%= link_to 'Show', boxer_storage %></td>
+        <td><%= link_to 'Edit', edit_boxer_storage_path(boxer_storage) %></td>
+        <td><%= link_to 'Destroy', boxer_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Boxer storage', new_boxer_storage_path %>
