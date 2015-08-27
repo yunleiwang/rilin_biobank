@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825015905) do
+ActiveRecord::Schema.define(version: 20150827025934) do
 
   create_table "boxer_storages", force: :cascade do |t|
     t.integer  "position_index", limit: 4
@@ -135,6 +135,10 @@ ActiveRecord::Schema.define(version: 20150825015905) do
     t.integer  "freezing_thawing_times", limit: 4
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "sample_storage_id",      limit: 4
+    t.float    "initial_sample_volume",  limit: 24
+    t.float    "current_sample_volume",  limit: 24
+    t.integer  "patient_case_id",        limit: 4
   end
 
 end

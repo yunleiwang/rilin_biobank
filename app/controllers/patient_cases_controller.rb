@@ -15,21 +15,24 @@ class PatientCasesController < ApplicationController
   # GET /patient_cases/new
   def new
     @patient_case = PatientCase.new
+    @sample = Sample.new
   end
 
   # GET /patient_cases/1/edit
   def edit
+    @samples = @patient_case.samples
   end
 
   # POST /patient_cases
   # POST /patient_cases.json
   def create
     @patient_case = PatientCase.new(patient_case_params)
-    Sample.create(params[:sample])
+    
     respond_to do |format|
       if @patient_case.save
-        format.html { redirect_to @patient_case, notice: 'Patient case was successfully created.' }
-        format.json { render :show, status: :created, location: @patient_case }
+        #format.html { redirect_to @patient_case, notice: 'Patient case was successfully created.' }
+        #format.json { render :show, status: :created, location: @patient_case }
+        redirect_to action: 'edit', id: @patient_case.id
       else
         format.html { render :new }
         format.json { render json: @patient_case.errors, status: :unprocessable_entity }

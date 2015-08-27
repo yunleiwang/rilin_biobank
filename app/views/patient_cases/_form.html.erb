@@ -24,7 +24,7 @@
   </fieldset>
   <fieldset>
     <legend>sample_info</legend>
-     <%= label :sample,:sample_no %>  <%= text_field :sample,:sample_no %>
+     <%= label :sample,:sample_no %>  <%= select :sample,:sample_no, [] ,:prompt=> '--new sample--'%>
     <div>
       <%= label :sample,:sample_seq %><br>
       <%= text_field :sample,:sample_seq %>
@@ -47,8 +47,11 @@
     </div>
     
   </fieldset>
-  
+  <div>
+      <%= label_tag :batch_add_num %>
+      <%= text_field_tag :batch_add_num %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %>  <%= link_to 'previous'%> <%= link_to 'next'%>
   </div>
 <% end %>
