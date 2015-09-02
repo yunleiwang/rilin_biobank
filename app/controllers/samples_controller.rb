@@ -61,6 +61,14 @@ class SamplesController < ApplicationController
     end
   end
 
+  # 根据sample_no获取当前sample的信息
+  def sample_info
+    @sample = Sample.find_by(sample_no: params[:sample_no])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
@@ -69,6 +77,6 @@ class SamplesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sample_params
-      params.require(:sample).permit(:sample_no, :sample_seq, :user_id, :storage_status, :freezing_thawing_times)
+      params.require(:sample).permit(:sample_no, :sample_seq, :user_id, :storage_status, :freezing_thawing_times, :initial_sample_volume, :current_sample_volume, :patient_case_id)
     end
 end

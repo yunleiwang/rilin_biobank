@@ -1,0 +1,24 @@
+<div>
+  <%= label :sample,:sample_seq %><br>
+  <%= text_field :sample,:sample_seq,:disabled=>true %>
+</div>
+<div>
+  <%= label :sample,:storage_status %><br>
+  <%= text_field :sample,:storage_status %>
+</div>
+<div>
+  <%= label :sample,:freezing_thawing_times %><br>
+  <%= text_field :sample,:freezing_thawing_times %>
+</div>
+<div>
+  <%= label :sample,:initial_sample_volume %><br>
+  <%= text_field :sample,:initial_sample_volume %>
+</div>
+<div>
+  <%= label :sample,:current_sample_volume %><br>
+  <%= text_field :sample,:current_sample_volume %>
+</div>
+<% if !@sample.nil? %>
+    <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+    <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+<% end %>

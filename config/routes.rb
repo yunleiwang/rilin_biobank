@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :patient_cases
   resources :sample_storage_logs
-  resources :samples
+  resources :samples do
+    member do
+      get 'sample_info'
+    end
+  end
   resources :sample_storages
   resources :boxers
   resources :boxer_storages
@@ -9,13 +13,12 @@ Rails.application.routes.draw do
   resources :frame_storages
   resources :containers
   resources :container_types
-  resources :cases
   resources :patient_infos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

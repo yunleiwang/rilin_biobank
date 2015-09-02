@@ -15,43 +15,55 @@ class PatientCasesController < ApplicationController
   # GET /patient_cases/new
   def new
     @patient_case = PatientCase.new
+    @samples = []
     @sample = Sample.new
   end
 
   # GET /patient_cases/1/edit
   def edit
-    @samples = @patient_case.samples
+    @samples = @patient_case.samples.order('id asc')
+    if params[:sample_id]
+      @sample = @samples.find{|sample|sample.id==params[:sample_id].to_i}
+    else
+      @sample = @samples[0]
+    end
   end
 
   # POST /patient_cases
   # POST /patient_cases.json
   def create
     @patient_case = PatientCase.new(patient_case_params)
-    
-    respond_to do |format|
-      if @patient_case.save
-        #format.html { redirect_to @patient_case, notice: 'Patient case was successfully created.' }
-        #format.json { render :show, status: :created, location: @patient_case }
-        redirect_to action: 'edit', id: @patient_case.id
-      else
-        format.html { render :new }
-        format.json { render json: @patient_case.errors, status: :unprocessable_entity }
-      end
+    @patient_case.save
+    # 如果params[:batch_add_num].nil? 默认添加一个样本
+    params[:batch_add_num] ||= 1
+    params.permit!
+    begin
+      @patient_case.batch_create_sample(params[:batch_add_num].to_i,params)
+    rescue
+      puts '批量添加失败！'
     end
+    redirect_to action: 'edit', id: @patient_case.id
+
   end
 
   # PATCH/PUT /patient_cases/1
   # PATCH/PUT /patient_cases/1.json
   def update
-    respond_to do |format|
-      if @patient_case.update(patient_case_params)
-        format.html { redirect_to @patient_case, notice: 'Patient case was successfully updated.' }
-        format.json { render :show, status: :ok, location: @patient_case }
-      else
-        format.html { render :edit }
-        format.json { render json: @patient_case.errors, status: :unprocessable_entity }
-      end
+    # 如果sample_no=='0',为添加样本，需判断添加的个数（默认为添加一个）
+    # 如果sample_no!='0',为编辑某个样本
+    params.permit!
+    @patient_case.update(patient_case_params)
+    if params[:sample][:sample_no]=='0'
+      params[:batch_add_num]=1 if params[:batch_add_num].empty?
+      @patient_case.batch_create_sample(params[:batch_add_num].to_i,params)
+      redirect_to action: 'edit', id: @patient_case.id
+    else
+      sample = Sample.find_by(sample_no: params[:sample][:sample_no])
+      sample.update(params.require(:sample))
+      redirect_to action: 'edit', id: @patient_case.id, sample_id: sample.id
     end
+
+
   end
 
   # DELETE /patient_cases/1

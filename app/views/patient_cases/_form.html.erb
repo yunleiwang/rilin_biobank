@@ -1,8 +1,64 @@
+<script>
+    $(document).ready(function(){
+        batch_add_num_is_disable();
+        // 监听样本编号下拉框，根据不同的编号动态选择要显示的样本信息
+        $('#sample_sample_no').change(function(){
+            var sample_no = $('#sample_sample_no').val();
+            getSampleInfo(sample_no);
+        })
+    })
+
+    // ajax根据样本号sample_no获得样本信息
+    function getSampleInfo(sample_no){
+        $.ajax({
+            type: "get",
+            url: "/samples/1/sample_info",
+            data: {sample_no: sample_no},
+            dataType: 'html',
+            success: function (data) {
+                eval(data);
+                // value==0 为添加样本，可以批量添加,否则不可批量添加(batch_add_num清空且不可写)
+                if(sample_no=='0'){
+                    $('#batch_add_num').attr("disabled",false);
+                }else{
+                    $('#batch_add_num').attr("value",'');
+                    $('#batch_add_num').attr("disabled",true);
+                }
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+            }
+        });
+    }
+
+    // 判断批量添加文本框是否可编辑
+    // 如果样本号下拉框sample_no的值为0，则可编辑（此时为添加样本）
+    // 如果为某个样本（只可编辑），则不可批量添加
+    function batch_add_num_is_disable(){
+        var value = $('#sample_sample_no').val();
+        if(value=='0'){
+            $('#batch_add_num').attr("disabled",false);
+        }else{
+            $('#batch_add_num').attr("value",'');
+            $('#batch_add_num').attr("disabled",true);
+        }
+    }
+
+    // 实现查看上一个样本和下一个样本功能
+    function gotoSample(sample_no){
+        if(sample_no!=null&&sample_no!=""){
+            $("#sample_sample_no option[value="+sample_no+"]").attr("selected",true).siblings().attr('selected',false);
+            $("#sample_sample_no").val(sample_no);
+            getSampleInfo(sample_no);
+        }
+    }
+
+</script>
 <%= form_for(@patient_case) do |f| %>
   <% if @patient_case.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
-
       <ul>
       <% @patient_case.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -24,34 +80,42 @@
   </fieldset>
   <fieldset>
     <legend>sample_info</legend>
-     <%= label :sample,:sample_no %>  <%= select :sample,:sample_no, [] ,:prompt=> '--new sample--'%>
-    <div>
-      <%= label :sample,:sample_seq %><br>
-      <%= text_field :sample,:sample_seq %>
-    </div>
-    <div>
-      <%= label :sample,:storage_status %><br>
-      <%= text_field :sample,:storage_status %>
-    </div>
-    <div>
-      <%= label :sample,:freezing_thawing_times %><br>
-      <%= text_field :sample,:freezing_thawing_times %>
-    </div>
-    <div>
-      <%= label :sample,:initial_sample_volume %><br>
-      <%= text_field :sample,:initial_sample_volume %>
-    </div>
-    <div>
-      <%= label :sample,:current_sample_volume %><br>
-      <%= text_field :sample,:current_sample_volume %>
-    </div>
-    
+     <%= label :sample,:sample_no %>  <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) %>
+
+    <div id="sample_info">
+      <div>
+        <%= label :sample,:sample_seq %><br>
+        <%= text_field :sample,:sample_seq,:disabled=>true %>
+      </div>
+      <div>
+        <%= label :sample,:storage_status %><br>
+        <%= text_field :sample,:storage_status %>
+      </div>
+      <div>
+        <%= label :sample,:freezing_thawing_times %><br>
+        <%= text_field :sample,:freezing_thawing_times %>
+      </div>
+      <div>
+        <%= label :sample,:initial_sample_volume %><br>
+        <%= text_field :sample,:initial_sample_volume %>
+      </div>
+      <div>
+        <%= label :sample,:current_sample_volume %><br>
+        <%= text_field :sample,:current_sample_volume %>
+      </div>
+
+      <% if !@sample.blank? && !@sample.id.nil? %>
+          <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+          <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+    <% end %>
+     </div>
+
   </fieldset>
   <div>
       <%= label_tag :batch_add_num %>
       <%= text_field_tag :batch_add_num %>
   </div>
   <div class="actions">
-    <%= f.submit %>  <%= link_to 'previous'%> <%= link_to 'next'%>
+    <%= f.submit %>
   </div>
 <% end %>
