@@ -4,7 +4,7 @@ class BoxerStoragesController < ApplicationController
   # GET /boxer_storages
   # GET /boxer_storages.json
   def index
-    @boxer_storages = BoxerStorage.all
+    @boxer_storages = BoxerStorage.all.where()
   end
 
   # GET /boxer_storages/1

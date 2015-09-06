@@ -25,16 +25,19 @@ class FramesController < ApplicationController
   # POST /frames.json
   def create
     @frame = Frame.new(frame_params)
-
-    respond_to do |format|
-      if @frame.save
-        format.html { redirect_to @frame, notice: 'Frame was successfully created.' }
-        format.json { render :show, status: :created, location: @frame }
-      else
-        format.html { render :new }
-        format.json { render json: @frame.errors, status: :unprocessable_entity }
+    frame_storage = FrameStorage.find(params[:frame_storage_id].to_i)
+    begin
+      Frame.transaction do
+        @frame.save
+        frame_storage.update_attributes(:frame_id=>@frame.id)
+        @frame.batch_create_boxer_storage
       end
+      redirect_to @frame, notice: 'Container was successfully created.'
+    rescue
+      puts '创建架子及存储盒子的空间出错!'
+      render :new
     end
+
   end
 
   # PATCH/PUT /frames/1
