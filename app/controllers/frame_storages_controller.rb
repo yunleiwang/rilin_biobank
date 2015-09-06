@@ -4,7 +4,7 @@ class FrameStoragesController < ApplicationController
   # GET /frame_storages
   # GET /frame_storages.json
   def index
-    @frame_storages = FrameStorage.all
+    @frame_storages = FrameStorage.where(:container_id => params[:container_id])
   end
 
   # GET /frame_storages/1

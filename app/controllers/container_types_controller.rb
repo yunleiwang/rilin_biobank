@@ -25,9 +25,10 @@ class ContainerTypesController < ApplicationController
   # POST /container_types.json
   def create
     @container_type = ContainerType.new(container_type_params)
-
+    @container_type.save_image(params[:container_type][:container_icon])
     respond_to do |format|
       if @container_type.save
+        # 保存容器图片
         format.html { redirect_to @container_type, notice: 'Container type was successfully created.' }
         format.json { render :show, status: :created, location: @container_type }
       else
@@ -42,6 +43,8 @@ class ContainerTypesController < ApplicationController
   def update
     respond_to do |format|
       if @container_type.update(container_type_params)
+        @container_type.save_image(params[:container_type][:container_icon])
+        @container_type.save
         format.html { redirect_to @container_type, notice: 'Container type was successfully updated.' }
         format.json { render :show, status: :ok, location: @container_type }
       else

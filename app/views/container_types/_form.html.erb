@@ -2,7 +2,6 @@
   <% if @container_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@container_type.errors.count, "error") %> prohibited this container_type from being saved:</h2>
-
       <ul>
       <% @container_type.errors.full_messages.each do |message| %>
         <li><%= message %></li>

@@ -17,7 +17,7 @@
     <% @container_types.each do |container_type| %>
       <tr>
         <td><%= container_type.container_catalog %></td>
-        <td><%= container_type.container_icon %></td>
+        <td><%= image_tag container_type.container_icon, :height => 200, :width => 200 %></td>
         <td><%= container_type.alia_name %></td>
         <td><%= container_type.add_link_url %></td>
         <td><%= link_to 'Show', container_type %></td>

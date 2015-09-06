@@ -2,7 +2,6 @@
   <% if @container.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@container.errors.count, "error") %> prohibited this container from being saved:</h2>
-
       <ul>
       <% @container.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,7 +16,7 @@
   </div>
   <div class="field">
     <%= f.label :container_type_id %><br>
-    <%= f.text_field :container_type_id %>
+    <%= f.select :container_type_id, ContainerType.all.collect{|container_type|[container_type.container_catalog,container_type.id]}, :prompt=>'--请选择容器类型--' %>
   </div>
   <div class="field">
     <%= f.label :code_style %><br>

@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+    <input type="hidden" name="frame_storage_id" value="<%= params[:frame_storage_id] %>" />
+
   <div class="field">
     <%= f.label :frame_seq %><br>
     <%= f.text_field :frame_seq %>

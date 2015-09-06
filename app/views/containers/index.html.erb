@@ -11,7 +11,7 @@
       <th>Frame num</th>
       <th>Container rows</th>
       <th>Container columns</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -27,6 +27,7 @@
         <td><%= link_to 'Show', container %></td>
         <td><%= link_to 'Edit', edit_container_path(container) %></td>
         <td><%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '存储位置', :controller => 'frame_storages', :action => 'index', :id=> 1, :container_id => container.id %></td>
       </tr>
     <% end %>
   </tbody>
