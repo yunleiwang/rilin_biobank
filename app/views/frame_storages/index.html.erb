@@ -20,7 +20,11 @@
         <td><%= link_to 'Edit', edit_frame_storage_path(frame_storage) %></td>
         <td><%= link_to 'Destroy', frame_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to '添加架子', :controller => 'frames', :action => 'new', :frame_storage_id => frame_storage.id %></td>
-        <td><%= link_to '存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_storage_id => frame_storage.id %></td>
+        <td>
+          <% if frame_storage.frame_id  %>
+            <%= link_to '架子存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_id => frame_storage.frame_id %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -14,6 +14,7 @@ class ContainersController < ApplicationController
 
   # GET /containers/new
   def new
+    @container_type = ContainerType.find(params[:container_type_id].to_i)
     @container = Container.new
   end
 
@@ -26,7 +27,11 @@ class ContainersController < ApplicationController
   def create
     @container = Container.new(container_params)
     if @container.save
-      @container.batch_create_frame_storage
+      if @container.container_type.container_catalog == ContainerType::YEDANGUAN
+        @container.batch_create_liquid_frame_storage
+      else
+        @container.batch_create_frame_storage
+      end
       redirect_to @container, notice: 'Container was successfully created.'
     else
       render :new

@@ -10,30 +10,45 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :container_name %><br>
     <%= f.text_field :container_name %>
   </div>
-  <div class="field">
-    <%= f.label :container_type_id %><br>
-    <%= f.select :container_type_id, ContainerType.all.collect{|container_type|[container_type.container_catalog,container_type.id]}, :prompt=>'--请选择容器类型--' %>
-  </div>
-  <div class="field">
-    <%= f.label :code_style %><br>
-    <%= f.number_field :code_style %>
-  </div>
-  <div class="field">
-    <%= f.label :frame_num %><br>
-    <%= f.number_field :frame_num %>
-  </div>
-  <div class="field">
-    <%= f.label :container_rows %><br>
-    <%= f.number_field :container_rows %>
-  </div>
-  <div class="field">
-    <%= f.label :container_columns %><br>
-    <%= f.number_field :container_columns %>
-  </div>
+
+    <% if @container_type.container_catalog == ContainerType::LISHIBINGXIANG %>
+      <div class="field">
+        <%= f.label :container_type_id %><br>
+        <%= f.select :container_type_id, ContainerType.all.collect{|container_type|[container_type.container_catalog,container_type.id]}, :prompt=>'--请选择容器类型--' %>
+      </div>
+      <div class="field">
+        <%= f.label :code_style %><br>
+        <%= f.number_field :code_style %>
+      </div>
+
+      <div class="field">
+        <%= f.label :container_rows, '层数' %><br>
+        <%= f.number_field :container_rows %>
+      </div>
+      <div class="field">
+        <%= f.label :container_columns, '每层数量' %><br>
+        <%= f.number_field :container_columns %>
+      </div>
+    <% elsif @container_type.container_catalog == ContainerType::WOSHIBINGXIANG %>
+        <div class="field">
+          <%= f.label :container_rows, '行数' %><br>
+          <%= f.number_field :container_rows %>
+        </div>
+        <div class="field">
+          <%= f.label :container_columns, '每行数量' %><br>
+          <%= f.number_field :container_columns %>
+        </div>
+    <% else @container_type.container_catalog == ContainerType::WOSHIBINGXIANG %>
+        <div class="field">
+          <%= f.label :frame_num, '冻存架数量' %><br>
+          <%= f.number_field :frame_num %>
+        </div>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

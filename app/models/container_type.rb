@@ -1,5 +1,9 @@
 require "uuidtools"
 class ContainerType < ActiveRecord::Base
+  has_many :containers, dependent: :destroy
+  LISHIBINGXIANG = '立式冰箱'
+  WOSHIBINGXIANG = '卧式冰箱'
+  YEDANGUAN = '液氮罐'
   # 存储图片的路径(public下的container_icon文件夹)
   def image_path
     "#{File.expand_path(Rails.root)}/public/container_icon"

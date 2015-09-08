@@ -9,7 +9,7 @@
       <th>Container icon</th>
       <th>Alia name</th>
       <th>Add link url</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -23,6 +23,7 @@
         <td><%= link_to 'Show', container_type %></td>
         <td><%= link_to 'Edit', edit_container_type_path(container_type) %></td>
         <td><%= link_to 'Destroy', container_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '添加该种类容器', :controller => 'containers', :action => 'new', :container_type_id=>container_type.id  %></td>
       </tr>
     <% end %>
   </tbody>
