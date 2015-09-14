@@ -5,6 +5,7 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos.json
   def index
     @patient_infos = PatientInfo.all
+    render :layout => 'application'
   end
 
   # GET /patient_infos/1

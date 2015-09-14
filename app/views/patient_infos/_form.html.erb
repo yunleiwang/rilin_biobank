@@ -1,4 +1,4 @@
-<%= form_for(@patient_info) do |f| %>
+<%= form_for(@patient_info, :class=>'form-horizontal') do |f| %>
   <% if @patient_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient_info.errors.count, "error") %> prohibited this patient_info from being saved:</h2>

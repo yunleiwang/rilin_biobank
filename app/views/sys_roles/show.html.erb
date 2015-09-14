@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sys_role.name %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @sys_role.remark %>
+</p>
+
+<%= link_to 'Edit', edit_sys_role_path(@sys_role) %> |
+<%= link_to 'Back', sys_roles_path %>

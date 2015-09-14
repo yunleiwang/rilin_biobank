@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+  get 'sys_account/sign_in'
+
+  get 'sys_account/sign_out'
+
+  get 'sys_account/change_password'
+
+  post 'sys_account/login'
+  resources :home do
+    member do
+      get 'index'
+      get 'left'
+      get 'right'
+      get 'foot'
+      get 'top'
+    end
+  end
+  resources :sys_account
+  resources :hospitals
+  resources :sys_roles
+  resources :sys_users
   resources :patient_cases
   resources :sample_storage_logs
   resources :samples do

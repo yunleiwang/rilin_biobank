@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @sys_user.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @sys_user.password %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @sys_user.gender %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @sys_user.birthday %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @sys_user.department_id %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @sys_user.role_id %>
+</p>
+
+<%= link_to 'Edit', edit_sys_user_path(@sys_user) %> |
+<%= link_to 'Back', sys_users_path %>

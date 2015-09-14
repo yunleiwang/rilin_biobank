@@ -11,134 +11,162 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827025934) do
+ActiveRecord::Schema.define(version: 20150911014708) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "boxer_storages", force: :cascade do |t|
-    t.integer  "position_index", limit: 4
-    t.integer  "boxer_id",       limit: 4
-    t.integer  "frame_id",       limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "position_index"
+    t.integer  "boxer_id"
+    t.integer  "frame_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "boxers", force: :cascade do |t|
-    t.string   "box_name",   limit: 255
-    t.string   "box_seq",    limit: 255
-    t.integer  "box_row",    limit: 4
-    t.integer  "box_column", limit: 4
-    t.text     "remark",     limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "box_name"
+    t.string   "box_seq"
+    t.integer  "box_row"
+    t.integer  "box_column"
+    t.text     "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "container_types", force: :cascade do |t|
-    t.string   "container_catalog", limit: 255
-    t.string   "container_icon",    limit: 255
-    t.string   "alia_name",         limit: 255
-    t.string   "add_link_url",      limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "container_catalog"
+    t.string   "container_icon"
+    t.string   "alia_name"
+    t.string   "add_link_url"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "containers", force: :cascade do |t|
-    t.string   "container_name",    limit: 255
-    t.string   "container_type_id", limit: 255
-    t.integer  "code_style",        limit: 4
-    t.integer  "frame_num",         limit: 4
-    t.integer  "container_rows",    limit: 4
-    t.integer  "container_columns", limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "container_name"
+    t.string   "container_type_id"
+    t.integer  "code_style"
+    t.integer  "frame_num"
+    t.integer  "container_rows"
+    t.integer  "container_columns"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "frame_storages", force: :cascade do |t|
-    t.integer  "position_index", limit: 4
-    t.integer  "frame_id",       limit: 4
-    t.integer  "container_id",   limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "position_index"
+    t.integer  "frame_id"
+    t.integer  "container_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "frames", force: :cascade do |t|
-    t.string   "frame_seq",            limit: 255
-    t.string   "frame_name",           limit: 255
-    t.string   "frame_type",           limit: 255
-    t.integer  "code_order",           limit: 4
-    t.integer  "horizontal_direction", limit: 4
-    t.integer  "vertiacal_direction",  limit: 4
-    t.integer  "frame_rows",           limit: 4
-    t.integer  "frame_columns",        limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "frame_seq"
+    t.string   "frame_name"
+    t.string   "frame_type"
+    t.integer  "code_order"
+    t.integer  "horizontal_direction"
+    t.integer  "vertiacal_direction"
+    t.integer  "frame_rows"
+    t.integer  "frame_columns"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "hospitals", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "province_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "patient_cases", force: :cascade do |t|
-    t.string   "case_number",     limit: 255
-    t.string   "patient_info_id", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "case_number"
+    t.string   "patient_info_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "patient_infos", force: :cascade do |t|
-    t.string   "patient_id",             limit: 255
-    t.string   "patient_name",           limit: 255
-    t.string   "gender",                 limit: 255
+    t.string   "patient_id"
+    t.string   "patient_name"
+    t.string   "gender"
     t.date     "birthday"
-    t.string   "cell_phone",             limit: 255
-    t.string   "home_phone",             limit: 255
-    t.string   "other_phone",            limit: 255
-    t.string   "zip_code",               limit: 255
-    t.string   "address",                limit: 255
-    t.string   "company_name",           limit: 255
-    t.string   "company_phone",          limit: 255
-    t.string   "company_zip",            limit: 255
-    t.string   "company_address",        limit: 255
-    t.string   "relationship_first",     limit: 255
-    t.string   "relative_name_first",    limit: 255
-    t.string   "relative_phone1_first",  limit: 255
-    t.string   "relative_phone2_first",  limit: 255
-    t.string   "relationship_second",    limit: 255
-    t.string   "relative_name_second",   limit: 255
-    t.string   "relative_phone1_second", limit: 255
-    t.string   "relative_phone2_second", limit: 255
-    t.string   "relationship_third",     limit: 255
-    t.string   "relative_name_third",    limit: 255
-    t.string   "relative_phone1_third",  limit: 255
-    t.string   "relative_phone2_third",  limit: 255
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "cell_phone"
+    t.string   "home_phone"
+    t.string   "other_phone"
+    t.string   "zip_code"
+    t.string   "address"
+    t.string   "company_name"
+    t.string   "company_phone"
+    t.string   "company_zip"
+    t.string   "company_address"
+    t.string   "relationship_first"
+    t.string   "relative_name_first"
+    t.string   "relative_phone1_first"
+    t.string   "relative_phone2_first"
+    t.string   "relationship_second"
+    t.string   "relative_name_second"
+    t.string   "relative_phone1_second"
+    t.string   "relative_phone2_second"
+    t.string   "relationship_third"
+    t.string   "relative_name_third"
+    t.string   "relative_phone1_third"
+    t.string   "relative_phone2_third"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "sample_storage_logs", force: :cascade do |t|
-    t.integer  "sample_id",   limit: 4
-    t.string   "user_name",   limit: 255
-    t.integer  "out_percent", limit: 4
-    t.integer  "left_volume", limit: 4
-    t.text     "out_use_for", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "sample_id"
+    t.string   "user_name"
+    t.integer  "out_percent"
+    t.integer  "left_volume"
+    t.text     "out_use_for"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sample_storages", force: :cascade do |t|
-    t.integer  "position_index", limit: 4
-    t.integer  "boxer_id",       limit: 4
-    t.integer  "sample_id",      limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "position_index"
+    t.integer  "boxer_id"
+    t.integer  "sample_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "samples", force: :cascade do |t|
-    t.string   "sample_no",              limit: 255
-    t.string   "sample_seq",             limit: 255
-    t.integer  "user_id",                limit: 4
-    t.string   "storage_status",         limit: 255
-    t.integer  "freezing_thawing_times", limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "sample_storage_id",      limit: 4
-    t.float    "initial_sample_volume",  limit: 24
-    t.float    "current_sample_volume",  limit: 24
-    t.integer  "patient_case_id",        limit: 4
+    t.string   "sample_no"
+    t.string   "sample_seq"
+    t.integer  "user_id"
+    t.string   "storage_status"
+    t.integer  "freezing_thawing_times"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "sample_storage_id"
+    t.float    "initial_sample_volume"
+    t.float    "current_sample_volume"
+    t.integer  "patient_case_id"
+  end
+
+  create_table "sys_roles", force: :cascade do |t|
+    t.string   "name"
+    t.text     "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sys_users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "gender"
+    t.date     "birthday"
+    t.integer  "department_id"
+    t.integer  "role_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
