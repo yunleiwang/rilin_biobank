@@ -1,6 +1,6 @@
 class PatientCasesController < ApplicationController
   before_action :set_patient_case, only: [:show, :edit, :update, :destroy]
-
+  layout false
   # GET /patient_cases
   # GET /patient_cases.json
   def index
@@ -86,4 +86,6 @@ class PatientCasesController < ApplicationController
     def patient_case_params
       params.require(:patient_case).permit(:case_number, :patient_info_id)
     end
+
+
 end

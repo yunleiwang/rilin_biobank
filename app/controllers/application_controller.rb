@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
       redirect_to sys_account_sign_in_path
     end
   end
+
+  def none_layout
+    render :layout => false
+  end
 end

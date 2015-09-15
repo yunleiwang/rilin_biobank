@@ -1,11 +1,11 @@
 class PatientInfosController < ApplicationController
   before_action :set_patient_info, only: [:show, :edit, :update, :destroy]
-
+  layout false
   # GET /patient_infos
   # GET /patient_infos.json
   def index
     @patient_infos = PatientInfo.all
-    render :layout => 'application'
+
   end
 
   # GET /patient_infos/1
