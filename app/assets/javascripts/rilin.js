@@ -1,4 +1,4 @@
-function AjaxReqeust(url){
+function AjaxRequest(url){
     //$('#content').scrollTop(0);
     $.ajax({
         mimeType: 'text/html; charset=utf-8', // ! Need set mimeType only when run from local file
@@ -7,6 +7,7 @@ function AjaxReqeust(url){
         success: function(data) {
             $('#ajax-content').html(data);
             //$('.preloader').hide();
+            loadDataTable()
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(errorThrown);
@@ -14,4 +15,7 @@ function AjaxReqeust(url){
         dataType: "html",
         async: false
     });
+}
+function loadDataTable(){
+    $.getScript('/assets/javascripts/jquery.dataTables.js')
 }

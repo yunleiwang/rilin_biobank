@@ -368,8 +368,8 @@ overlay_gallery: false, social_tools: false
 
 /* Data tables */
 
-$(document).ready(function() {
-	$('#data-table-1').dataTable({
-	   "sPaginationType": "full_numbers"
-	});
-});
+//$(document).ready(function() {
+//	$('#data-table-1').dataTable({
+//	   "sPaginationType": "full_numbers"
+//	});
+//});

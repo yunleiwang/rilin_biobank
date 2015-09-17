@@ -1,0 +1,33 @@
+<%= form_for(@menu_lib) do |f| %>
+  <% if @menu_lib.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu_lib.errors.count, "error") %> prohibited this menu_lib from being saved:</h2>
+
+      <ul>
+      <% @menu_lib.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name_zh %><br>
+    <%= f.text_field :name_zh %>
+  </div>
+  <div class="field">
+    <%= f.label :menu_lib_id %><br>
+    <%= f.number_field :menu_lib_id %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :seq %><br>
+    <%= f.number_field :seq %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

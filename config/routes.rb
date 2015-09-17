@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :menu_libs
   get 'search_info/search_today'
 
   get 'sys_account/sign_in'

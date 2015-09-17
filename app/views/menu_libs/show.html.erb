@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name zh:</strong>
+  <%= @menu_lib.name_zh %>
+</p>
+
+<p>
+  <strong>Menu lib:</strong>
+  <%= @menu_lib.menu_lib_id %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @menu_lib.link %>
+</p>
+
+<p>
+  <strong>Seq:</strong>
+  <%= @menu_lib.seq %>
+</p>
+
+<%= link_to 'Edit', edit_menu_lib_path(@menu_lib) %> |
+<%= link_to 'Back', menu_libs_path %>

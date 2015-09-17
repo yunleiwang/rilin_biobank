@@ -1,5 +1,4 @@
 class SearchInfoController < ApplicationController
-  layout false
   def search_today
     @samples = Sample.where('updated_at::date = ?', Time.now.to_date-1)
     p PatientInfo.all

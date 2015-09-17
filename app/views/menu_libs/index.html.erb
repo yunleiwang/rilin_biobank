@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Menu Libs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name zh</th>
+      <th>Menu lib</th>
+      <th>Link</th>
+      <th>Seq</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @menu_libs.each do |menu_lib| %>
+      <tr>
+        <td><%= menu_lib.name_zh %></td>
+        <td><%= menu_lib.menu_lib_id %></td>
+        <td><%= menu_lib.link %></td>
+        <td><%= menu_lib.seq %></td>
+        <td><%= link_to 'Show', menu_lib %></td>
+        <td><%= link_to 'Edit', edit_menu_lib_path(menu_lib) %></td>
+        <td><%= link_to 'Destroy', menu_lib, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Menu lib', new_menu_lib_path %>

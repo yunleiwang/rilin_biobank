@@ -50,32 +50,33 @@
       <ul class="nav navbar-nav">
         <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
         <li class="dropdown dropdown-big">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span> Upload to Cloud</a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span> 当前患者－张山</a>
           <!-- Dropdown -->
           <ul class="dropdown-menu">
             <li>
               <!-- Progress bar -->
-              <p>Photo Upload in Progress</p>
+              <p>性别:男</p>
               <!-- Bootstrap progress bar -->
-              <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                  <span class="sr-only">40% Complete</span>
-                </div>
-              </div>
-
+              <!--<div class="progress progress-striped active">-->
+                <!--<div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">-->
+                  <!--<span class="sr-only">40% Complete</span>-->
+                <!--</div>-->
+              <!--</div>-->
               <hr />
 
               <!-- Progress bar -->
-              <p>Video Upload in Progress</p>
+              <p>出生日期:1988-07-21</p>
               <!-- Bootstrap progress bar -->
-              <div class="progress progress-striped active">
-                <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                  <span class="sr-only">80% Complete</span>
-                </div>
-              </div>
+              <!--<div class="progress progress-striped active">-->
+                <!--<div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">-->
+                  <!--<span class="sr-only">80% Complete</span>-->
+                <!--</div>-->
+              <!--</div>-->
 
               <hr />
 
+              <p>☎️:133-9155-3421</p>
+              <hr />
               <!-- Dropdown menu footer -->
               <div class="drop-foot">
                 <a href="#">View All</a>
@@ -87,7 +88,7 @@
 
         <!-- Sync to server link -->
         <li class="dropdown dropdown-big">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger"><i class="fa fa-refresh"></i></span> Sync with Server</a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger"><i class="fa fa-refresh"></i></span> 病例信息 2015-05-11</a>
           <!-- Dropdown -->
           <ul class="dropdown-menu">
             <li>
@@ -157,7 +158,7 @@
           <!-- Comment button with number of latest comments count -->
           <li class="dropdown dropdown-big">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="fa fa-comments"></i> Chats <span   class="label label-info">6</span>
+              <i class="fa fa-comments"></i> 待随访 <span   class="label label-info">6</span>
             </a>
 
             <ul class="dropdown-menu">
@@ -194,7 +195,7 @@
           <!-- Message button with number of latest messages count-->
           <li class="dropdown dropdown-big">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="fa fa-envelope"></i> Inbox <span class="label label-primary">6</span>
+              <i class="fa fa-envelope"></i> 系统消息 <span class="label label-primary">6</span>
             </a>
 
             <ul class="dropdown-menu">
@@ -227,7 +228,7 @@
           <!-- Members button with number of latest members count -->
           <li class="dropdown dropdown-big">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-              <i class="fa fa-user"></i> Users <span   class="label label-success">6</span>
+              <i class="fa fa-user"></i> 今日录入 <span   class="label label-success">6</span>
             </a>
 
             <ul class="dropdown-menu">
@@ -277,7 +278,7 @@
             </div>
             <div class="mcol-right">
               <!-- Number of visitors -->
-              <p><a href="#">7000</a> <em>visits</em></p>
+              <p><a href="#">7000</a> <em>样本</em></p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -289,7 +290,7 @@
             </div>
             <div class="mcol-right">
               <!-- Number of visitors -->
-              <p><a href="#">3000</a> <em>users</em></p>
+              <p><a href="#">3000</a> <em>病例</em></p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -301,7 +302,7 @@
             </div>
             <div class="mcol-right">
               <!-- Number of visitors -->
-              <p><a href="#">5000</a><em>orders</em></p>
+              <p><a href="#">5000</a><em>病案</em></p>
             </div>
             <div class="clearfix"></div>
           </div>
@@ -318,69 +319,27 @@
 <!-- Main content starts -->
 
 <div class="content">
-
   <!-- Sidebar -->
   <div class="sidebar">
     <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
-
     <!--- Sidebar navigation -->
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav">
       <!-- Main menu with font awesome icon -->
-      <!--<li class="open has_sub"><i class="fa fa-home"></i> 患者信息-->
-        <!--&lt;!&ndash; Sub menu markup&ndash;&gt;-->
-        <!--<ul>-->
-          <!--<li><a href="javascript: AjaxReqeust('/patient_infos')">Submenu #1</a></li>-->
-        <!--</ul>-->
-      <!--</li>-->
+      <% params[:menu_lib_id]=2  if params[:menu_lib_id].nil? %>
+      <% menu = MenuLib.find(params[:menu_lib_id].to_i) %>
+      <% MenuLib.where('menu_lib_id=?',1).order(:seq).each do |menu_lib| %>
+        <li class="<%= 'open' if menu.first_level_menu_lib_id==menu_lib.id %> has_sub">
+            <a href="<%= menu_lib.link %>"><i class="fa <%= menu_lib.icon_class %>"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+            <ul>
+              <% menu_lib.children_menu_libs.each do |child_menu_lib| %>
+                <li><a href="<%= child_menu_lib.link %>?menu_lib_id=<%= child_menu_lib.id %>"><%= child_menu_lib.name_zh %></a></li>
+              <% end %>
+            </ul>
 
-      <li class="open has_sub">
-        <a href="#"><i class="fa fa-list-alt"></i> 患者信息  <span class="pull-right"><i class="fa fa-home"></i></span></a>
-        <ul>
-          <li><a href="javascript: AjaxReqeust('/patient_infos')">患者列表</a></li>
+        </li>
+      <% end %>
 
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#"><i class="fa fa-list-alt"></i> 病例信息  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
-        <ul>
-          <li><a href="javascript: AjaxReqeust('/patient_cases')">病例列表</a></li>
-          <li><a href="javascript: AjaxReqeust('/patient_cases/new')">添加病例</a></li>
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#"><i class="fa fa-file-o"></i> 信息查询  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
-        <ul>
-          <li><a href="javascript: AjaxReqeust('/search_info/search_today')">今日录入</a></li>
-
-        </ul>
-      </li>
-      <li class="has_sub">
-        <a href="#"><i class="fa fa-file-o"></i> 确认出库  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
-        <ul>
-          <li><a href="media.html">Media</a></li>
-          <li><a href="statement.html">Statement</a></li>
-          <li><a href="error.html">Error</a></li>
-          <li><a href="error-log.html">Error Log</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="grid.html">Grid</a></li>
-        </ul>
-      </li>
-      <li class="has_sub"><a href="#"><i class="fa fa-table"></i> 存储空间  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
-        <ul>
-          <li><a href="tables.html">存储空间管理</a></li>
-          <li><a href="dynamic-tables.html">释放存储空间</a></li>
-        </ul>
-      </li>
-      <li class="has_sub"><a href="#"><i class="fa fa-table"></i> 系统管理  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
-        <ul>
-          <li><a href="tables.html">存储空间管理</a></li>
-          <li><a href="dynamic-tables.html">释放存储空间</a></li>
-        </ul>
-      </li>
-      <!--<li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>-->
-      <!--<li><a href="forms.html"><i class="fa fa-tasks"></i> Forms</a></li>-->
-      <!--<li><a href="ui.html"><i class="fa fa-magic"></i> User Interface</a></li>-->
     </ul>
   </div>
 
@@ -406,11 +365,9 @@
     <!-- Page heading ends -->
 
     <!-- Matter -->
-    <div class="matter">
-        <!-- 表单内容 -->
-      <div class="container" id="ajax-content">
-        <%= yield %>
-      </div>
+    <div class="matter" id="ajax-content">
+      <!-- 表单内容 -->
+      <%= yield%>
     </div>
     <!-- Matter ends -->
   </div>
