@@ -1,22 +1,32 @@
-<div>
-  <%= label :sample,:sample_seq %><br>
-  <%= text_field :sample,:sample_seq,:disabled=>true %>
+<div class="form-group">
+  <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
+  </div>
+  <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
+  </div>
 </div>
-<div>
-  <%= label :sample,:storage_status %><br>
-  <%= text_field :sample,:storage_status %>
+<div class="form-group">
+  <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
+  </div>
+  <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
+  </div>
 </div>
-<div>
-  <%= label :sample,:freezing_thawing_times %><br>
-  <%= text_field :sample,:freezing_thawing_times %>
-</div>
-<div>
-  <%= label :sample,:initial_sample_volume %><br>
-  <%= text_field :sample,:initial_sample_volume %>
-</div>
-<div>
-  <%= label :sample,:current_sample_volume %><br>
-  <%= text_field :sample,:current_sample_volume %>
+<div class="form-group">
+  <%= label :sample,:current_sample_volume, '剩余量',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'剩余量' %>
+  </div>
+  <%= label :sample,:sample_no, '样本号',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+    <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'sample_no' %>
+  </div>
 </div>
 <% if !@sample.nil? %>
     <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>

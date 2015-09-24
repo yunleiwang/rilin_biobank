@@ -1,4 +1,4 @@
-<%= form_for(@patient_info, :class=>'form-horizontal') do |f| %>
+<%= form_for(@patient_info, :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
   <% if @patient_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient_info.errors.count, "error") %> prohibited this patient_info from being saved:</h2>
@@ -10,120 +10,208 @@
       </ul>
     </div>
   <% end %>
- <fieldset>
-    <legend>patient_info</legend>
-    <div class="field">
-      <%= f.label :patient_id %><br>
-      <%= f.text_field :patient_id %>
-    </div>
-    <div class="field">
-      <%= f.label :patient_name %><br>
-      <%= f.text_field :patient_name %>
-    </div>
-    <div class="field">
-      <%= f.label :gender %><br>
-      <%= f.text_field :gender %>
-    </div>
-    <div class="field">
-      <%= f.label :birthday %><br>
-      <%= f.date_select :birthday %>
-    </div>
-  </fieldset>
-   <fieldset>
-    <legend>self_info</legend>
-    <div class="field">
-      <%= f.label :cell_phone %><br>
-      <%= f.text_field :cell_phone %>
-    </div>
-    <div class="field">
-      <%= f.label :home_phone %><br>
-      <%= f.text_field :home_phone %>
-    </div>
-    <div class="field">
-      <%= f.label :other_phone %><br>
-      <%= f.text_field :other_phone %>
-    </div>
-    <div class="field">
-      <%= f.label :zip_code %><br>
-      <%= f.text_field :zip_code %>
-    </div>
-    <div class="field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address %>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>company_info</legend>
-    <div class="field">
-      <%= f.label :company_name %><br>
-      <%= f.text_field :company_name %>
-    </div>
-    <div class="field">
-      <%= f.label :company_phone %><br>
-      <%= f.text_field :company_phone %>
-    </div>
-    <div class="field">
-      <%= f.label :company_zip %><br>
-      <%= f.text_field :company_zip %>
-    </div>
-    <div class="field">
-      <%= f.label :company_address %><br>
-      <%= f.text_field :company_address %>
-    </div>
-  </fieldset>
-  <fieldset>
-    <legend>family_info</legend>
-    <div class="field">
-      <%= f.label :relationship_first %><br>
-      <%= f.text_field :relationship_first %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_name_first %><br>
-      <%= f.text_field :relative_name_first %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone1_first %><br>
-      <%= f.text_field :relative_phone1_first %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone2_first %><br>
-      <%= f.text_field :relative_phone2_first %>
-    </div>
-    <div class="field">
-      <%= f.label :relationship_second %><br>
-      <%= f.text_field :relationship_second %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_name_second %><br>
-      <%= f.text_field :relative_name_second %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone1_second %><br>
-      <%= f.text_field :relative_phone1_second %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone2_second %><br>
-      <%= f.text_field :relative_phone2_second %>
-    </div>
-    <div class="field">
-      <%= f.label :relationship_third %><br>
-      <%= f.text_field :relationship_third %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_name_third %><br>
-      <%= f.text_field :relative_name_third %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone1_third %><br>
-      <%= f.text_field :relative_phone1_third %>
-    </div>
-    <div class="field">
-      <%= f.label :relative_phone2_third %><br>
-      <%= f.text_field :relative_phone2_third %>
-    </div>
-  </fieldset>
 
-  
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">基本信息</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <!--<br />-->
+
+        <div class="form-group">
+          <%= f.label :patient_id, '患者ID',:class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.text_field :patient_id,:class=>'form-control', :placeholder=>'patient_id' %>
+          </div>
+          <%= f.label :patient_name, :class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.text_field :patient_name,:class=>'form-control', :placeholder=>'patient_name' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :gender, :class=>'col-lg-2 control-label'  %>
+          <div class="col-lg-3">
+            <%= f.text_field :gender,:class=>'form-control', :placeholder=>'gender' %>
+          </div>
+          <%= f.label :birthday, :class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.date_select :birthday,:class=>'form-control', :placeholder=>'birthday' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cell_phone, :class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.text_field :cell_phone,:class=>'form-control', :placeholder=>'cell_phone' %>
+          </div>
+          <%= f.label :home_phone, :class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.text_field :home_phone,:class=>'form-control', :placeholder=>'home_phone' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :other_phone, :class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= f.text_field :other_phone,:class=>'form-control', :placeholder=>'other_phone' %>
+          </div>
+          <%= f.label :zip_code, :class=>'col-lg-2 control-label'  %>
+          <div class="col-lg-3">
+            <%= f.text_field :zip_code,:class=>'form-control', :placeholder=>'zip_code' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, :class=>'col-lg-2 control-label'  %>
+          <div class="col-lg-3">
+            <%= f.text_field :address,:class=>'form-control', :placeholder=>'address' %>
+          </div>
+
+        </div>
+          <!-- 表单结束-->
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+      <div class="widget-foot">
+        <!-- Footer goes here -->
+      </div>
+    </div>
+
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">公司信息</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+          <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <br />
+          <!--表单开始-->
+          <div class="form-group">
+            <%= f.label :company_name, :class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= f.text_field :company_name,:class=>'form-control', :placeholder=>'company_name' %>
+            </div>
+            <%= f.label :company_phone, :class=>'col-lg-2 control-label'  %>
+            <div class="col-lg-3">
+              <%= f.text_field :company_phone,:class=>'form-control', :placeholder=>'company_phone' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :company_zip, :class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= f.text_field :company_zip,:class=>'form-control', :placeholder=>'company_zip' %>
+            </div>
+            <%= f.label :company_address, :class=>'col-lg-2 control-label'  %>
+            <div class="col-lg-3">
+              <%= f.text_field :company_address,:class=>'form-control', :placeholder=>'company_address' %>
+            </div>
+          </div>
+          <!--表单结束-->
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+      <div class="widget-foot">
+        <!-- Footer goes here -->
+      </div>
+    </div>
+
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">亲属信息</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+          <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <br />
+          <!-- table starts.  -->
+          <!-- Table Page -->
+          <div class="page-tables">
+            <!-- Table -->
+            <div class="table-responsive">
+
+              <!--表单开始-->
+              <div class="field">
+                <%= f.label :relationship_first %><br>
+                <%= f.text_field :relationship_first %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_name_first %><br>
+                <%= f.text_field :relative_name_first %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone1_first %><br>
+                <%= f.text_field :relative_phone1_first %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone2_first %><br>
+                <%= f.text_field :relative_phone2_first %>
+              </div>
+              <div class="field">
+                <%= f.label :relationship_second %><br>
+                <%= f.text_field :relationship_second %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_name_second %><br>
+                <%= f.text_field :relative_name_second %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone1_second %><br>
+                <%= f.text_field :relative_phone1_second %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone2_second %><br>
+                <%= f.text_field :relative_phone2_second %>
+              </div>
+              <div class="field">
+                <%= f.label :relationship_third %><br>
+                <%= f.text_field :relationship_third %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_name_third %><br>
+                <%= f.text_field :relative_name_third %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone1_third %><br>
+                <%= f.text_field :relative_phone1_third %>
+              </div>
+              <div class="field">
+                <%= f.label :relative_phone2_third %><br>
+                <%= f.text_field :relative_phone2_third %>
+              </div>
+              <!--表单结束-->
+
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="widget-foot">
+        <!-- Footer goes here -->
+      </div>
+    </div>
   
   
   <div class="actions">

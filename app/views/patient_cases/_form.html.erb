@@ -55,7 +55,9 @@
     }
 
 </script>
-<%= form_for(@patient_case) do |f| %>
+
+
+<%= form_for(@patient_case, :html=>{:class=>'form-horizontal', :role=>'form'}) do |f| %>
   <% if @patient_case.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
@@ -67,54 +69,111 @@
     </div>
   <% end %>
   <%= f.hidden_field :patient_info_id,:value=>1%>
-  <fieldset>
-    <legend>patient_case</legend>
-    <div class="field">
-      <%= f.label :case_number %><br>
-      <%= f.text_field :case_number %>
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">病例信息</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <!--<br />-->
+          <div class="form-group">
+            <%= label :case_number, '病例编号',:class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= f.text_field :case_number,:class=>'form-control', :placeholder=>'病例编号' %>
+            </div>
+
+          </div>
+
+          <!-- 表单结束-->
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+      <div class="widget-foot">
+        <!-- Footer goes here -->
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :patient_info_id %><br>
-      <%= f.text_field :patient_info_id %>
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">样本信息</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <!--<br />-->
+          <div class="form-group">
+            <%= label :sample, :sample_no, '样本号',:class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) ,:class=>'form-control', :placeholder=>'sample_no' %>
+            </div>
+          </div>
+
+          <div id="sample_info">
+            <div class="form-group">
+          <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
+          </div>
+          <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
+          <div class="col-lg-3">
+            <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
+          </div>
+        </div>
+            <div class="form-group">
+            <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
+            </div>
+            <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
+            </div>
+          </div>
+            <div class="form-group">
+                <%= label :sample,:current_sample_volume, '剩余量',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'剩余量' %>
+                </div>
+                <%= label :sample,:sample_storage_id, '位置',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                    <%= text_field :sample,:sample_storage_id,:class=>'form-control', :placeholder=>'位置' %>
+                </div>
+            </div>
+            <% if !@sample.blank? && !@sample.id.nil? %>
+                <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+                <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+            <% end %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :batch_add_num, '批量添加', :class=>'col-lg-2 control-label' %>
+            <div class="col-lg-3">
+              <%= text_field_tag :batch_add_num,nil, :class=>'form-control', :placeholder=>'批量添加'  %>
+            </div>
+          </div>
+          <!-- 表单结束-->
+          <div class="clearfix"></div>
+
+        </div>
+      </div>
+      <div class="widget-foot">
+
+        <!-- Footer goes here -->
+      </div>
     </div>
-  </fieldset>
-  <fieldset>
-    <legend>sample_info</legend>
-     <%= label :sample,:sample_no %>  <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) %>
 
-    <div id="sample_info">
-      <div>
-        <%= label :sample,:sample_seq %><br>
-        <%= text_field :sample,:sample_seq,:disabled=>true %>
-      </div>
-      <div>
-        <%= label :sample,:storage_status %><br>
-        <%= text_field :sample,:storage_status %>
-      </div>
-      <div>
-        <%= label :sample,:freezing_thawing_times %><br>
-        <%= text_field :sample,:freezing_thawing_times %>
-      </div>
-      <div>
-        <%= label :sample,:initial_sample_volume %><br>
-        <%= text_field :sample,:initial_sample_volume %>
-      </div>
-      <div>
-        <%= label :sample,:current_sample_volume %><br>
-        <%= text_field :sample,:current_sample_volume %>
-      </div>
-
-      <% if !@sample.blank? && !@sample.id.nil? %>
-          <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
-          <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
-    <% end %>
-     </div>
-
-  </fieldset>
-  <div>
-      <%= label_tag :batch_add_num %>
-      <%= text_field_tag :batch_add_num %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

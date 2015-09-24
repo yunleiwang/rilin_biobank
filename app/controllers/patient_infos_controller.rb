@@ -1,3 +1,4 @@
+require 'rqrcode'
 class PatientInfosController < ApplicationController
   before_action :set_patient_info, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +6,24 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos.json
   def index
     @patient_infos = PatientInfo.all
+
+    # qrcode = RQRCode::QRCode.new("id:2345,患者姓名:张山")
+    # # With default options specified explicitly
+    # png = qrcode.as_png(
+    #     resize_gte_to: false,
+    #     resize_exactly_to: false,
+    #     fill: 'white',
+    #     color: 'black',
+    #     size: 120,
+    #     border_modules: 4,
+    #     module_px_size: 6,
+    #     file: '/Users/wangyunlei/b.png' # path to write
+    # )
+    # 3.times{
+    #   MenuLib.create(
+    #
+    #   )
+    # }
 
   end
 
@@ -16,10 +35,12 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos/new
   def new
     @patient_info = PatientInfo.new
+    render :layout => 'templet_form'
   end
 
   # GET /patient_infos/1/edit
   def edit
+    render :layout => 'templet_form'
   end
 
   # POST /patient_infos

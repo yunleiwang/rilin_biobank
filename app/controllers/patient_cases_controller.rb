@@ -16,6 +16,7 @@ class PatientCasesController < ApplicationController
     @patient_case = PatientCase.new
     @samples = []
     @sample = Sample.new
+    render :layout => 'templet_form'
   end
 
   # GET /patient_cases/1/edit
@@ -26,6 +27,7 @@ class PatientCasesController < ApplicationController
     else
       @sample = @samples[0]
     end
+    render :layout => 'templet_form'
   end
 
   # POST /patient_cases
@@ -61,7 +63,6 @@ class PatientCasesController < ApplicationController
       sample.update(params.require(:sample))
       redirect_to action: 'edit', id: @patient_case.id, sample_id: sample.id
     end
-
 
   end
 
