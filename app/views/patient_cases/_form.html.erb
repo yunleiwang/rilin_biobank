@@ -119,29 +119,36 @@
             <div class="col-lg-3">
               <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) ,:class=>'form-control', :placeholder=>'sample_no' %>
             </div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-3">
+              <input type="button" value="打印样本标签" onclick="javascript:alert(1)">
+            </div>
+
+            </div>
           </div>
 
           <div id="sample_info">
             <div class="form-group">
-          <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
-          </div>
-          <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
-          </div>
-        </div>
+              <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
+              <div class="col-lg-3">
+                <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
+              </div>
+
+              <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
+              <div class="col-lg-3">
+                <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
+              </div>
+            </div>
             <div class="form-group">
-            <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
+              <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
+              <div class="col-lg-3">
+                <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
+              </div>
+              <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
+              <div class="col-lg-3">
+                <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
+              </div>
             </div>
-            <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
-            </div>
-          </div>
             <div class="form-group">
                 <%= label :sample,:current_sample_volume, '剩余量',:class=>'col-lg-2 control-label' %>
                 <div class="col-lg-3">
@@ -152,10 +159,15 @@
                     <%= text_field :sample,:sample_storage_id,:class=>'form-control', :placeholder=>'位置' %>
                 </div>
             </div>
-            <% if !@sample.blank? && !@sample.id.nil? %>
-                <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
-                <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
-            <% end %>
+            <div class="form-group">
+              <div class="col-lg-3">
+                  <% if !@sample.blank? && !@sample.id.nil? %>
+                      <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+                      <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+                  <% end %>
+              </div>
+            </div>
+
           </div>
           <div class="form-group">
             <%= label_tag :batch_add_num, '批量添加', :class=>'col-lg-2 control-label' %>

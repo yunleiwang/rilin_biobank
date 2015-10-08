@@ -69,6 +69,16 @@ class SamplesController < ApplicationController
     end
   end
 
+  #样本预出库
+  def sample_pre_out
+
+  end
+
+  #样本最终确认出库
+  def sample_out
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
