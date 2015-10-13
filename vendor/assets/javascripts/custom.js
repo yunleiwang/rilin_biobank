@@ -236,7 +236,7 @@ setTimeout(function(){
 			orientation: "vertical"
 		});
 	});
-});*/
+});
 
 
 
@@ -395,10 +395,13 @@ $(document).ready(function() {
         }
 
     } );
-    var add_url = $('#add_url').val();
-    $('#data－table-1_filter').prepend(
-        '<a href='+add_url+'><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
-    )
+    if($('#add_url').val()!=undefined){
+        var add_url = $('#add_url').val();
+        $('#data－table-1_filter').prepend(
+            '<a href='+add_url+'><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
+        )
+    }
+
 
 } );
 
