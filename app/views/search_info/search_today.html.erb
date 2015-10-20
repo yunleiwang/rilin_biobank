@@ -5,42 +5,47 @@
 </ul>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade in active" id="home">
-    <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-      <thead>
-      <tr>
-        <th>
-          <span class="uni">
-            <input type='checkbox' value='check1' />
-          </span>
-        </th>
-        <th>样本号</th>
-        <th>样本ID</th>
-        <th>存储状态</th>
-        <th>操作</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @samples.each do |sample| %>
+    <!--批量出库的action路径-->
+    <!--<input type="hidden" id="button_group" value="/samples／samples_pre_out">-->
+    <form id="samples_from" method="post" action="/samples/1/samples_pre_out">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <table cellpadding="0" cellspacing="0" border="0" id="data－table" width="100%">
+          <thead>
           <tr>
-            <td>
-              <span class="uni">
-                <input type='checkbox' value='check1' />
+            <th>
+              <span>
+                <input type='checkbox' name='all_sample_ids' id="all_check" onclick="checkbox_All(this)"/>
               </span>
-            </td>
-
-            <td><%= sample.sample_no %></td>
-            <td><%= sample.sample_seq %></td>
-            <td><span class="label label-success">Active</span></td>
-            <td>
-              <%= link_to 'Show', sample %>
-              <%= link_to 'Edit', edit_sample_path(sample) %>
-              <%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
+            </th>
+            <th>样本号</th>
+            <th>样本ID</th>
+            <th>存储状态</th>
+            <th>操作</th>
           </tr>
-      <% end %>
-      </tbody>
-      <tfoot>
-    </table>
+          </thead>
+          <tbody>
+          <% @samples.each do |sample| %>
+              <tr>
+                <td>
+                  <span class="uni">
+                    <input type='checkbox' name="sample_ids[]" value='<%= sample.id %>' status="<%= sample.storage_status %>" />
+                  </span>
+                </td>
+
+                <td><%= sample.sample_no %></td>
+                <td><%= sample.sample_seq %></td>
+                <td><span class="label label-success"><%= sample.storage_status %></span></td>
+                <td>
+                  <%= link_to '查看', sample %>
+                  <%= link_to '出库', edit_sample_path(sample) %>
+                  <%= link_to '删除', sample, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+          <tfoot>
+      </table>
+    </form>
   </div>
   <div class="tab-pane fade" id="profile">
     <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
@@ -113,4 +118,75 @@
     </table>
   </div>
 </div>
+<script>
+    $('#data－table').dataTable( {
+        "oLanguage": {
+            "sLengthMenu": "每页显示 _MENU_ 条记录",
+            "sZeroRecords": "抱歉， 没有找到",
+            "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+            "sInfoEmpty": "没有数据",
+            "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+            "sSearch": "搜索",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "前一页",
+                "sNext": "后一页",
+                "sLast": "尾页"
+            },
+            "sZeroRecords": "没有检索到数据",
+            "sProcessing": "<img src='./loading.gif' />"
+        }
+
+    } );
+
+    //datatable中添加按钮
+    if($('#samples_form')!=undefined){
+        //var batch_out_url = $('#batch_out_url').val();
+        $('#data－table_filter').prepend(
+                '<input type="button" value="批量预出库" class="btn btn-sm btn-default" onclick="submit_form()" />&nbsp;&nbsp;'
+        )
+    }
+
+    //checkbox全部选中或全部取消
+    function checkbox_All(obj_checkbox) {
+        if(obj_checkbox.checked){
+            $("input:checkbox").prop("checked",true)
+        }else{
+            $("input:checkbox").prop("checked",false)
+        }
+
+    }
+
+    //提交预出库的表单
+    function submit_form(){
+        //选中的checkbox中在库的
+        var effective_checkboxes = $("input:checkbox[name='sample_ids[]']:checked[status='在库']");
+        //选中的checkbox中不在库的
+        var ineffective_checkboxes = $("input:checkbox[name='sample_ids[]']:checked[status!='在库']");
+        //所有选中的checkbox
+        var checked_boxes = $("input:checkbox[name='sample_ids[]']:checked");
+
+        var effective_checkboxes_size = effective_checkboxes.length;
+        var checked_boxes_size = checked_boxes.length;
+
+        //flag为是否可提交的标示，如为true可以提交，否则不可以
+        var flag = true;
+        if(effective_checkboxes_size<=0){
+            flag = false;
+            alert("请选择至少一个在库样本！")
+        }else if(checked_boxes_size>effective_checkboxes_size){
+            var invaild_boxes_size = checked_boxes_size-effective_checkboxes_size
+            if(confirm("选择的样本中有"+invaild_boxes_size+"个样本为非在库状态,已自动忽略,是否继续?")){
+                flag = true
+                for(var i=0;i<ineffective_checkboxes.length;i++){
+                    ineffective_checkboxes[i].checked=false;
+                }
+
+            }
+        }
+        if(flag){
+            $("#samples_from").submit();
+        }
+    }
+</script>
 

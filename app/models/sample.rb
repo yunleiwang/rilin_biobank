@@ -2,6 +2,11 @@ class Sample < ActiveRecord::Base
 
 	belongs_to :patient_case
 
+	#样本状态
+	STATUS_IN = "在库"
+	STATUS_OUT = "出库"
+	STATUS_PRE_OUT = "预出库"
+
 	# 生成样本号
 	# 生成规则：病例号-样本顺序号
 	# @params num 该样本在当前病例中的顺序号

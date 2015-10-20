@@ -70,12 +70,17 @@ class SamplesController < ApplicationController
   end
 
   #样本预出库
-  def sample_pre_out
-
+  def samples_pre_out
+    sample_ids = params[:sample_ids].map{|sample_id|sample_id.to_i}
+    samples = Sample.where("id in (?)",sample_ids)
+    samples.each do |sample|
+      sample.storage_status= Sample::STATUS_PRE_OUT
+      sample.save
+    end
   end
 
   #样本最终确认出库
-  def sample_out
+  def samples_out
 
   end
 
