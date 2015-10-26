@@ -1,0 +1,33 @@
+<%= form_for(@sample_preout_log) do |f| %>
+  <% if @sample_preout_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sample_preout_log.errors.count, "error") %> prohibited this sample_preout_log from being saved:</h2>
+
+      <ul>
+      <% @sample_preout_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :operator_name %><br>
+    <%= f.text_field :operator_name %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :sample_ids %><br>
+    <%= f.text_field :sample_ids %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

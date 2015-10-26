@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sample_preout_logs
   resources :menu_libs
   get 'search_info/search_today'
 

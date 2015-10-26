@@ -19,11 +19,11 @@ class PatientInfosController < ApplicationController
     #     module_px_size: 6,
     #     file: '/Users/wangyunlei/b.png' # path to write
     # )
-    # 3.times{
-    #   MenuLib.create(
+    #  3.times{
+    #    MenuLib.create(
     #
-    #   )
-    # }
+    #    )
+    #  }
 
   end
 

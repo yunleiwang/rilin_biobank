@@ -9,8 +9,13 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- JS -->
+  <%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
+  <%= javascript_include_tag 'jquery_ujs.js' %>
+  <%= javascript_include_tag 'bootstrap.min.js' %><!-- Bootstrap -->
+  <%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
   <%= csrf_meta_tags %>
   <!-- Stylesheets -->
   <%= stylesheet_link_tag 'bootstrap.min.css' %>
@@ -22,6 +27,7 @@
   <%= stylesheet_link_tag 'jquery.dataTables.css' %>
   <!-- Main stylesheet -->
   <%= stylesheet_link_tag 'style.css' %>
+
 
   <%= javascript_include_tag 'respond.min.js' %>
   <!--[if lt IE 9]>
@@ -140,12 +146,10 @@
 <!-- Scroll to top -->
 <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
 
-<!-- JS -->
-<%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
-<%= javascript_include_tag 'bootstrap.min.js' %><!-- Bootstrap -->
-<%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
+
 <!-- jQuery Notification - Noty -->
 <%= javascript_include_tag 'custom.js' %><!-- Custom codes -->
 <%= javascript_include_tag 'rilin.js' %>
+
 </body>
 </html>

@@ -77,6 +77,7 @@ class SamplesController < ApplicationController
       sample.storage_status= Sample::STATUS_PRE_OUT
       sample.save
     end
+    redirect_to :controller => 'search_info', :action => 'search_today'
   end
 
   #样本最终确认出库

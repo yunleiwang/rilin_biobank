@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Operator name:</strong>
+  <%= @sample_preout_log.operator_name %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @sample_preout_log.user_name %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @sample_preout_log.status %>
+</p>
+
+<p>
+  <strong>Sample ids:</strong>
+  <%= @sample_preout_log.sample_ids %>
+</p>
+
+<%= link_to 'Edit', edit_sample_preout_log_path(@sample_preout_log) %> |
+<%= link_to 'Back', sample_preout_logs_path %>
