@@ -71,12 +71,21 @@ class SamplesController < ApplicationController
 
   #样本预出库
   def samples_pre_out
-    sample_ids = params[:sample_ids].map{|sample_id|sample_id.to_i}
+    params.permit!
+    samples_preout_log = SamplePreoutLog.new(params[:sample_preout_log])
+    str_sample_ids = params[:sample_preout_log][:sample_ids]
+    sample_ids = str_sample_ids.split(',').map{|sample_id|sample_id.to_i}
     samples = Sample.where("id in (?)",sample_ids)
-    samples.each do |sample|
-      sample.storage_status= Sample::STATUS_PRE_OUT
-      sample.save
+    #修改样本状态为预出库
+    SamplePreoutLog.transaction do
+      samples.each do |sample|
+        sample.storage_status= Sample::STATUS_PRE_OUT
+        sample.save
+      end
+      samples_preout_log.sys_user_id = session[:sys_user_id]
+      samples_preout_log.save
     end
+
     redirect_to :controller => 'search_info', :action => 'search_today'
   end
 

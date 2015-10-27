@@ -1,4 +1,4 @@
-<%= form_for(@container) do |f| %>
+<%= form_for(@container, :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
   <% if @container.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@container.errors.count, "error") %> prohibited this container from being saved:</h2>
@@ -9,47 +9,66 @@
       </ul>
     </div>
   <% end %>
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left">选择容器类型</div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
 
-
-  <div class="field">
-    <%= f.label :container_name %><br>
-    <%= f.text_field :container_name %>
-  </div>
-
-    <% if @container_type.container_catalog == ContainerType::LISHIBINGXIANG %>
-      <div class="field">
-        <%= f.label :container_type_id %><br>
-        <%= f.select :container_type_id, ContainerType.all.collect{|container_type|[container_type.container_catalog,container_type.id]}, :prompt=>'--请选择容器类型--' %>
-      </div>
-      <div class="field">
-        <%= f.label :code_style %><br>
-        <%= f.number_field :code_style %>
-      </div>
-
-      <div class="field">
-        <%= f.label :container_rows, '层数' %><br>
-        <%= f.number_field :container_rows %>
-      </div>
-      <div class="field">
-        <%= f.label :container_columns, '每层数量' %><br>
-        <%= f.number_field :container_columns %>
-      </div>
-    <% elsif @container_type.container_catalog == ContainerType::WOSHIBINGXIANG %>
-        <div class="field">
-          <%= f.label :container_rows, '行数' %><br>
-          <%= f.number_field :container_rows %>
         </div>
-        <div class="field">
-          <%= f.label :container_columns, '每行数量' %><br>
-          <%= f.number_field :container_columns %>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+
+          <div class="form-group">
+            <%= f.label :container_type_id, '容器类型', :class=>'col-lg-2 control-label'  %>
+            <div class="col-lg-3">
+              <%= f.select :container_type_id, ContainerType.all.collect{|container_type|[container_type.container_catalog,container_type.id]}, {:prompt=>'--选择容器类型--'}, :class=>'form-control' %>
+            </div>
+          </div>
         </div>
-    <% else @container_type.container_catalog == ContainerType::WOSHIBINGXIANG %>
-        <div class="field">
-          <%= f.label :frame_num, '冻存架数量' %><br>
-          <%= f.number_field :frame_num %>
-        </div>
-    <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      </div>
+    </div>
+
+    <div id="freeze_vertical" style="display: none">
+      <%= render :partial => 'freeze_vertical' %>
+    </div>
+    <div id="freeze_horizontal" style="display: none">
+      <%= render 'freeze_horizontal' %>
+    </div>
+    <div id="liquid_nitrogen_tank" style="display: none">
+      <%= render 'liquid_nitrogen_tank' %>
+    </div>
+
 <% end %>
+
+<script>
+    $("#container_container_type_id").change(function(){
+        var text = $("#container_container_type_id :selected").text()
+        if(text=='立式冰箱'){
+            $("#freeze_horizontal").hide();
+            $("#liquid_nitrogen_tank").hide();
+            $("#freeze_vertical").show();
+        }else if(text=='卧式冰箱'){
+            $("#liquid_nitrogen_tank").hide();
+            $("#freeze_vertical").hide();
+            $("#freeze_horizontal").show();
+        }else if(text=='液氮罐'){
+            $("#freeze_vertical").hide();
+            $("#freeze_horizontal").hide();
+            $("#liquid_nitrogen_tank").show();
+        }
+        else{
+            $("#freeze_vertical").hide();
+            $("#freeze_horizontal").hide();
+            $("#liquid_nitrogen_tank").hide();
+        }
+    })
+</script>
+
+
+
+

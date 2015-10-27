@@ -1,34 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Container Types</h1>
-
-<table>
+<input type="hidden" id="add_url" value="/container_types/new">
+<%= link_to 'new', new_container_type_url %>
+<table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
   <thead>
-    <tr>
-      <th>Container catalog</th>
-      <th>Container icon</th>
-      <th>Alia name</th>
-      <th>Add link url</th>
-      <th colspan="4"></th>
-    </tr>
+  <tr>
+    <th>容器种类</th>
+    <th>容器图片</th>
+    <th>种类别名</th>
+    <th>操作</th>
+  </tr>
   </thead>
-
   <tbody>
-    <% @container_types.each do |container_type| %>
+  <% @container_types.each do |container_type| %>
       <tr>
         <td><%= container_type.container_catalog %></td>
         <td><%= image_tag container_type.container_icon, :height => 200, :width => 200 %></td>
         <td><%= container_type.alia_name %></td>
         <td><%= container_type.add_link_url %></td>
-        <td><%= link_to 'Show', container_type %></td>
-        <td><%= link_to 'Edit', edit_container_type_path(container_type) %></td>
-        <td><%= link_to 'Destroy', container_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to '添加该种类容器', :controller => 'containers', :action => 'new', :container_type_id=>container_type.id  %></td>
+        <td>
+          <%= link_to 'Show', container_type %>
+          <%= link_to 'Edit', edit_container_type_path(container_type) %>
+          <%= link_to 'Destroy', container_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to '添加该种类容器', :controller => 'containers', :action => 'new', :container_type_id=>container_type.id  %>
+        </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
+  <tfoot>
+
+  </tfoot>
 </table>
+<script>
+    $(document).ready(function() {
+        $('#data－table-1_filter').prepend(
+                '<a href="/container_types/new"><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
+        )
 
-<br>
-
-<%= link_to 'New Container type', new_container_type_path %>
+    } );
+</script>

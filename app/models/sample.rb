@@ -1,7 +1,7 @@
 class Sample < ActiveRecord::Base
 
 	belongs_to :patient_case
-
+	belongs_to :sample_storage
 	#样本状态
 	STATUS_IN = "在库"
 	STATUS_OUT = "出库"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916035515) do
+ActiveRecord::Schema.define(version: 20151027090651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150916035515) do
     t.integer  "container_columns"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.string   "container_seq"
   end
 
   create_table "frame_storages", force: :cascade do |t|
@@ -127,6 +128,19 @@ ActiveRecord::Schema.define(version: 20150916035515) do
     t.string   "relative_phone2_third"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "sample_preout_logs", force: :cascade do |t|
+    t.string   "operator_name"
+    t.string   "user_name"
+    t.string   "status"
+    t.string   "sample_ids"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "num"
+    t.integer  "proportpion"
+    t.integer  "sys_user_id"
+    t.text     "use_for"
   end
 
   create_table "sample_storage_logs", force: :cascade do |t|

@@ -10,6 +10,9 @@ class SamplePreoutLogsController < ApplicationController
   # GET /sample_preout_logs/1
   # GET /sample_preout_logs/1.json
   def show
+    sample_ids = @sample_preout_log.sample_ids.split(',')
+    @samples = Sample.where("id in (?)",sample_ids)
+    render :layout => false
   end
 
   # GET /sample_preout_logs/new

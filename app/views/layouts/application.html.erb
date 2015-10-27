@@ -27,8 +27,6 @@
   <%= stylesheet_link_tag 'jquery.dataTables.css' %>
   <!-- Main stylesheet -->
   <%= stylesheet_link_tag 'style.css' %>
-
-
   <%= javascript_include_tag 'respond.min.js' %>
   <!--[if lt IE 9]>
     <script src="/assets/javascript/html5shiv.js"></script>
@@ -53,7 +51,7 @@
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav">
       <!-- Main menu with font awesome icon -->
-      <% params[:menu_lib_id]=2  if params[:menu_lib_id].nil? %>
+      <% params[:menu_lib_id]=8  if params[:menu_lib_id].nil? %>
       <% menu = MenuLib.find(params[:menu_lib_id].to_i) %>
       <% MenuLib.where('menu_lib_id=?',1).order(:seq).each do |menu_lib| %>
         <li class="<%= 'open' if menu.first_level_menu_lib.id==menu_lib.id %> has_sub">

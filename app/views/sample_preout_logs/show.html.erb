@@ -1,24 +1,76 @@
-<p id="notice"><%= notice %></p>
+<%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
+<%= javascript_include_tag 'jquery_ujs.js' %>
+<%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
+<!-- Data tables -->
+<%= stylesheet_link_tag 'jquery.dataTables.css' %>
+<%= stylesheet_link_tag 'style.css' %>
+<table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
+  <thead>
+  <tr>
+    <th>样本ID</th>
+    <th>样本号</th>
+    <th>操作人</th>
+    <th>存储位置</th>
+    <th>样本状态</th>
+    <th>操作</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @samples.each do |sample| %>
+      <tr>
+        <td><%= sample.sample_seq %></td>
+        <td><%= sample.sample_no %></td>
+        <td><%= @sample_preout_log.user_name %></td>
+        <td><%#= sample.sample_storage.position_index %></td>
+        <td><span class="label label-success"><%= sample.storage_status %></span></td>
+        <td>
+          <%= link_to '确认出库', sample %>
+          <%#= link_to 'Edit', edit_patient_info_path(patient_info) %>
+          <%#= link_to 'Destroy', patient_info, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tfoot>
+  <!--  <tr>
+      <th>患者ID</th>
+      <th>姓名</th>
+      <th>性别</th>
+      <th>出生日期</th>
+      <th>操作</th>
+    </tr>-->
+  </tfoot>
+</table>
 
-<p>
-  <strong>Operator name:</strong>
-  <%= @sample_preout_log.operator_name %>
-</p>
+<script>
 
-<p>
-  <strong>User name:</strong>
-  <%= @sample_preout_log.user_name %>
-</p>
+    $(document).ready(function() {
+        $('#data－table-1').dataTable( {
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sSearch": "搜索",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sZeroRecords": "没有检索到数据",
+                "sProcessing": "<img src='./loading.gif' />"
+            }
 
-<p>
-  <strong>Status:</strong>
-  <%= @sample_preout_log.status %>
-</p>
+        } );
+        if($('#add_url').val()!=undefined){
+            var add_url = $('#add_url').val();
+            $('#data－table-1_filter').prepend(
+                    '<a href='+add_url+'><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
+            )
+        }
 
-<p>
-  <strong>Sample ids:</strong>
-  <%= @sample_preout_log.sample_ids %>
-</p>
 
-<%= link_to 'Edit', edit_sample_preout_log_path(@sample_preout_log) %> |
-<%= link_to 'Back', sample_preout_logs_path %>
+    } );
+</script>

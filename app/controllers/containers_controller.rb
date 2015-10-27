@@ -14,8 +14,9 @@ class ContainersController < ApplicationController
 
   # GET /containers/new
   def new
-    @container_type = ContainerType.find(params[:container_type_id].to_i)
+    #@container_type = ContainerType.find(params[:container_type_id].to_i)
     @container = Container.new
+    render layout: 'templet_form'
   end
 
   # GET /containers/1/edit
