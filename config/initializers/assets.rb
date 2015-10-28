@@ -14,7 +14,7 @@ font-awesome.min.css jquery-ui.css fullcalendar.css prettyPhoto.css rateit.css b
   jquery.cleditor.css jquery.dataTables.css jquery.onoff.css widgets.css jquery-ui.min.js moment.min.js fullcalendar.min.js jquery.rateit.min.js jquery.prettyPhoto.js
 jquery.dataTables.min.js excanvas.min.js jquery.flot.js jquery.flot.resize.js jquery.flot.pie.js jquery.flot.stack.js jquery.noty.js themes/default.js themes/bottom.js.js
 themes/topRight.js themes/top.js sparklines.js jquery.cleditor.min.js bootstrap-datetimepicker.min.js jquery.onoff.min.js filter.js custom.js charts.js rilin.js
-jquery.fancybox.js jquery.fancybox.css jquery_ujs.js
+jquery.fancybox.js jquery.fancybox.css jquery_ujs.js rilin.css r_save_space.js
 
 )
 

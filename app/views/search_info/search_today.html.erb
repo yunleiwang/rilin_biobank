@@ -1,5 +1,4 @@
-<%= javascript_include_tag 'jquery.fancybox.js' %>
-<%= stylesheet_link_tag 'jquery.fancybox.css' %>
+
 
 <ul id="myTab" class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">样本列表</a></li>
@@ -158,9 +157,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('.fancybox').fancybox();
-    });
+
     $('#data－table').dataTable( {
         "oLanguage": {
             "sLengthMenu": "每页显示 _MENU_ 条记录",

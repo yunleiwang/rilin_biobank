@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <!-- Title and other stuffs -->
+  <title>瑞林萨尔科技有限公司－生物样本库</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <!-- JS -->
+  <%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
+  <%= javascript_include_tag 'jquery_ujs.js' %>
+  <%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
+  <!-- Data tables -->
+  <%= stylesheet_link_tag 'jquery.dataTables.css' %>
+  <%= stylesheet_link_tag 'style.css' %>
+  <%= csrf_meta_tags %>
+  <!-- Stylesheets -->
+
+  <%= javascript_include_tag 'respond.min.js' %>
+  <!--[if lt IE 9]>
+    <script src="/assets/javascript/html5shiv.js"></script>
+  <![endif]-->
+  <!-- Favicon -->
+  <!--<link rel="shortcut icon" href="img/favicon/favicon.png">-->
+</head>
+
+<body>
+    <%= yield %>
+</body>
+</html>

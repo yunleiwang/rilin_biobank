@@ -4,6 +4,10 @@ class BoxerStoragesController < ApplicationController
   # GET /boxer_storages
   # GET /boxer_storages.json
   def index
+    @frame = Frame.find(params[:frame_id])
+    frame_storage = @frame.frame_storages.first
+    @container = frame_storage.container
+    @frame_storages = @container.frame_storages
     @boxer_storages = BoxerStorage.all.where(:frame_id => params[:frame_id].to_i)
   end
 

@@ -15,6 +15,7 @@ class BoxersController < ApplicationController
   # GET /boxers/new
   def new
     @boxer = Boxer.new
+    render :layout => 'blank_templet'
   end
 
   # GET /boxers/1/edit

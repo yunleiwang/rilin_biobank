@@ -27,17 +27,20 @@ class ContainersController < ApplicationController
   # POST /containers.json
   def create
     @container = Container.new(container_params)
-    if @container.save
-      if @container.container_type.container_catalog == ContainerType::YEDANGUAN
-        @container.batch_create_liquid_frame_storage
+    respond_to do |format|
+      if @container.save
+        if @container.container_type.container_catalog == ContainerType::YEDANGUAN
+          @container.batch_create_liquid_frame_storage
+        else
+          @container.batch_create_frame_storage
+        end
+        format.html { redirect_to @container, notice: 'Container was successfully created.'}
       else
-        @container.batch_create_frame_storage
+        format.html { render :new }
+        format.json { render json: @container.errors, status: :unprocessable_entity }
       end
-      redirect_to @container, notice: 'Container was successfully created.'
-    else
-      render :new
-      render json: @container.errors, status: :unprocessable_entity
     end
+
   end
 
   # PATCH/PUT /containers/1

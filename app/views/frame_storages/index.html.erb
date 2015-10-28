@@ -1,35 +1,258 @@
-<p id="notice"><%= notice %></p>
-<h1>Listing Frame Storages</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Position index</th>
-      <th>Frame</th>
-      <th>Container</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+<%#= link_to '添加架子', :controller => 'frames', :action => 'new', :frame_storage_id => frame_storage.id %>
+<%#= link_to '架子存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_id => frame_storage.frame_id %>
+<%= javascript_include_tag 'jquery.fancybox.js' %>
+<%= stylesheet_link_tag 'jquery.fancybox.css' %>
+<div class="row">
+  <div class="col-md-12">
+    <!--添加项目按钮-->
+    <input class="r_add_btn" type="button" value="添加项目 +">
+    <input class="r_modify_btn" type="button" value="修改项目 ✎">
+  </div>
+</div>
+<!-- 冰箱、架子、盒子 -->
 
-  <tbody>
-    <% @frame_storages.each do |frame_storage| %>
-      <tr>
-        <td><%= frame_storage.position_index %></td>
-        <td><%= frame_storage.frame_id %></td>
-        <td><%= frame_storage.container_id %></td>
-        <td><%= link_to 'Show', frame_storage %></td>
-        <td><%= link_to 'Edit', edit_frame_storage_path(frame_storage) %></td>
-        <td><%= link_to 'Destroy', frame_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to '添加架子', :controller => 'frames', :action => 'new', :frame_storage_id => frame_storage.id %></td>
-        <td>
-          <% if frame_storage.frame_id  %>
-            <%= link_to '架子存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_id => frame_storage.frame_id %>
+<div class="r_upright_freezer_box_big">
+  <div class="freezer_box_big">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@container.container_rows).each do |i| %>
+              <div class="layer">
+                <% (0...@container.container_columns).each do |j| %>
+                    <% frame_storage = @frame_storages[i*j + j] %>
+                    <% if frame_storage.frame %>
+                        <a class="fancybox<%= get_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                    <% else %>
+
+                        <a class="fancybox_frame<%= get_css_class(frame_storage,j) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
+                    <% end %>
+
+                <% end %>
+              </div>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_freezer_rolling_box">
+    <ul>
+      <li>设备ID</li>
+      <li>设备名称</li>
+      <li>使用率</li>
+    </ul>
+    <marquee direction="up" scrollamount="3" loop="-1">
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+    </marquee >
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_shelf_box_small">
+  <div class="shelf_box_small">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a class="full_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_box_box_small">
+  <div class="box_box_small">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a class="full_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('.fancybox').fancybox();
+    });
 
-<br>
-
-<%= link_to 'New Frame storage', new_frame_storage_path %>
+</script>

@@ -1,0 +1,1703 @@
+/*存储空间*/
+/*共用部分样式*/
+/*左侧导航*/
+li{
+    list-style:none
+}
+.sidebar #nav li .r_save_space{
+    display:inline-block;
+    margin-right: 5px ;
+    background:#eee ;
+    color:#888;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+}
+
+.sidebar #nav li .r_equipment_icon{
+    display:inline-block;
+    margin-right: 5px ;
+    background:#eee ;
+    color:#888;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+}
+.sidebar #nav li .r_shelf_box .r_shelf_name a{
+    background:none;
+    background:url(r_savespace/shelf_slidedown.png) no-repeat right center;
+    background-position:80% center;
+    z-index:999;
+    font-size:14px;
+    color:#333333;
+}
+.sidebar #nav li .r_shelf_box .r_shelf_name_on a{
+    background:none;
+    background:url(r_savespace/shelf_slidedown.png) no-repeat right center;
+    background-position:80% center;
+    color:#00a0e9;
+}
+.sidebar #nav li .r_shelf_box .r_shelf_name a:hover{
+    background:none;
+    background:url(r_savespace/shelf_slidedown_hover.png) no-repeat right center;
+    background-position:80% center;
+}
+
+/*左侧盒子导航*/
+.r_box_nav_box{
+    width:100%;
+    overflow:hidden;
+}
+.r_box_nav_box div{
+    width:100%;
+    height:36px;
+}
+.r_box_nav_box div a{
+    display:block;
+    width:100%;
+    height:36px;
+    line-height:36px;
+    text-indent:42px;
+    font-size:12px;
+    color:#808080;
+    border-bottom:1px solid #e5e5e5;
+}
+.r_box_nav_box div a:hover{
+    color:#00a0e9;
+}
+.r_box_nav_box div .r_box_nav_box_on{
+    color:#00a0e9;
+}
+
+/*右侧添加项目下拉框*/
+.container .r_add_equipment{
+    width:200px;
+    height:40px;
+    font-size:14px;
+    color:#333333;
+    background-color:#f3f3f3;
+    border:1px solid #cccccc;
+}
+.container .r_add_equipment option{
+    width:100%;
+    height:50px;
+    line-height:100px;
+    font-size:14px;
+    color:#333333;
+    background-color:#ffffff;
+}
+.container .r_add_equipment option:hover{
+    width:100%;
+    height:50px;
+    line-height:100px;
+    font-size:14px;
+    color:#0C6;
+    background-color:#ffffff;
+}
+
+/*项目下拉框形式2*/
+.logged{
+    display:none;
+    width:140px;
+    overflow:hidden;
+}
+.logged span{
+    display:block;
+    height:36px;
+    width:120px;
+    padding-right:10px;
+    padding-left:10px;
+    line-height:36px;
+    color:#333333;
+    font-size:16px;
+    font-weight:normal;
+    background:#06F;
+    position:relative;
+    z-index:2;}
+.logged ul{
+    display:none;
+    width:140px;
+    background:#066;
+}
+.logged ul li{
+    line-height:26px;
+    color:#ffffff;
+    font-size:14px;
+    font-family:"微软雅黑";
+    font-weight:normal;
+}
+.logged ul li:hover{
+    background:#30afe8;
+}
+
+/*右侧冰箱配置*/
+.r_freezer_menuconfig{
+    width:50%;
+    overflow:hidden;
+    background-color:#ffffff;
+    border:1px solid #cccccc;
+}
+.r_freezer_menuconfig .tittle{
+    width:100%;
+    height:42px;
+    line-height:42px;
+    font-size:12px;
+    font-weight:bold;
+    color:#808080;
+    text-shadow:0 1px #ffffff;
+    text-indent:10px;
+    overflow:hidden;
+    background-color:#f3f3f3;
+}
+.r_freezer_menuconfig .content{
+    width:100%;
+    overflow:hidden;
+    padding:0;
+    margin:10px 0 10px 0;
+}
+.r_freezer_menuconfig .content li{
+    width:80%;
+    height:42px;
+    margin-left:10px;
+}
+.r_freezer_menuconfig .content li span{
+    display:block;
+    width:20%;
+    line-height:30px;
+    font-size:12px;
+    color:#333333;
+    float:left;
+}
+.r_freezer_menuconfig .content li input{
+    width:80%;
+    height:30px;
+    color:#333333;
+    font-size:14px;
+    float:left;
+}
+.r_freezer_menuconfig .content li .r_save_equipment{
+    height:42px;
+    font-size:14px;
+    font-weight:bold;
+    color:#ffffff;
+    border:0 none;
+    background-color:#4ac344;
+}
+.r_freezer_menuconfig .content li select{
+    width:80%;
+    height:30px;
+    color:#333333;
+    font-size:14px;
+}
+
+
+/*有了项目后添加项目按钮*/
+.r_add_btn{
+    width:16%;
+    height:42px;
+    font-size:14px;
+    font-weight:bold;
+    color:#ffffff;
+    border:0 none;
+    background-color:#4ac344;
+}
+/*有了项目后修改项目按钮*/
+.r_modify_btn{
+    width:16%;
+    height:42px;
+    font-size:14px;
+    font-weight:bold;
+    color:#ffffff;
+    border:0 none;
+    background-color:#00a0e9;
+}
+
+/*有了项目后下拉框*/
+.r_add_equipment_box .r_add_equipment{
+    width:200px;
+    height:40px;
+    font-size:14px;
+    color:#333333;
+    background-color:#f3f3f3;
+    border:1px solid #cccccc;
+}
+.r_add_equipment_box .r_add_equipment option{
+    width:100%;
+    height:50px;
+    line-height:100px;
+    font-size:14px;
+    color:#333333;
+    background-color:#ffffff;
+}
+.r_add_equipment_box .r_add_equipment option:hover{
+    width:100%;
+    height:50px;
+    line-height:100px;
+    font-size:14px;
+    color:#0C6;
+    background-color:#ffffff;
+}
+
+/*有了项目后，浮动添加项目*/
+.r_add_equipment_box{
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.8);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    display:none;
+}
+.r_add_equipment_box .add_equipment{
+    width:80%;
+    overflow:hidden;
+    margin:50px auto;
+    margin-bottom:0;
+}
+.r_add_equipment_box .off_add_equipment{
+    width:80px;
+    height:40px;
+    margin:0 auto;
+    background:url(r_savespace/add_off.png) no-repeat center;
+}
+
+/*立式冰箱*/
+/*立式大冰箱*/
+.r_upright_freezer_box_big{
+    width:60%;
+    height:640px;
+    position:relative;
+    margin-top:20px;
+    background-color:#efeff0;
+    float:left;
+}
+.freezer_box_big{
+    width:320px;
+    height:600px;
+    float:left;
+    margin-left:10px;
+}
+.freezer_box_big .freezer{
+    width:320px;
+    height:620px;
+    overflow:hidden;
+    position:relative;
+}
+/*大冰箱上部*/
+.freezer_box_big .freezer .top{
+    width:300px;
+    overflow:hidden;
+    position:absolute;
+    bottom:128px;
+    padding-top:10px;
+    border:1px solid #808080;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    -moz-box-shadow: 2px 10px 10px #808080;
+    -webkit-box-shadow: 2px 10px 10px #808080;
+    box-shadow:2px 10px 10px #808080;
+    background-color:#c9caca;
+}
+.freezer_box_big .freezer .top .layer_box{
+    width:96%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.freezer_box_big .freezer .top .layer{
+    width:100%;
+    height:46px;
+    margin:5px 0 5px 0;
+}
+/*每行1个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行2个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行3个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行4个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行5个架子*/
+.freezer_box_big .freezer .top .layer a{
+    display:block;
+    width:19%;
+    height:46px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.freezer_box_big .freezer .top .layer a:hover{
+    display:block;
+    width:19%;
+    height:46px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+
+/*每行6个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行7个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }
+ */
+/*每行8个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行9个架子*/
+/*.freezer_box_big .freezer .top .layer a{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+.freezer_box_big .freezer .top .layer .first_box{
+    margin-left:0;
+}
+.freezer_box_big .freezer .top .layer .first_box:hover{
+    margin-left:0;
+}
+.freezer_box_big .freezer .top .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.freezer_box_big .freezer .top .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+/*大冰箱底部*/
+.freezer_box_big .freezer .bottom{
+    width:300px;
+    height:108px;
+    background:#808080;
+    position:absolute;
+    bottom:20px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    -moz-box-shadow: 2px 10px 10px #808080;
+    -webkit-box-shadow: 2px 10px 10px #808080;
+    box-shadow:2px 10px 10px #808080;
+    background-image:url(r_savespace/upright_freezer_bg.png);
+}
+
+.freezer_box_big .freezer .bottom .hour_icon{
+    width:108px;
+    height:108px;
+    background:url(r_savespace/hour_icon.png) no-repeat center;
+    float:left;
+}
+.freezer_box_big .freezer .bottom .heat_dissipation{
+    width:170px;
+    height:52px;
+    float:left;
+    padding:0;
+    margin-top:20px;
+}
+.freezer_box_big .freezer .bottom .heat_dissipation li{
+    width:170px;
+    height:9px;
+    background-color:#cccccc;
+    margin-top:7px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    box-shadow:0 2px 4px #808080 inset;
+    -webkit-box-shadow:0 2px 4px #808080 inset;
+    -moz-box-shadow:0 2px 4px #808080 inset;
+}
+/*立式冰箱右边滚动*/
+.r_freezer_rolling_box{
+    width:250px;
+    height:400px;
+    margin-top:20px;
+    border:1px solid #808080;
+    float:left;
+}
+.r_freezer_rolling_box ul{
+    width:250px;
+    height:36px;
+    line-height:36px;
+    border-bottom:1px solid #cccccc;
+}
+.r_freezer_rolling_box ul li{
+    width:33%;
+    float:left;
+    font-size:14px;
+    color:#333333;
+    font-weight:bold;
+}
+
+.r_freezer_rolling_box marquee{
+    width:250px;
+    height:353px;
+}
+.r_freezer_rolling_box marquee p{
+    width:248px;
+    height:24px;
+    line-height:24px;
+    font-size:12px;
+    color:#333333;
+}
+.r_freezer_rolling_box marquee p i{
+    display:block;
+    float:left;
+    width:33%;
+    height:24px;
+    line-height:24px;
+    text-align:center;
+    font-size:12px;
+    color:#333333;
+}
+.r_freezer_rolling_box marquee p a{
+    display:block;
+    float:left;
+    width:33%;
+    height:24px;
+    line-height:24px;
+    text-align:center;
+    font-size:12px;
+    color:#333333;
+}
+.r_freezer_rolling_box marquee p span{
+    display:block;
+    float:left;
+    width:33%;
+    height:24px;
+    line-height:24px;
+    text-align:center;
+    font-size:12px;
+    color:#333333;
+}
+
+/*底部名称、路径*/
+.r_name_path{
+    width:100%;
+    height:40px;
+    position:absolute;
+    bottom:0;
+    margin-left:10px;
+    float:left;
+}
+.r_name_path i{
+    font-size:12px;
+    color:#808080;
+    line-height:40px;
+}
+.r_name_path span{
+    font-size:12px;
+    color:#333333;
+    line-height:40px;
+    padding:0 20px 0 2px;
+}
+
+
+/*立式小冰箱*/
+.r_upright_freezer_box_small{
+    width:35%;
+    height:312px;
+    position:relative;
+    margin:20px 0 0 15px;
+    background-color:#efeff0;
+    float:left;
+}
+.freezer_box_small{
+    width:220px;
+    height:270px;
+    margin:0 auto;
+}
+.freezer_box_small .freezer{
+    width:220px;
+    height:270px;
+    overflow:hidden;
+    position:relative;
+}
+/*小冰箱上部*/
+.freezer_box_small .freezer .top{
+    width:200px;
+    overflow:hidden;
+    position:absolute;
+    bottom:60px;
+    padding-top:5px;
+    border:1px solid #808080;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,strength=2);
+    -moz-box-shadow: 1px 5px 5px #808080;
+    -webkit-box-shadow: 1px 5px 5px #808080;
+    box-shadow:1px 5px 5px #808080;
+    background-color:#c9caca;
+}
+.freezer_box_small .freezer .top .layer_box{
+    width:96%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.freezer_box_small .freezer .top .layer{
+    width:100%;
+    height:20px;
+    margin:2px 0 2px 0;
+}
+
+
+/*每行1个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行2个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行3个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行4个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行5个架子*/
+.freezer_box_small .freezer .top .layer a{
+    display:block;
+    width:19%;
+    height:20px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.freezer_box_small .freezer .top .layer a:hover{
+    display:block;
+    width:19%;
+    height:20px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+
+/*每行6个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行7个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }
+ */
+/*每行8个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行9个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .freezer_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+.freezer_box_small .freezer .top .layer .first_box{
+    margin-left:0;
+}
+.freezer_box_small .freezer .top .layer .first_box:hover{
+    margin-left:0;
+}
+.freezer_box_small .freezer .top .layer .current_box{
+    background-image:none;
+    background-color:#2295da;
+}
+.freezer_box_small .freezer .top .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.freezer_box_small .freezer .top .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+/*小冰箱底部*/
+.freezer_box_small .freezer .bottom{
+    width:200px;
+    height:50px;
+    background:#808080;
+    position:absolute;
+    bottom:10px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,strength=2);
+    -moz-box-shadow: 1px 5px 5px #808080;
+    -webkit-box-shadow: 1px 5px 5px #808080;
+    box-shadow:1px 5px 5px #808080;
+    background-image:url(r_savespace/upright_freezer_bg.png);
+}
+
+.freezer_box_small .freezer .bottom .hour_icon{
+    width:50px;
+    height:50px;
+    background:url(r_savespace/hour_icon.png) no-repeat center;
+    background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    float:left;
+}
+.freezer_box_small .freezer .bottom .heat_dissipation{
+    width:124px;
+    height:26px;
+    float:left;
+    padding:0;
+    margin-top:5px;
+}
+.freezer_box_small .freezer .bottom .heat_dissipation li{
+    width:124px;
+    height:4px;
+    background-color:#cccccc;
+    margin-top:5px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    box-shadow:0 2px 4px #808080 inset;
+    -webkit-box-shadow:0 2px 4px #808080 inset;
+    -moz-box-shadow:0 2px 4px #808080 inset;
+}
+
+
+/*立式冰箱--架子*/
+/*大架子*/
+.r_upright_shelf_box_big{
+    width:60%;
+    height:640px;
+    position:relative;
+    margin-top:20px;
+    background-color:#efeff0;
+    float:left;
+}
+.shelf_box_big{
+    width:320px;
+    height:600px;
+    float:left;
+    margin-left:10px;
+}
+.shelf_box_big .shelf{
+    width:320px;
+    height:600px;
+    overflow:hidden;
+    position:relative;
+    float:left;
+}
+/*大架子上部*/
+.shelf_box_big .shelf .top{
+    width:300px;
+    overflow:hidden;
+    position:absolute;
+    bottom:58px;
+    padding-top:10px;
+    border:1px solid #808080;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    -moz-box-shadow: 2px 10px 10px #808080;
+    -webkit-box-shadow: 2px 10px 10px #808080;
+    box-shadow:2px 10px 10px #808080;
+    background-color:#c9caca;
+}
+.shelf_box_big .shelf .top .layer_box{
+    width:96%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.shelf_box_big .shelf .top .layer{
+    width:100%;
+    height:46px;
+    margin:5px 0 5px 0;
+}
+
+
+/*每行1个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行2个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行3个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行4个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*一行有5个盒子*/
+.shelf_box_big .shelf .top .layer a{
+    display:block;
+    width:19%;
+    height:46px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.shelf_box_big .shelf .top .layer a:hover{
+    display:block;
+    width:19%;
+    height:46px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+/*每行6个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行7个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }
+ */
+/*每行8个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行9个盒子*/
+/*.shelf_box_big .freezer .top .layer a{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_big .freezer .top .layer a:hover{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+.shelf_box_big .shelf .top .layer .first_box{
+    margin-left:0;
+}
+.shelf_box_big .shelf .top .layer .first_box:hover{
+    margin-left:0;
+}
+.shelf_box_big .shelf .top .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.shelf_box_big .shelf .top .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+/*大架子底部*/
+.shelf_box_big .shelf .bottom{
+    width:300px;
+    height:38px;
+    background:#808080;
+    position:absolute;
+    bottom:20px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,strength=3);
+    -moz-box-shadow: 2px 10px 10px #808080;
+    -webkit-box-shadow: 2px 10px 10px #808080;
+    box-shadow:2px 10px 10px #808080;
+    background-image:url(r_savespace/upright_freezer_bg.png);
+}
+
+
+/*小架子*/
+.r_upright_shelf_box_small{
+    width:35%;
+    height:312px;
+    position:relative;
+    margin:20px 0 0 15px;
+    background-color:#efeff0;
+    float:left;
+}
+.shelf_box_small{
+    width: 220px;
+    height: 270px;
+    margin: 0 auto;
+}
+.shelf_box_small .shelf{
+    width: 220px;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+}
+/*小架子上部*/
+.shelf_box_small .shelf .top{
+    width: 200px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 60px;
+    padding-top: 5px;
+    border: 1px solid #808080;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,strength=2);
+    -moz-box-shadow: 1px 5px 5px #808080;
+    -webkit-box-shadow: 1px 5px 5px #808080;
+    box-shadow:1px 5px 5px #808080;
+    background-color:#c9caca;
+}
+.shelf_box_small .shelf .top .layer_box{
+    width:96%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.shelf_box_small .shelf .top .layer{
+    width: 100%;
+    height: 20px;
+    margin: 2px 0 2px 0;
+}
+
+/*每行1个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:99%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行2个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:49%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*每行3个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:32%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行4个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:24%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+/*一行有5个盒子*/
+.shelf_box_small .shelf .top .layer a{
+    display:block;
+    width:19%;
+    height:20px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.shelf_box_small .shelf .top .layer a:hover{
+    display:block;
+    width:19%;
+    height:20px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+/*每行6个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:15%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行7个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:13%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }
+ */
+/*每行8个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:11.5%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+/*每行9个盒子*/
+/*.shelf_box_small .freezer .top .layer a{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:url(../img/r_savespace/box_bg.png);
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
+ float:left;
+ margin-left:1%;
+ }
+ .shelf_box_small .freezer .top .layer a:hover{
+ display:block;
+ width:10%;
+ height:46px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }*/
+
+
+.shelf_box_small .shelf .top .layer .first_box{
+    margin-left:0;
+}
+.shelf_box_small .shelf .top .layer .first_box:hover{
+    margin-left:0;
+}
+.shelf_box_small .shelf .top .layer .current_box{
+    background-image:none;
+    background-color:#2295da;
+}
+.shelf_box_small .shelf .top .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.shelf_box_small .shelf .top .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+/*小架子底部*/
+.shelf_box_small .shelf .bottom{
+    width: 200px;
+    height: 50px;
+    background: #808080;
+    position: absolute;
+    bottom: 10px;
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,strength=2);
+    -moz-box-shadow: 1px 5px 5px #808080;
+    -webkit-box-shadow: 1px 5px 5px #808080;
+    box-shadow:1px 5px 5px #808080;
+    background-image:url(r_savespace/upright_freezer_bg.png);
+}
+
+
+
+/*立式冰箱--盒子*/
+/*大盒子*/
+/*大盒子-数字*/
+.box_box_digital_big{
+    width:100%;
+    height:20px;
+    position:absolute;
+    top:55px;
+    left:0;
+}
+.box_box_digital_big ul{
+    width:475px;
+    height:20px;
+    margin:0 auto;
+    padding:0;
+}
+.box_box_digital_big ul li{
+    width:52px;
+    height:20px;
+    float:left;
+    line-height:20px;
+    text-align:center;
+    font-size:12px;
+    color:#808080;
+}
+/*大盒子-字母*/
+.box_box_letter_big{
+    width:14px;
+    height:495px;
+    float:left;
+}
+.box_box_letter_big ul{
+    width:14px;
+    height:495px;
+    padding:0;
+}
+.box_box_letter_big ul li{
+    width:20px;
+    height:56px;
+    line-height:52px;
+    text-align:center;
+    font-size:12px;
+    color:#808080;
+}
+/*大盒子-盒子*/
+.r_upright_box_box_big{
+    width:60%;
+    height:640px;
+    margin-top:20px;
+    background-color:#efeff0;
+    float:left;
+    position:relative;
+}
+.box_box_big{
+    width:495px;
+    height:495px;
+    margin:0 auto;
+    margin-top:70px;
+}
+.box_box_big .box{
+    width:495px;
+    height:495px;
+}
+.box_box_big .box .layer_box{
+    width:96%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.box_box_big .box .layer_box .layer{
+    width:100%;
+    height:50px;
+    margin:5px 0 5px 0;
+}
+.box_box_big .box .layer_box .layer a{
+    display:block;
+    width:10%;
+    height:50px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.box_box_big .box .layer_box .layer a:hover{
+    display:block;
+    width:10%;
+    height:50px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+.box_box_big .box .layer_box .layer .first_box{
+    margin-left:0;
+}
+.box_box_big .box .layer_box .layer .first_box:hover{
+    margin-left:0;
+}
+
+.box_box_big .box .layer_box .layer .take_box{
+    background-image:none;
+    background-color:#4ac344;
+}
+.box_box_big .box .layer_box .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.box_box_big .box .layer_box .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+
+
+/*小盒子*/
+/*小盒子-数字*/	
+.box_box_digital_small{
+    width:100%;
+    height:12px;
+}	
+.box_box_digital_small ul{
+    width:240px;
+    height:12px;
+    margin:0 auto;
+    padding:0;
+}
+.box_box_digital_small ul li{
+    width:24px;
+    height:12px;
+    float:left;
+    line-height:12px;
+    text-align:center;
+    font-size:10px;
+    color:#808080;
+}	
+/*小盒子-字母*/	
+.box_box_letter_small{
+    width:5%;
+    height:252px;
+    float:left;
+}	
+.box_box_letter_small ul{
+    width:12px;
+    height:252px;
+    padding:0;
+}
+.box_box_letter_small ul li{
+    width:12px;
+    height:26px;
+    line-height:24px;
+    text-align:center;
+    font-size:10px;
+    color:#808080;
+}														
+/*小盒子-盒子*/	
+.r_upright_box_box_small{
+    width:35%;
+    height:312px;
+    margin:15px 0 0 15px;
+    background-color:#efeff0;
+    float:left;
+    position:relative;
+}
+.box_box_small{
+    width:252px;
+    height:252px;
+    margin:0 auto;
+}
+.box_box_small .box{
+    width:252px;
+    height:252px;
+}
+.box_box_small .box .layer_box{
+    width:94%;
+    overflow:hidden;
+    margin:0 auto;
+}
+.box_box_small .box .layer_box .layer{
+    width:100%;
+    height:24px;
+    margin:2px 0 2px 0;
+}
+.box_box_small .box .layer_box .layer a{
+    display:block;
+    width:10%;
+    height:24px;
+    background-image:url(r_savespace/box_bg.png);
+    background-size:100%;
+    -webkit-background-size:100%;
+    -moz-background-size:100%;
+    float:left;
+    margin-left:1%;
+}
+.box_box_small .box .layer_box .layer a:hover{
+    display:block;
+    width:10%;
+    height:24px;
+    background-image:none;
+    background-color:#8c8c8c;
+    float:left;
+    margin-left:1%;
+}
+.box_box_small .box .layer_box .layer .first_box{
+    margin-left:0;
+}
+.box_box_small .box .layer_box .layer .first_box:hover{
+    margin-left:0;
+}
+
+.box_box_small .box .layer_box .layer .take_box{
+    background-image:none;
+    background-color:#4ac344;
+}
+.box_box_small .box .layer_box .layer .full_box{
+    background-image:url(r_savespace/box_full_bg.png);
+}
+.box_box_small .box .layer_box .layer .full_box:hover{
+    background-image:url(r_savespace/box_full_bg.png);
+}

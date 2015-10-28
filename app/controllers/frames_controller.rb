@@ -15,6 +15,7 @@ class FramesController < ApplicationController
   # GET /frames/new
   def new
     @frame = Frame.new
+    render layout: 'blank_templet'
   end
 
   # GET /frames/1/edit

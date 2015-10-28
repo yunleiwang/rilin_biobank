@@ -33,16 +33,19 @@
       </div>
     </div>
 
-    <div id="freeze_vertical" style="display: none">
-      <%= render :partial => 'freeze_vertical' %>
-    </div>
+
     <div id="freeze_horizontal" style="display: none">
       <%= render 'freeze_horizontal' %>
     </div>
     <div id="liquid_nitrogen_tank" style="display: none">
       <%= render 'liquid_nitrogen_tank' %>
     </div>
-
+    <div id="freeze_vertical" style="display: none">
+      <%= render :partial => 'freeze_vertical' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
 
 <script>
