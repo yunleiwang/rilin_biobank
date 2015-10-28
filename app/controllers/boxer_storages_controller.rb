@@ -8,7 +8,7 @@ class BoxerStoragesController < ApplicationController
     frame_storage = @frame.frame_storages.first
     @container = frame_storage.container
     @frame_storages = @container.frame_storages
-    @boxer_storages = BoxerStorage.all.where(:frame_id => params[:frame_id].to_i)
+    @boxer_storages = BoxerStorage.all.where(:frame_id => params[:frame_id].to_i).order('id asc')
   end
 
   # GET /boxer_storages/1

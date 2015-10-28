@@ -4,7 +4,14 @@ class SampleStoragesController < ApplicationController
   # GET /sample_storages
   # GET /sample_storages.json
   def index
-    @sample_storages = SampleStorage.all
+    @boxer = Boxer.find(params[:boxer_id])
+    boxer_storage = @boxer.boxer_storages.first
+    @frame = boxer_storage.frame
+    @boxer_storages = @frame.boxer_storages
+    frame_storage = @frame.frame_storages.first
+    @container = frame_storage.container
+    @frame_storages = @container.frame_storages.order('id asc')
+    @sample_storages = SampleStorage.where('boxer_id = ?',@boxer.id).order('id asc')
   end
 
   # GET /sample_storages/1

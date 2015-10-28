@@ -19,12 +19,12 @@
           <% (0...@container.container_rows).each do |i| %>
               <div class="layer">
                 <% (0...@container.container_columns).each do |j| %>
-                    <% frame_storage = @frame_storages[i*j + j] %>
-                    <% if frame_storage.frame %>
-                        <a class="fancybox<%= get_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
-                    <% else %>
+                    <% frame_storage = @frame_storages[(i*@container.container_columns)+j] %>
 
-                        <a class="fancybox_frame<%= get_css_class(frame_storage,j) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
+                    <% if frame_storage.frame_id %>
+                        <a class="fancybox<%= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                    <% else %>
+                        <a class="fancybox_frame<%= get_frame_css_class(frame_storage,j) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
                     <% end %>
 
                 <% end %>

@@ -26,16 +26,20 @@ class BoxersController < ApplicationController
   # POST /boxers.json
   def create
     @boxer = Boxer.new(boxer_params)
+    boxer_storage = BoxerStorage.find(params[:boxer_storage_id].to_i)
 
-    respond_to do |format|
-      if @boxer.save
-        format.html { redirect_to @boxer, notice: 'Boxer was successfully created.' }
-        format.json { render :show, status: :created, location: @boxer }
-      else
-        format.html { render :new }
-        format.json { render json: @boxer.errors, status: :unprocessable_entity }
+    begin
+      Boxer.transaction do
+        @boxer.save
+        boxer_storage.update_attributes(:boxer_id=>@boxer.id)
+        @boxer.batch_create_sample_storage
       end
+      redirect_to @boxer, notice: 'Container was successfully created.'
+    rescue
+      puts '创建盒子规格及存储盒子的空间出错!'
+      render :new
     end
+
   end
 
   # PATCH/PUT /boxers/1

@@ -1,31 +1,134 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <input class="r_add_btn" type="button" value="添加项目 +">
+    <input class="r_modify_btn" type="button" value="修改项目 ✎">
+  </div>
+</div>
+<!-- 冰箱、架子、盒子 -->
+<div class="r_upright_box_box_big">
+  <div class="box_box_digital_big">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+    </ul>
+  </div>
+  <div class="box_box_big">
+    <div class="box">
+      <div class="box_box_letter_big">
+        <ul>
+          <li>A</li>
+          <li>B</li>
+          <li>C</li>
+          <li>D</li>
+          <li>E</li>
+          <li>F</li>
+          <li>G</li>
+          <li>H</li>
+          <li>I</li>
+        </ul>
+      </div>
+      <div class="layer_box">
+        <% (0...@boxer.box_row).each do |i| %>
+            <div class="layer">
+              <% (0...@boxer.box_column).each do |j| %>
+                  <% sample_storage = @sample_storages[i*@boxer.box_column+j] %>
+                  <% if sample_storage.sample_id %>
+                      <a class="<%= get_sample_css_class(sample_storage,j) %>" href="/samples?id=<%= sample_storage.sample_id%>"></a>
+                  <% else %>
+                      <a class="fancybox_frame<%= get_sample_css_class(sample_storage,j) %>" href="/boxers/new?sample_storage_id=<%= sample_storage.id%>" ></a>
+                  <% end %>
+              <% end %>
 
-<h1>Listing Sample Storages</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Position index</th>
-      <th>Boxer</th>
-      <th>Sample</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+              <!--<a class="take_box" href="#"></a>-->
 
-  <tbody>
-    <% @sample_storages.each do |sample_storage| %>
-      <tr>
-        <td><%= sample_storage.position_index %></td>
-        <td><%= sample_storage.boxer_id %></td>
-        <td><%= sample_storage.sample_id %></td>
-        <td><%= link_to 'Show', sample_storage %></td>
-        <td><%= link_to 'Edit', edit_sample_storage_path(sample_storage) %></td>
-        <td><%= link_to 'Destroy', sample_storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+            </div>
+        <% end %>
 
-<%= link_to 'New Sample storage', new_sample_storage_path %>
+
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_freezer_box_small">
+  <div class="freezer_box_small">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@container.container_rows).each do |i| %>
+              <div class="layer">
+                <% (0...@container.container_columns).each do |j| %>
+                    <% frame_storage = @frame_storages[i*@container.container_columns + j] %>
+                    <% if frame_storage.frame_id %>
+                        <a class="fancybox<%= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                    <% else %>
+                        <a class="fancybox<%= get_frame_css_class(frame_storage,j) %>" href="#"></a>
+                    <% end %>
+
+                <% end %>
+              </div>
+          <% end %>
+
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_shelf_box_small">
+  <div class="shelf_box_small">
+    <div class="shelf">
+      <div class="top">
+        <div class="layer_box">
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a class="full_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <% (0...@frame.frame_rows).each do |i| %>
+              <div class="layer">
+                <% (0...@frame.frame_columns).each do |j| %>
+                    <% boxer_storage = @boxer_storages[i*@frame.frame_columns+j] %>
+                    <% if boxer_storage.boxer_id %>
+                        <a class="fancybox<%= get_css_class2(boxer_storage,j) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+                    <% else %>
+                        <a href="#"></a>
+                    <% end %>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="bottom">
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+

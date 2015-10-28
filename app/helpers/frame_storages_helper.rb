@@ -1,5 +1,5 @@
 module FrameStoragesHelper
-  def get_css_class(frame_storage,j)
+  def get_frame_css_class(frame_storage,j)
     str = ""
     if j==0
       str << " first_box"

@@ -35,7 +35,7 @@ class FramesController < ApplicationController
       end
       redirect_to @frame, notice: 'Container was successfully created.'
     rescue
-      puts '创建架子及存储盒子的空间出错!'
+      puts '创建架子规格及存储架子的空间出错!'
       render :new
     end
 

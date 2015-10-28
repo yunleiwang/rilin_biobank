@@ -1,6 +1,7 @@
 class Frame < ActiveRecord::Base
   #has_many :containers, :through => :frame_storages
   has_many :frame_storages, :dependent => :destroy
+  has_many :boxer_storages, :dependent => :destroy
   # 根据架子的行数及列数算出冰箱存储盒子的空间个数，并生成存储空间对象
   # 存储盒子的空间个数 = row * col
   # self.frame_rows(立式架子的层数)
@@ -14,4 +15,5 @@ class Frame < ActiveRecord::Base
       boxer_storage.save
     end
   end
+
 end
