@@ -19,6 +19,9 @@ class SamplesController < ApplicationController
 
   # GET /samples/1/edit
   def edit
+    if !params[:sample_preout_log_id].blank?
+      render :layout => 'blank_templet'
+    end
   end
 
   # POST /samples
@@ -83,6 +86,7 @@ class SamplesController < ApplicationController
         sample.save
       end
       samples_preout_log.sys_user_id = session[:sys_user_id]
+      samples_preout_log.status = Sample::STATUS_PRE_OUT
       samples_preout_log.save
     end
 
@@ -91,7 +95,15 @@ class SamplesController < ApplicationController
 
   #样本最终确认出库
   def samples_out
-
+    sample_preout_log = SamplePreoutLog.find(params[:sample_preout_log_id])
+    sample = Sample.find(params[:id])
+    sample.storage_status = Sample::STATUS_OUT
+    Sample.transaction do
+      sample.current_sample_volume = (sample.current_sample_volume-sample_preout_log*(params[:proportpion].to_i/100.0)
+      sample.save
+      sample_preout_log.update_status
+    end
+    redirect_to :controller => 'sample_preout_logs', :action => 'show', :id=>sample_preout_log.id
   end
 
   private

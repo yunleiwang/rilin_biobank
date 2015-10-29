@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :samples do
     member do
       get 'sample_info'
+      get 'samples_out'
       post 'samples_pre_out'
     end
   end

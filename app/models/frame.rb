@@ -16,4 +16,13 @@ class Frame < ActiveRecord::Base
     end
   end
 
+  def boxers
+    boxers_ids = (self.boxer_storages.collect{|boxer_storage| boxer_storage.boxer_id}).uniq
+    if !boxers_ids.empty?
+      Boxer.where('id in (?)',boxers_ids)
+    else
+      []
+    end
+  end
+
 end

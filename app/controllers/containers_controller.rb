@@ -34,7 +34,7 @@ class ContainersController < ApplicationController
         else
           @container.batch_create_frame_storage
         end
-        format.html { redirect_to @container, notice: 'Container was successfully created.'}
+        format.html { redirect_to :controller => 'frame_storages', :action=>'index',:container_id=>@container.id , notice: 'Container was successfully created.'}
       else
         format.html { render :new }
         format.json { render json: @container.errors, status: :unprocessable_entity }

@@ -30,6 +30,7 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos/1
   # GET /patient_infos/1.json
   def show
+    session[:patient_info_id]=@patient_info.id
   end
 
   # GET /patient_infos/new
@@ -40,6 +41,7 @@ class PatientInfosController < ApplicationController
 
   # GET /patient_infos/1/edit
   def edit
+    session[:patient_info_id] ||= @patient_info.id
     render :layout => 'templet_form'
   end
 
@@ -76,6 +78,9 @@ class PatientInfosController < ApplicationController
   # DELETE /patient_infos/1
   # DELETE /patient_infos/1.json
   def destroy
+    if session[:patient_info_id].to_i == @patient_info.id
+      session[:patient_info_id] = nil
+    end
     @patient_info.destroy
     respond_to do |format|
       format.html { redirect_to patient_infos_url, notice: 'Patient info was successfully destroyed.' }

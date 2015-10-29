@@ -22,7 +22,7 @@ class SysAccountController < ApplicationController
   end
 
   def sign_out
-    session[:sys_user_id]= nil
+    reset_session
     redirect_to :action => 'sign_in', :id=>1
   end
 

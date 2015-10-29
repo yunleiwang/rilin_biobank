@@ -34,7 +34,11 @@ class Container < ActiveRecord::Base
   #冰箱中存放的架子
   def frames
     frame_ids = (self.frame_storages.collect{|frame_storage| frame_storage.frame_id}).uniq
-    Frame.where('id in (?)',frame_ids)
+    if !frame_ids.empty?
+      Frame.where('id in (?)',frame_ids)
+    else
+      []
+    end
   end
 
 end
