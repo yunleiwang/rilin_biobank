@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :sys_table_columns
   resources :sample_preout_logs
   resources :menu_libs
   get 'search_info/search_today'
@@ -8,6 +9,14 @@ Rails.application.routes.draw do
   get 'sys_account/sign_out'
 
   get 'sys_account/change_password'
+
+  get 'sys_printers/setting_index'
+  get 'sys_printers/setting_test'
+  get 'sys_printers/setting_change'
+  get 'sys_printers/print_sample'
+
+  get 'sys_table_columns/capture'
+
 
   post 'sys_account/login'
 

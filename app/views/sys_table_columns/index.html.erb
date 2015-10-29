@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sys Table Columns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tname zn</th>
+      <th>Tname en</th>
+      <th>Cname zn</th>
+      <th>Cname en</th>
+      <th>Order no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sys_table_columns.each do |sys_table_column| %>
+      <tr>
+        <td><%= sys_table_column.tname_zn %></td>
+        <td><%= sys_table_column.tname_en %></td>
+        <td><%= sys_table_column.cname_zn %></td>
+        <td><%= sys_table_column.cname_en %></td>
+        <td><%= sys_table_column.order_no %></td>
+        <td><%= link_to 'Show', sys_table_column %></td>
+        <td><%= link_to 'Edit', edit_sys_table_column_path(sys_table_column) %></td>
+        <td><%= link_to 'Destroy', sys_table_column, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sys table column', new_sys_table_column_path %>

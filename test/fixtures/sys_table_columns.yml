@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tname_zn: MyString
+  tname_en: MyString
+  cname_zn: MyString
+  c_name_en: MyString
+  order_no: 1
+
+two:
+  tname_zn: MyString
+  tname_en: MyString
+  cname_zn: MyString
+  c_name_en: MyString
+  order_no: 1
