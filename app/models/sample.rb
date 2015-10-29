@@ -1,7 +1,8 @@
 class Sample < ActiveRecord::Base
 
 	belongs_to :patient_case
-	belongs_to :sample_storage
+	has_many :sample_storages
+  validates_presence_of :initial_sample_volume
 	#样本状态
 	STATUS_IN = "在库"
 	STATUS_OUT = "出库"
@@ -34,7 +35,30 @@ class Sample < ActiveRecord::Base
 		else
 			return sample_nos[index+1]
 		end
-	end
+  end
+
+  # 查询样本位置
+  def position
+    str=''
+    sample_storage = self.sample_storages[0]
+    if sample_storage
+      box = Boxer.find(sample_storage.boxer_id)
+      frame = box.frame
+      container = frame.container
+      str << (container.container_name + '//' + frame.frame_name + '//' + box.box_name + "//" + sample_storage.position_index.to_s)
+    end
+    str
+
+  end
+
+  #情况样本的存储位置
+  def clear_sample_storage
+    sample_storage = self.sample_storages[0]
+    if sample_storage
+      sample_storage.sample_id=nil
+      sample_storage.save
+    end
+  end
 
 
 end

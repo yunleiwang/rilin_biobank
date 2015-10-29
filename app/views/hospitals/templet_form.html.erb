@@ -9,22 +9,8 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="author" content="">
-  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <!-- JS -->
-  <%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
-  <%= javascript_include_tag 'jquery_ujs.js' %>
-  <%= javascript_include_tag 'bootstrap.min.js' %><!-- Bootstrap -->
-  <%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
-  <%= javascript_include_tag 'r_save_space.js' %> <!-- r_save_space -->
-  <%= javascript_include_tag 'jquery.fancybox.js' %>
-  <%#= javascript_include_tag 'jquery.noty.js' %><!-- jQuery Notify -->
-  <%#= javascript_include_tag 'themes/jquery.default.js' %><!-- jQuery Notify -->
-  <%#= javascript_include_tag 'layouts/jquery.bottom.js' %><!-- jQuery Notify -->
-  <%#= javascript_include_tag 'layouts/jquery.topRight.js' %><!-- jQuery Notify -->
-  <%#= javascript_include_tag 'layouts/jquery.top.js' %><!-- jQuery Notify -->
-  <%= stylesheet_link_tag 'jquery.fancybox.css' %>
-
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <!-- Stylesheets -->
   <%= stylesheet_link_tag 'bootstrap.min.css' %>
@@ -36,23 +22,28 @@
   <%= stylesheet_link_tag 'jquery.dataTables.css' %>
   <!-- Main stylesheet -->
   <%= stylesheet_link_tag 'style.css' %>
-  <%= stylesheet_link_tag 'rilin.css' %>
+
   <%= javascript_include_tag 'respond.min.js' %>
   <!--[if lt IE 9]>
-    <script src="/assets/javascript/html5shiv.js"></script>
+  <script src="/assets/javascript/html5shiv.js"></script>
   <![endif]-->
+
   <!-- Favicon -->
   <!--<link rel="shortcut icon" href="img/favicon/favicon.png">-->
 </head>
 
 <body>
+
 <%= render 'layouts/navbar' %>
+
 
 <!-- Header starts -->
 <%= render 'layouts/header' %>
+
 <!-- Header ends -->
 
 <!-- Main content starts -->
+
 <div class="content">
   <!-- Sidebar -->
   <div class="sidebar">
@@ -61,10 +52,8 @@
     <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
     <ul id="nav">
       <!-- Main menu with font awesome icon -->
-      <% params[:menu_lib_id]=8  if params[:menu_lib_id].nil? %>
-
-        <% menu = MenuLib.find(params[:menu_lib_id].to_i) %>
-
+      <% params[:menu_lib_id]=2  if params[:menu_lib_id].nil? %>
+      <% menu = MenuLib.find(params[:menu_lib_id].to_i) %>
       <% MenuLib.where('menu_lib_id=?',1).order(:seq).each do |menu_lib| %>
           <% if !menu_lib.name_zh.blank? && menu_lib.name_zh.include?('存储') %>
               <li class="r_save_space_tittle"><a href="#"><i class="fa fa-list-alt r_save_space"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a></li>
@@ -84,7 +73,7 @@
                   </li>
               <% end %>
           <% else %>
-              <li class="<%= 'open' if menu && menu.first_level_menu_lib.id==menu_lib.id %> has_sub">
+              <li class="<%= 'open' if menu.first_level_menu_lib.id==menu_lib.id %> has_sub">
                 <a href="<%= menu_lib.link %>"><i class="fa <%= menu_lib.icon_class %>"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
                 <ul>
                   <% menu_lib.children_menu_libs.each do |child_menu_lib| %>
@@ -97,14 +86,16 @@
 
     </ul>
   </div>
+
   <!-- Sidebar ends -->
 
   <!-- Main bar -->
   <div class="mainbar">
+
     <!-- Page heading -->
     <div class="page-head">
-      <h2 class="pull-left"><i class="fa <%= menu.first_level_menu_lib.icon_class%>"></i> <%= menu.name_zh %></h2>
 
+      <h2 class="pull-left"><i class="fa <%= menu.first_level_menu_lib.icon_class%>"></i> <%= menu.name_zh %></h2>
       <!-- Breadcrumb -->
       <div class="bread-crumb pull-right">
         <a href="index.html"><i class="fa fa-home"></i> Home</a>
@@ -123,36 +114,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="widget wgreen">
-              <div class="widget-head">
-                <div class="pull-left"></div>
-                <div class="widget-icons pull-right">
-                  <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-                  <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
-                </div>
-
-                <div class="clearfix"></div>
-              </div>
-
-              <div class="widget-content">
-                <div class="padd">
-                  <br />
-                  <!-- table starts.  -->
-                  <!-- Table Page -->
-                  <div class="page-tables">
-                    <!-- Table -->
-                    <div class="table-responsive">
-                      <%= yield %>
-                      <div class="clearfix"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--<div class="widget-foot">-->
-                <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
-              <!--</div>-->
-            </div>
-
+            <%= yield  %>
           </div>
 
         </div>
@@ -168,30 +130,20 @@
 <!-- Content ends -->
 
 <!-- Footer starts -->
-<%= render :partial => 'layouts/footer' %>
+<%= render 'layouts/footer' %>
+
 <!-- Footer ends -->
 
 <!-- Scroll to top -->
 <span class="totop"><a href="#"><i class="fa fa-chevron-up"></i></a></span>
 
+<!-- JS -->
 
+<%= javascript_include_tag 'jquery.js' %><!-- jQuery -->
+<%= javascript_include_tag 'bootstrap.min.js' %><!-- Bootstrap -->
+<%= javascript_include_tag 'jquery.dataTables.min.js' %> <!-- Data tables -->
 <!-- jQuery Notification - Noty -->
 <%= javascript_include_tag 'custom.js' %><!-- Custom codes -->
 <%= javascript_include_tag 'rilin.js' %>
-<script>
-    $(document).ready(function() {
-        $('.fancybox').fancybox();
-        $('.fancybox_frame').fancybox({
-            'autoDimensions':true,
-            'autoScale': true,
-            'type' : 'iframe',
-            afterClose : function(){
-                location.reload(true);
-            }
-        });
-    });
-
-</script>
-
 </body>
 </html>

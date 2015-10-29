@@ -15,6 +15,7 @@ class PatientCase < ActiveRecord::Base
 			(begin_num..end_num).each do |i|
 				sample = Sample.new(params[:sample])
 				sample.patient_case_id = self.id
+        sample.current_sample_volume=sample.initial_sample_volume
 				sample.save
 				# 根据系统规则生成样本号
 				sample.sample_no = sample.generate_sample_no(i)

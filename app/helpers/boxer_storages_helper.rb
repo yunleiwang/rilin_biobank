@@ -4,7 +4,7 @@ module BoxerStoragesHelper
     if j==0
       str << " first_box"
     end
-    if boxer_storage.boxer_id
+    if boxer_storage.boxer_id &&
       str << " full_box"
     end
     str

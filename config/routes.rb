@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :menu_libs
   get 'search_info/search_today'
 
+  get 'search_info/search_all'
+
   get 'sys_account/sign_in'
 
   get 'sys_account/sign_out'

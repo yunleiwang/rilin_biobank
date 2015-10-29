@@ -3,7 +3,8 @@
 $(function(){
 	/*存储空间二级菜单显隐*/
     $(".r_save_space_tittle").click(function(){
-		$(".r_equipment").toggle(400);
+        $("#nav > li").removeClass("open");
+		$(".r_equipment").toggle(300);
     }); 
 	/*存储空间三级菜单显隐*/
 	/*点按钮*/

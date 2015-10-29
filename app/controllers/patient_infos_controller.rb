@@ -5,7 +5,7 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos
   # GET /patient_infos.json
   def index
-    @patient_infos = PatientInfo.all
+    @patient_infos = PatientInfo.order('id desc')
 
     # qrcode = RQRCode::QRCode.new("id:2345,患者姓名:张山")
     # # With default options specified explicitly

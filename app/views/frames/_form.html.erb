@@ -1,4 +1,4 @@
-<%= form_for(@frame) do |f| %>
+<%= form_for(@frame , :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
   <% if @frame.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@frame.errors.count, "error") %> prohibited this frame from being saved:</h2>
@@ -12,40 +12,92 @@
   <% end %>
 
   <input type="hidden" name="frame_storage_id" value="<%= params[:frame_storage_id] %>" />
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left"></div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
 
-  <div class="field">
-    <%= f.label :frame_seq %><br>
-    <%= f.text_field :frame_seq %>
-  </div>
-  <div class="field">
-    <%= f.label :frame_name %><br>
-    <%= f.text_field :frame_name %>
-  </div>
-  <div class="field">
-    <%= f.label :frame_type %><br>
-    <%= f.text_field :frame_type %>
-  </div>
-  <div class="field">
-    <%= f.label :code_order %><br>
-    <%= f.text_field :code_order %>
-  </div>
-  <div class="field">
-    <%= f.label :horizontal_direction %><br>
-    <%= f.text_field :horizontal_direction %>
-  </div>
-  <div class="field">
-    <%= f.label :vertiacal_direction %><br>
-    <%= f.text_field :vertiacal_direction %>
-  </div>
-  <div class="field">
-    <%= f.label :frame_rows %><br>
-    <%= f.number_field :frame_rows %>
-  </div>
-  <div class="field">
-    <%= f.label :frame_columns %><br>
-    <%= f.number_field :frame_columns %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+          <!--<br />-->
+          <div class="form-group">
+            <div  class="col-sm-2">
+              <%= f.label :frame_seq, '架子序号',:class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :frame_seq,:class=>'form-control', :placeholder=>'架子序号' %>
+            </div>
+            <div  class="col-sm-2">
+                <%= f.label :frame_name,'架子名称', :class=>'col-lg-2 control-label' %>
+             </div>
+            <div class="col-sm-4">
+              <%= f.text_field :frame_name,:class=>'form-control', :placeholder=>'架子名称' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div  class="col-sm-2">
+              <%= f.label :frame_type, '架子类型',:class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :frame_type,:class=>'form-control', :placeholder=>'架子类型' %>
+            </div>
+            <div  class="col-sm-2">
+            <%= f.label :code_order,'编码格式', :class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :code_order,:class=>'form-control', :placeholder=>'编码格式' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-2">
+                <%= f.label :horizontal_direction, '水平方向',:class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :horizontal_direction,:class=>'form-control', :placeholder=>'水平方向' %>
+            </div>
+            <div class="col-sm-2">
+              <%= f.label :vertiacal_direction,'垂直方向', :class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :vertiacal_direction,:class=>'form-control', :placeholder=>'垂直方向' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-2">
+             <%= f.label :frame_rows, '层数(行数)',:class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :frame_rows,:class=>'form-control', :placeholder=>'层数(行数)' %>
+            </div>
+            <div class="col-sm-2">
+            <%= f.label :frame_columns,'每层数量(列数)', :class=>'col-lg-2 control-label' %>
+            </div>
+            <div class="col-sm-4">
+              <%= f.text_field :frame_columns,:class=>'form-control', :placeholder=>'每层数量(列数)' %>
+            </div>
+          </div>
+
+
+
+
+          </div>
+        </div>
+     </div>
+
+    <button class="btn btn-lg btn-primary" type="submit">提交</button>
+    <%#= link_to '返回', frames_path  ,:class => "btn btn-lg btn-primary"%>
+
+  <!--<div class="actions">
+    <%#= f.submit   %>
+    <%#= link_to 'Back', frames_path %>
+  </div>-->
 <% end %>

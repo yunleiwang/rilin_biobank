@@ -17,7 +17,7 @@ themes/topRight.js themes/top.js sparklines.js jquery.cleditor.min.js bootstrap-
 jquery.fancybox.js jquery.fancybox.css jquery_ujs.js rilin.css r_save_space.js box_big1.css box_big2.css box_big3.css box_big4.css box_big5.css box_big6.css box_big7.css
 box_big8.css box_big9.css boxer_small1.css boxer_small2.css boxer_small3.css boxer_small4.css boxer_small5.css boxer_small6.css boxer_small7.css boxer_small8.css boxer_small9.css
 freezer_big1.css freezer_big2.css freezer_big3.css freezer_big4.css freezer_big5.css freezer_big6.css freezer_big7.css freezer_big8.css freezer_big9.css freezer_small1.css freezer_small2.css
-freezer_small3.css freezer_small4.css freezer_small5.css freezer_small6.css freezer_small7.css freezer_small8.css freezer_small9.css
+freezer_small3.css freezer_small4.css freezer_small5.css freezer_small6.css freezer_small7.css freezer_small8.css freezer_small9.css jquery.noty.js
 )
 
 

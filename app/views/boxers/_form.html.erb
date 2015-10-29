@@ -1,4 +1,4 @@
-<%= form_for(@boxer) do |f| %>
+<%= form_for(@boxer, :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
   <% if @boxer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@boxer.errors.count, "error") %> prohibited this boxer from being saved:</h2>
@@ -11,27 +11,55 @@
     </div>
   <% end %>
     <input type="hidden" name="boxer_storage_id" value="<%= params[:boxer_storage_id] %>" />
-  <div class="field">
-    <%= f.label :box_name %><br>
-    <%= f.text_field :box_name %>
-  </div>
-  <div class="field">
-    <%= f.label :box_seq %><br>
-    <%= f.text_field :box_seq %>
-  </div>
-  <div class="field">
-    <%= f.label :box_row %><br>
-    <%= f.number_field :box_row %>
-  </div>
-  <div class="field">
-    <%= f.label :box_column %><br>
-    <%= f.number_field :box_column %>
-  </div>
-  <div class="field">
-    <%= f.label :remark %><br>
-    <%= f.text_area :remark %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="widget wgreen">
+      <div class="widget-head">
+        <div class="pull-left"></div>
+        <div class="widget-icons pull-right">
+          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="widget-content">
+        <div class="padd">
+
+          <div class="form-group">
+            <div  class="col-sm-2"><%= f.label :box_name, '盒子名称',:class=>'col-lg-2 control-label' %></div>
+            <div class="col-sm-4">
+              <%= f.text_field :box_name,:class=>'form-control', :placeholder=>'盒子名称' %>
+            </div>
+            <div  class="col-sm-2"><%= f.label :box_seq,'盒子的编号', :class=>'col-lg-2 control-label' %></div>
+            <div class="col-sm-4">
+              <%= f.text_field :box_seq,:class=>'form-control', :placeholder=>'盒子的编号' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div  class="col-sm-2"><%= f.label :box_row, '盒子行',:class=>'col-lg-2 control-label' %></div>
+            <div class="col-sm-4">
+              <%= f.text_field :box_row,:class=>'form-control', :placeholder=>'盒子行' %>
+            </div>
+            <div  class="col-sm-2"><%= f.label :box_column,'盒子列', :class=>'col-lg-2 control-label' %></div>
+            <div class="col-sm-4">
+              <%= f.text_field :box_column,:class=>'form-control', :placeholder=>'盒子列' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div  class="col-sm-2"><%= f.label :remark, '备注',:class=>'col-lg-2 control-label' %></div>
+            <div class="col-sm-4">
+              <%= f.text_field :remark,:class=>'form-control', :placeholder=>'备注' %>
+            </div>
+            <div  class="col-sm-2"></div>
+            <div class="col-sm-4">
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    <button class="btn btn-lg btn-primary" type="submit">提交</button>
+ <!-- <div class="actions">
+    <%#= f.submit %>
+  </div>-->
 <% end %>

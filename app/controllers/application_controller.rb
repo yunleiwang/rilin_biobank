@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_patient_info
+    unless session[:patient_info_id] then
+      flash[:notice] = "请先选择患者"
+      redirect_to :controller=>'patient_infos',:action=>'index'
+    end
+  end
+
   def none_layout
     render :layout => false
   end

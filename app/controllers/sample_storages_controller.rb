@@ -26,6 +26,7 @@ class SampleStoragesController < ApplicationController
 
   # GET /sample_storages/1/edit
   def edit
+    render :layout => 'blank_templet'
   end
 
   # POST /sample_storages
@@ -47,8 +48,23 @@ class SampleStoragesController < ApplicationController
   # PATCH/PUT /sample_storages/1
   # PATCH/PUT /sample_storages/1.json
   def update
+    sample = Sample.find_by_sample_seq(params[:sample_seq])
+    if sample.nil?
+      render :edit
+    else
+      Sample.transaction do
+        @sample_storage.sample_id= sample.id
+        @sample_storage.save
+        sample.storage_status= Sample::STATUS_IN
+        sample.save
+      end
+      redirect_to @sample_storage
+    end
+
+=begin
     respond_to do |format|
-      if @sample_storage.update(sample_storage_params)
+
+      if @sample_storage.
         format.html { redirect_to @sample_storage, notice: 'Sample storage was successfully updated.' }
         format.json { render :show, status: :ok, location: @sample_storage }
       else
@@ -56,6 +72,7 @@ class SampleStoragesController < ApplicationController
         format.json { render json: @sample_storage.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /sample_storages/1

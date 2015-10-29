@@ -1,4 +1,5 @@
 
+
 <ul id="myTab" class="nav nav-tabs">
   <li class="active"><a href="#home" data-toggle="tab">样本列表</a></li>
   <li><a href="#profile" data-toggle="tab">病例列表</a></li>
@@ -72,8 +73,8 @@
 
                 <td><%= sample.sample_no %></td>
                 <td><%= sample.sample_seq %></td>
-                <td><span class="label label-success"><%= sample.storage_status %></span></td>
                 <td><%= sample.position %></td>
+                <td><span class="label label-success"><%= sample.storage_status %></span></td>
                 <td>
                   <%= link_to '查看', sample %>
                   <%= link_to '出库', edit_sample_path(sample) %>

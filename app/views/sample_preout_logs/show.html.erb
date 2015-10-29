@@ -21,7 +21,7 @@
         <td><%= sample.sample_seq %></td>
         <td><%= sample.sample_no %></td>
         <td><%= @sample_preout_log.user_name %></td>
-        <td><%#= sample.sample_storage.position_index %></td>
+        <td><%= sample.position %></td>
         <td><span class="label label-success"><%= sample.storage_status %></span></td>
         <td>
           <% if sample.storage_status==Sample::STATUS_OUT %>

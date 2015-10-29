@@ -97,9 +97,17 @@ class SamplesController < ApplicationController
   def samples_out
     sample_preout_log = SamplePreoutLog.find(params[:sample_preout_log_id])
     sample = Sample.find(params[:id])
-    sample.storage_status = Sample::STATUS_OUT
     Sample.transaction do
-      sample.current_sample_volume = (sample.current_sample_volume-sample_preout_log*(params[:proportpion].to_i/100.0)
+      #如为出库为100%，则为完全出库，更改样本状态，否则不更改状态
+      if sample_preout_log.proportpion.to_i==100
+        sample.current_sample_volume=0
+        sample.storage_status = Sample::STATUS_OUT
+        sample.clear_sample_storage
+      else
+        sample.current_sample_volume = (sample.current_sample_volume-(sample_preout_log.proportpion.to_i/100.0))
+      end
+      #此处判断标准有问题
+
       sample.save
       sample_preout_log.update_status
     end

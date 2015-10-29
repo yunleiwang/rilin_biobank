@@ -12,11 +12,12 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <% if session[:patient_info_id]%>
+            <% patient_info = PatientInfo.find(session[:patient_info_id])%>
             <!-- Upload to server link. Class "dropdown-big" creates big dropdown -->
             <li class="dropdown dropdown-big">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span>当前患者-张三 </a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span>当前患者:<%= patient_info.patient_name%> </a>
               <!-- Dropdown -->
-              <% patient_info = PatientInfo.find(session[:patient_info_id])%>
+
               <ul class="dropdown-menu">
                 <li>
                   <!-- Progress bar -->
@@ -71,6 +72,10 @@
 
                 </li>
               </ul>
+            </li>
+            <li class="dropdown dropdown-big">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label label-success"><i class="fa fa-cloud-upload"></i></span>患者ID:<%= patient_info.patient_id%> </a>
+              <!-- Dropdown -->
             </li>
         <% end %>
 

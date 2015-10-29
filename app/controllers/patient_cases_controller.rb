@@ -1,9 +1,10 @@
 class PatientCasesController < ApplicationController
   before_action :set_patient_case, only: [:show, :edit, :update, :destroy]
+  before_filter :set_patient_info, only: [:new]
   # GET /patient_cases
   # GET /patient_cases.json
   def index
-    @patient_cases = PatientCase.all
+    @patient_cases = PatientCase.all.order('id desc')
   end
 
   # GET /patient_cases/1
@@ -21,6 +22,7 @@ class PatientCasesController < ApplicationController
 
   # GET /patient_cases/1/edit
   def edit
+    session[:patient_info_id]=@patient_case.patient_info_id
     @samples = @patient_case.samples.order('id asc')
     if params[:sample_id]
       @sample = @samples.find{|sample|sample.id==params[:sample_id].to_i}
@@ -34,6 +36,7 @@ class PatientCasesController < ApplicationController
   # POST /patient_cases.json
   def create
     @patient_case = PatientCase.new(patient_case_params)
+    @patient_case.patient_info_id = session[:patient_info_id]
     @patient_case.save
     # 如果params[:batch_add_num].nil? 默认添加一个样本
     params[:batch_add_num] ||= 1

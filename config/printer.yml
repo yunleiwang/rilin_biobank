@@ -1,0 +1,13 @@
+--- !ruby/hash-with-ivars:ActionController::Parameters
+elements:
+  x: '1'
+  y: '10'
+  printer_name: "ZDesigner GK888t (EPL)"
+  area1: position_index
+  area2: position_index
+  area3: position_index
+  area4: position_index
+  area5: position_index
+  area6: position_index
+ivars:
+  :@permitted: false

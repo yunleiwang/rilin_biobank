@@ -25,4 +25,12 @@ class Frame < ActiveRecord::Base
     end
   end
 
+  def container
+    container = nil
+    frame_storage = self.frame_storages[0]
+    if frame_storage
+      container = frame_storage.container
+    end
+    container
+  end
 end
