@@ -12,6 +12,6 @@
 !/log/.keep
 /tmp
 /log
-#/config
+/config
 /.idea
 
