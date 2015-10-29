@@ -7,7 +7,7 @@ class BoxerStoragesController < ApplicationController
     @frame = Frame.find(params[:frame_id])
     frame_storage = @frame.frame_storages.first
     @container = frame_storage.container
-    @frame_storages = @container.frame_storages
+    @frame_storages = @container.frame_storages.order('id asc')
     @boxer_storages = BoxerStorage.all.where(:frame_id => params[:frame_id].to_i).order('id asc')
   end
 

@@ -319,7 +319,7 @@ li{
  display:block;
  width:99%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -340,7 +340,7 @@ li{
  display:block;
  width:49%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -361,7 +361,7 @@ li{
  display:block;
  width:32%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -383,7 +383,7 @@ li{
  display:block;
  width:24%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -400,7 +400,7 @@ li{
  margin-left:1%;
  }*/
 /*每行5个架子*/
-.freezer_box_big .freezer .top .layer a{
+/*.freezer_box_big .freezer .top .layer a{
     display:block;
     width:19%;
     height:46px;
@@ -419,14 +419,14 @@ li{
     background-color:#8c8c8c;
     float:left;
     margin-left:1%;
-}
+}*/
 
 /*每行6个架子*/
 /*.freezer_box_big .freezer .top .layer a{
  display:block;
  width:15%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -448,7 +448,7 @@ li{
  display:block;
  width:13%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -470,7 +470,7 @@ li{
  display:block;
  width:11.5%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -492,7 +492,7 @@ li{
  display:block;
  width:10%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -694,7 +694,7 @@ li{
  display:block;
  width:99%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -715,7 +715,7 @@ li{
  display:block;
  width:49%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -736,7 +736,7 @@ li{
  display:block;
  width:32%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -758,7 +758,7 @@ li{
  display:block;
  width:24%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -775,6 +775,7 @@ li{
  margin-left:1%;
  }*/
 /*每行5个架子*/
+/*
 .freezer_box_small .freezer .top .layer a{
     display:block;
     width:19%;
@@ -795,13 +796,14 @@ li{
     float:left;
     margin-left:1%;
 }
+*/
 
 /*每行6个架子*/
 /*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:15%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -823,7 +825,7 @@ li{
  display:block;
  width:13%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -845,7 +847,7 @@ li{
  display:block;
  width:11.5%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -867,7 +869,7 @@ li{
  display:block;
  width:10%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -996,7 +998,7 @@ li{
  display:block;
  width:99%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1017,7 +1019,7 @@ li{
  display:block;
  width:49%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1038,7 +1040,7 @@ li{
  display:block;
  width:32%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1060,7 +1062,7 @@ li{
  display:block;
  width:24%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1077,7 +1079,7 @@ li{
  margin-left:1%;
  }*/
 /*一行有5个盒子*/
-.shelf_box_big .shelf .top .layer a{
+/*.shelf_box_big .shelf .top .layer a{
     display:block;
     width:19%;
     height:46px;
@@ -1096,13 +1098,13 @@ li{
     background-color:#8c8c8c;
     float:left;
     margin-left:1%;
-}
+}*/
 /*每行6个盒子*/
 /*.shelf_box_big .freezer .top .layer a{
  display:block;
  width:15%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1124,7 +1126,7 @@ li{
  display:block;
  width:13%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1146,7 +1148,7 @@ li{
  display:block;
  width:11.5%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1168,7 +1170,7 @@ li{
  display:block;
  width:10%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1262,7 +1264,7 @@ li{
  display:block;
  width:99%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1283,7 +1285,7 @@ li{
  display:block;
  width:49%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1304,7 +1306,7 @@ li{
  display:block;
  width:32%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1326,7 +1328,7 @@ li{
  display:block;
  width:24%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1343,7 +1345,7 @@ li{
  margin-left:1%;
  }*/
 /*一行有5个盒子*/
-.shelf_box_small .shelf .top .layer a{
+/*.shelf_box_small .shelf .top .layer a{
     display:block;
     width:19%;
     height:20px;
@@ -1362,13 +1364,13 @@ li{
     background-color:#8c8c8c;
     float:left;
     margin-left:1%;
-}
+}*/
 /*每行6个盒子*/
 /*.shelf_box_small .freezer .top .layer a{
  display:block;
  width:15%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1390,7 +1392,7 @@ li{
  display:block;
  width:13%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1412,7 +1414,7 @@ li{
  display:block;
  width:11.5%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;
@@ -1434,7 +1436,7 @@ li{
  display:block;
  width:10%;
  height:46px;
- background-image:url(../img/r_savespace/box_bg.png);
+ background-image:url(r_savespace/box_bg.png);
  background-size:100%;
  -webkit-background-size:100%;
  -moz-background-size:100%;

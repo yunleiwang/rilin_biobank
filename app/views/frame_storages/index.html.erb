@@ -2,6 +2,7 @@
 <%#= link_to '架子存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_id => frame_storage.frame_id %>
 <%= javascript_include_tag 'jquery.fancybox.js' %>
 <%= stylesheet_link_tag 'jquery.fancybox.css' %>
+<%= stylesheet_link_tag "freezer_big#{@container.container_columns}" %>
 <div class="row">
   <div class="col-md-12">
     <!--添加项目按钮-->

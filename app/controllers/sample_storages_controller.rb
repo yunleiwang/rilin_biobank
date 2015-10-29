@@ -7,7 +7,7 @@ class SampleStoragesController < ApplicationController
     @boxer = Boxer.find(params[:boxer_id])
     boxer_storage = @boxer.boxer_storages.first
     @frame = boxer_storage.frame
-    @boxer_storages = @frame.boxer_storages
+    @boxer_storages = @frame.boxer_storages.order('id asc')
     frame_storage = @frame.frame_storages.first
     @container = frame_storage.container
     @frame_storages = @container.frame_storages.order('id asc')

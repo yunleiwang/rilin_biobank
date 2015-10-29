@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag "boxer_small#{@boxer.box_column}" %>
+<%= stylesheet_link_tag "freezer_small#{@container.container_columns}" %>
+<%= stylesheet_link_tag "boxer_small#{@frame.frame_columns}" %>
+
 <div class="row">
   <div class="col-md-12">
     <input class="r_add_btn" type="button" value="添加项目 +">
@@ -8,30 +12,20 @@
 <div class="r_upright_box_box_big">
   <div class="box_box_digital_big">
     <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
+      <%b = 'a'%>
+      <% @boxer.box_column.times do %>
+          <li><%= b %></li>
+          <% b.next! %>
+      <% end %>
     </ul>
   </div>
   <div class="box_box_big">
     <div class="box">
       <div class="box_box_letter_big">
         <ul>
-          <li>A</li>
-          <li>B</li>
-          <li>C</li>
-          <li>D</li>
-          <li>E</li>
-          <li>F</li>
-          <li>G</li>
-          <li>H</li>
-          <li>I</li>
+          <% (1..@boxer.box_row).each do |i|%>
+              <li><%= i %></li>
+          <% end %>
         </ul>
       </div>
       <div class="layer_box">
@@ -107,9 +101,9 @@
                 <% (0...@frame.frame_columns).each do |j| %>
                     <% boxer_storage = @boxer_storages[i*@frame.frame_columns+j] %>
                     <% if boxer_storage.boxer_id %>
-                        <a class="fancybox<%= get_css_class2(boxer_storage,j) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+                        <a class="<%= get_css_class2(boxer_storage,j) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
                     <% else %>
-                        <a href="#"></a>
+                        <a class="<%= get_css_class2(boxer_storage,j) %>" href="#"></a>
                     <% end %>
                 <% end %>
               </div>
