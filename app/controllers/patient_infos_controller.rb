@@ -1,4 +1,4 @@
-require 'rqrcode'
+#require 'rqrcode'
 class PatientInfosController < ApplicationController
   before_action :set_patient_info, only: [:show, :edit, :update, :destroy]
 
