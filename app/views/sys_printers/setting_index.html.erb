@@ -1,0 +1,133 @@
+<form class='form-horizontal'>
+<div id="error_explanation">
+</div>
+<div class="widget wgreen">
+  <div class="widget-head">
+    <div class="pull-left">打印机设置</div>
+    <div class="widget-icons pull-right">
+      <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="widget-content">
+    <div class="padd">
+      <!--<br />-->
+
+      <div class="form-group">
+        <%= label_tag :setting_printer_name, '打印机名',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%=text_field :setting,:printer_name,:value=>@setting1["printer_name"],:class=>'form-control'%>
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-3">
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :setting_x, 'x轴',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%=text_field :setting,:x,:value=>@setting1["x"] ,:class=>'form-control'%>
+        </div>
+        <%= label_tag :setting_y, 'y轴', :class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%=text_field :setting,:y,:value=>@setting1["y"] ,:class=>'form-control'%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :setting_area1, '区域1',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area1,options_from_collection_for_select(@sys_table_columns,"id","cname_en",@setting1["area1"])%>
+        </div>
+        <%= label_tag :setting_area2, '区域2',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area2,options_from_collection_for_select(@sys_table_columns,"id","cname_en",@setting1["area2"])%>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :setting_area3, '区域3',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area3,options_from_collection_for_select(@sys_table_columns,"id","cname_en",@setting1["area3"])%>
+        </div>
+        <%= label_tag :setting_area4, '区域4',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area4,options_from_collection_for_select(@sys_table_columns,"id","cname_en",@setting1["area4"])%>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag :setting_area5, '区域5',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area5,options_from_collection_for_select(@sys_table_columns,'id',"cname_en",@setting1["area5"])%>
+        </div>
+        <%= label_tag :setting_area6, '区域4',:class=>'col-lg-2 control-label' %>
+        <div class="col-lg-3">
+          <%= select :setting,:area6,options_from_collection_for_select(@sys_table_columns,'id',"cname_en",@setting1["area6"])%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-3">
+          <input type="button" value="打印测试" onclick="print_test()">
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-3">
+          <input type="button" value="保存" onclick="setting_change()">
+        </div>
+
+      </div>
+      <!-- 表单结束-->
+      <div class="clearfix"></div>
+
+    </div>
+  </div>
+  <div class="widget-foot">
+    <!-- Footer goes here -->
+  </div>
+</div>
+</form>
+<script>
+  function print_test(){
+      var setting_printer_name=$("#setting_printer_name").val()
+      var setting_x=$("#setting_x").val()
+      var setting_y=$("#setting_y").val()
+      var setting_area1=$("#setting_area1").val()
+      var setting_area2=$("#setting_area2").val()
+      var setting_area3=$("#setting_area3").val()
+      var setting_area4=$("#setting_area4").val()
+      var setting_area5=$("#setting_area5").val()
+      var setting_area6=$("#setting_area6").val()
+      $.ajax({
+          type: 'GET',
+          url: '/sys_printers/setting_test',
+          data: "setting[x]="+setting_x+"&&setting[y]="+setting_y+"&&setting[printer_name]="+setting_printer_name+"&&setting[area1]="+setting_area1+"&&setting[area2]="+setting_area2+"&&setting[area3]="+setting_area3+"&&setting[area4]="+setting_area4+"&&setting[area5]="+setting_area5+"&&setting[area6]="+setting_area6,
+          success: function(msg) {
+              alert(11)
+          }
+      });
+  }
+  function setting_change(){
+      var setting_printer_name=$("#setting_printer_name").val()
+      var setting_x=$("#setting_x").val()
+      var setting_y=$("#setting_y").val()
+      var setting_area1=$("#setting_area1").val()
+      var setting_area2=$("#setting_area2").val()
+      var setting_area3=$("#setting_area3").val()
+      var setting_area4=$("#setting_area4").val()
+      var setting_area5=$("#setting_area5").val()
+      var setting_area6=$("#setting_area6").val()
+      $.ajax({
+          data: "setting[x]="+setting_x+"&&setting[y]="+setting_y+"&&setting[printer_name]="+setting_printer_name+"&&setting[area1]="+setting_area1+"&&setting[area2]="+setting_area2+"&&setting[area3]="+setting_area3+"&&setting[area4]="+setting_area4+"&&setting[area5]="+setting_area5+"&&setting[area6]="+setting_area6,
+          type: 'GET',
+          dataType : "json",
+          url: '/sys_printers/setting_change',
+          success: function(msg) {
+              alert(11)
+          }
+      });
+  }
+</script>

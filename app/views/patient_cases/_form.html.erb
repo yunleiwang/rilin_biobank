@@ -121,7 +121,7 @@
             </div>
             <div class="col-lg-2"></div>
             <div class="col-lg-3">
-              <input type="button" value="打印样本标签" onclick="javascript:alert(1)">
+              <input type="button" value="打印样本标签" onclick="print_sample()">
             </div>
 
             </div>
@@ -190,3 +190,17 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+    function print_sample(){
+        var sample_seq=$("#sample_sample_seq").val()
+        $.ajax({
+            data: "sample_seq="+sample_seq,
+            type: 'GET',
+            dataType : "json",
+            url: '/sys_printers/print_sample',
+            success: function(msg) {
+                alert(11)
+            }
+        });
+    }
+</script>
