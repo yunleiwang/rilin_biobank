@@ -1,0 +1,2 @@
+module SampleOutLogsHelper
+end

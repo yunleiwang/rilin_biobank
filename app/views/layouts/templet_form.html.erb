@@ -73,7 +73,7 @@
                   </li>
               <% end %>
           <% else %>
-              <li class="<%= 'open' if menu.first_level_menu_lib.id==menu_lib.id %> has_sub">
+              <li class="<%= 'open' if menu && menu.first_level_menu_lib.id==menu_lib.id %> has_sub">
                 <a href="<%= menu_lib.link %>"><i class="fa <%= menu_lib.icon_class %>"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
                 <ul>
                   <% menu_lib.children_menu_libs.each do |child_menu_lib| %>

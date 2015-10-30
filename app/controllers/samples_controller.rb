@@ -101,14 +101,24 @@ class SamplesController < ApplicationController
       #如为出库为100%，则为完全出库，更改样本状态，否则不更改状态
       if sample_preout_log.proportpion.to_i==100
         sample.current_sample_volume=0
-        sample.storage_status = Sample::STATUS_OUT
+        sample.storage_status = Sample::STATUS_OUT  # 有问题
         sample.clear_sample_storage
-      else
+      elsif(sample.freezing_thawing_times && sample.freezing_thawing_times>sample.sample_out_logs.count)
         sample.current_sample_volume = (sample.current_sample_volume-(sample_preout_log.proportpion.to_i/100.0))
+        sample.storage_status = Sample::STATUS_IN  # 改为在库
+      else #冻存次数超过预定
+        sample.current_sample_volume = (sample.current_sample_volume-(sample_preout_log.proportpion.to_i/100.0))
+        sample.storage_status = Sample::STATUS_OUT  # 有问题
       end
       #此处判断标准有问题
-
       sample.save
+      #添加出库记录
+      sample_out_log = SampleOutLog.new
+      sample_out_log.sample_preout_log_id= sample_preout_log.id
+      sample_out_log.sample_id= sample.id
+      sample_out_log.out_status= SampleOutLog::OUT_STATUS_SUCCESS
+      sample_out_log.save
+
       sample_preout_log.update_status
     end
     redirect_to :controller => 'sample_preout_logs', :action => 'show', :id=>sample_preout_log.id

@@ -1,7 +1,8 @@
 class Sample < ActiveRecord::Base
-
 	belongs_to :patient_case
 	has_many :sample_storages
+  #has_many :sample_preout_logs,
+  has_many :sample_out_logs
   validates_presence_of :initial_sample_volume
 	#样本状态
 	STATUS_IN = "在库"

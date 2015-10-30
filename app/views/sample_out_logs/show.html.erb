@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sample:</strong>
+  <%= @sample_out_log.sample_id %>
+</p>
+
+<p>
+  <strong>Sample preout log:</strong>
+  <%= @sample_out_log.sample_preout_log_id %>
+</p>
+
+<p>
+  <strong>Out status:</strong>
+  <%= @sample_out_log.out_status %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @sample_out_log.remark %>
+</p>
+
+<%= link_to 'Edit', edit_sample_out_log_path(@sample_out_log) %> |
+<%= link_to 'Back', sample_out_logs_path %>

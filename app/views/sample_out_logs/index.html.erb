@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sample Out Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sample</th>
+      <th>Sample preout log</th>
+      <th>Out status</th>
+      <th>Remark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sample_out_logs.each do |sample_out_log| %>
+      <tr>
+        <td><%= sample_out_log.sample_id %></td>
+        <td><%= sample_out_log.sample_preout_log_id %></td>
+        <td><%= sample_out_log.out_status %></td>
+        <td><%= sample_out_log.remark %></td>
+        <td><%= link_to 'Show', sample_out_log %></td>
+        <td><%= link_to 'Edit', edit_sample_out_log_path(sample_out_log) %></td>
+        <td><%= link_to 'Destroy', sample_out_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sample out log', new_sample_out_log_path %>

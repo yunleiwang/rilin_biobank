@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sample_id: 1
+  sample_preout_log_id: 1
+  out_status: MyString
+  remark: MyString
+
+two:
+  sample_id: 1
+  sample_preout_log_id: 1
+  out_status: MyString
+  remark: MyString

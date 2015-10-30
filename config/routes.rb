@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sample_out_logs
   #resources :sys_table_columns
   resources :sample_preout_logs
   resources :menu_libs

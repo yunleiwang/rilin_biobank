@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029085254) do
+ActiveRecord::Schema.define(version: 20151030005808) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "boxer_storages", force: :cascade do |t|
     t.integer  "position_index"
@@ -125,6 +128,15 @@ ActiveRecord::Schema.define(version: 20151029085254) do
     t.string   "relative_phone2_third",  limit: 255
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+  end
+
+  create_table "sample_out_logs", force: :cascade do |t|
+    t.integer  "sample_id"
+    t.integer  "sample_preout_log_id"
+    t.string   "out_status",           limit: 255
+    t.string   "remark",               limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "sample_preout_logs", force: :cascade do |t|

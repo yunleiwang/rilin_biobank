@@ -24,7 +24,8 @@
         <td><%= sample.position %></td>
         <td><span class="label label-success"><%= sample.storage_status %></span></td>
         <td>
-          <% if sample.storage_status==Sample::STATUS_OUT %>
+          <% sample_out_log = SampleOutLog.find_by_sample_id_and_sample_preout_log_id(sample.id, @sample_preout_log.id) %>
+          <% if sample_out_log %>
               <%= link_to '详细', :controller => 'samples', :action=>'edit', :id=>sample.id, :sample_preout_log_id=>@sample_preout_log.id %>
           <% else %>
               <%= link_to '确认出库', :controller => 'samples', :action=>'samples_out', :id=>sample.id, :sample_preout_log_id=>@sample_preout_log.id %>
