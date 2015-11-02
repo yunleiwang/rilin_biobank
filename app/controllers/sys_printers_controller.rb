@@ -1,7 +1,7 @@
 #encoding=utf-8
-require 'java'
-require 'lib/ZSDK_API.jar'
-require 'lib/zebra_print.jar'
+#require 'java'
+#require 'lib/ZSDK_API.jar'
+#require 'lib/zebra_print.jar'
 #生成jar包放在lib/lib下    dll放在windows/system32下  调用方式  Java::包命::类名
 class SysPrintersController < ApplicationController
   #打印机设置列表
@@ -11,7 +11,7 @@ class SysPrintersController < ApplicationController
     render :layout => 'templet_form'
   end
   def setting_test
-    #begin
+    begin
       setting=params[:setting]
       printer_name=params[:setting][:printer_name]
       zpl_code=%{
@@ -46,11 +46,11 @@ class SysPrintersController < ApplicationController
         ^FDarea2^FS
         ^XZ
     }
-      Java::rilinprinter::SendFileUtil.sendFileToPrinter("ZDesigner GK888t (EPL) (副本 1)",zpl_code)
+      Java::rilinprinter::SendFileUtil.sendFileToPrinter(printer_name,zpl_code)
       result="success"
-    #rescue
+    rescue
       result="fail"
-    #end
+    end
     render :json => result
   end
   #更改打印机设置
@@ -103,7 +103,7 @@ class SysPrintersController < ApplicationController
         ^FD#{patient_info.patient_id}^FS
         ^XZ
     }
-      Java::rilinprinter::SendFileUtil.sendFileToPrinter("ZDesigner GK888t (EPL) (副本 1)",zpl_code)
+      Java::rilinprinter::SendFileUtil.sendFileToPrinter(setting[:printer_name],zpl_code)
       result="success"
     rescue
       result="fail"

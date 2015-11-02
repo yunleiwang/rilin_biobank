@@ -31,6 +31,7 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos/1.json
   def show
     session[:patient_info_id]=@patient_info.id
+    render :layout => "rilin_show"
   end
 
   # GET /patient_infos/new
