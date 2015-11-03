@@ -1,29 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Sample no:</strong>
-  <%= @sample.sample_no %>
-</p>
-
-<p>
-  <strong>Sample seq:</strong>
-  <%= @sample.sample_seq %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @sample.user_id %>
-</p>
-
-<p>
-  <strong>Storage status:</strong>
-  <%= @sample.storage_status %>
-</p>
-
-<p>
-  <strong>Freezing thawing times:</strong>
-  <%= @sample.freezing_thawing_times %>
-</p>
-
-<%= link_to 'Edit', edit_sample_path(@sample) %> |
-<%= link_to 'Back', samples_path %>
+<!--title标题-->
+<% content_for :title do %>
+    <h2 class="pull-left"><i class="fa fa-home"></i> 样本信息</h2>
+<% end %>
+<% content_for :clearfix do %>
+    <%= @sample.patient_case.patient_info.patient_name%>
+<% end %>
+<!-- Widget内容 -->
+<% content_for :detail do %>
+    <div class="support-contact">
+      <!-- Phone, email and address with font awesome icon -->
+      <p><i class="fa  fa-sort-numeric-asc "></i>&nbsp; 样本号<strong>:</strong> <%= @sample.sample_no%></p></p>
+      <hr />
+      <p><i class="fa "></i>&nbsp; 样本ID<strong>:</strong> <%= @sample.sample_seq%></p>
+      <hr />
+      <p><i class="fa fa-calendar "></i>&nbsp; 存储状态<strong>:</strong> <%= @sample.storage_status%></p>
+      <hr />
+      <p><i class="fa fa-calendar "></i>&nbsp; 冻融次数<strong>:</strong> <%= @sample.freezing_thawing_times%></p>
+      <hr />
+      <!-- Button按钮 -->
+      <%= link_to "编辑" ,edit_sample_path(@sample),:class=>"btn btn-sm btn-info"%>&nbsp;
+      <%= link_to "返回" ,samples_path,:class=>"btn btn-sm btn-success"%>
+    </div>
+<% end %>

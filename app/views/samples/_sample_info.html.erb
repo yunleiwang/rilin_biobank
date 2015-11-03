@@ -28,7 +28,16 @@
     <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'sample_no' %>
   </div>
 </div>
-<% if !@sample.nil? %>
-    <%=link_to 'previous', "javascript:void(0)", id: 'previous', :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
-    <%=link_to 'next', "javascript:void(0)", id: 'next', :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
-<% end %>
+<div class="form-group">
+  <%= label :sample,:previous, '样本',:class=>'col-lg-2 control-label' %>
+  <div class="col-lg-3">
+
+    <% if !@sample.blank? && !@sample.id.nil? %>
+        <%=link_to '←', "javascript:void(0)", id: 'previous',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+        <%=link_to '→', "javascript:void(0)", id: 'next',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+    <% end %>
+  </div>
+  <div class="col-lg-3">
+
+  </div>
+</div>

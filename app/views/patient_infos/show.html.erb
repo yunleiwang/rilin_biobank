@@ -26,7 +26,7 @@
     <p><i class="fa  fa-home  "></i>&nbsp; 家庭住址<strong>:</strong> <%= @patient_info.address%></p>
     <hr />
     <!-- Button按钮 -->
-    <%= link_to "编辑" ,edit_patient_info_path,:class=>"btn btn-sm btn-info"%>&nbsp;
+    <%= link_to "编辑" ,edit_patient_info_path(@patient_info),:class=>"btn btn-sm btn-info"%>&nbsp;
     <%= link_to "返回" ,patient_info_path,:class=>"btn btn-sm btn-success"%>
   </div>
 <% end %>

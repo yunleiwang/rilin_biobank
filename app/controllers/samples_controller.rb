@@ -10,6 +10,7 @@ class SamplesController < ApplicationController
   # GET /samples/1
   # GET /samples/1.json
   def show
+    render :layout => 'layouts/rilin_show'
   end
 
   # GET /samples/new
@@ -21,6 +22,8 @@ class SamplesController < ApplicationController
   def edit
     if !params[:sample_preout_log_id].blank?
       render :layout => 'blank_templet'
+    else
+      render :layout => 'templet_form'
     end
   end
 

@@ -1,14 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Case number:</strong>
-  <%= @patient_case.case_number %>
-</p>
-
-<p>
-  <strong>Patient info:</strong>
-  <%= @patient_case.patient_info_id %>
-</p>
-
-<%= link_to 'Edit', edit_patient_case_path(@patient_case) %> |
-<%= link_to 'Back', patient_cases_path %>
+<!--title标题-->
+<% content_for :title do %>
+    <h2 class="pull-left"><i class="fa fa-home"></i> 病例信息</h2>
+<% end %>
+<% content_for :clearfix do %>
+    <%= @patient_case.patient_info.patient_name%>
+<% end %>
+<!-- Widget内容 -->
+<% content_for :detail do %>
+    <div class="support-contact">
+      <!-- Phone, email and address with font awesome icon -->
+      <p><i class="fa  fa-sort-numeric-asc "></i>&nbsp; 病历编号<strong>:</strong> <%= @patient_case.case_number%></p></p>
+      <hr />
+      <hr />
+      <!-- Button按钮 -->
+      <%= link_to "编辑" ,edit_patient_case_path,:class=>"btn btn-sm btn-info"%>&nbsp;
+      <%= link_to "返回" ,patient_case_path,:class=>"btn btn-sm btn-success"%>
+    </div>
+<% end %>

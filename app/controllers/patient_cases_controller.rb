@@ -10,6 +10,7 @@ class PatientCasesController < ApplicationController
   # GET /patient_cases/1
   # GET /patient_cases/1.json
   def show
+    render :layout => 'layouts/rilin_show'
   end
 
   # GET /patient_cases/new

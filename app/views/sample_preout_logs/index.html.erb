@@ -22,10 +22,11 @@
         <!--<td><%#= sample_preout_log.status %></td>-->
         <td><span class="label label-success"><%= sample_preout_log.status %></span></td>
         <td>
-          <a class="fancybox_frame" href="/sample_preout_logs/<%= sample_preout_log.id%>">详细</a>
+          <a class="fancybox_frame btn btn-xs btn-success fa fa-check" href="/sample_preout_logs/<%= sample_preout_log.id%>" title="查看"></a>
           <%#= link_to 'Show', :action=>'show', :class=> "fancybox" %>
           <%#= link_to 'Edit', edit_sample_preout_log_path(sample_preout_log) %>
-          <%= link_to 'Destroy', sample_preout_log, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to '', sample_preout_log, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
+
         </td>
       </tr>
   <% end %>
