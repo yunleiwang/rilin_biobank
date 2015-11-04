@@ -1,11 +1,13 @@
 // JavaScript Document
-
+$(document).ready(function(){
+    $(".r_equipment").hide();
+})
 $(function(){
 	/*存储空间二级菜单显隐*/
     $(".r_save_space_tittle").click(function(){
         $("#nav > li").removeClass("open");
-		$(".r_equipment").toggle(300);
-    }); 
+	    $(".r_equipment").toggle(300);
+    });
 	/*存储空间三级菜单显隐*/
 	/*点按钮*/
 	$(".r_shelf_box li").click(function(){
@@ -29,7 +31,7 @@ $(function(){
 		$(".r_add_equipment_box").slideUp();
 	});
 	});
-	
+
 	$(".r_modify_btn").click(function(){
 		/*所有内容都隐藏*/
 		$(".r_add_equipment_box").slideDown();

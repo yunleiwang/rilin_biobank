@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'sys_account/sign_in'
 
+  get 'login' => 'sys_account#sign_in'
+
   get 'sys_account/sign_out'
 
   get 'sys_account/change_password'
