@@ -12,7 +12,7 @@ class SysAccountController < ApplicationController
     else
       if Digest::MD5.hexdigest(params[:password])==sys_user.password
         session[:sys_user_id] = sys_user.id
-        redirect_to :controller => 'patient_infos', :action => 'index', :layout=> false
+        redirect_to :controller => 'patient_infos', :action => 'index'
       else
         flash[:password_error] = ' 密码错误！'
         render :action => 'sign_in', :layout => false

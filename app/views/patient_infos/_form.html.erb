@@ -1,229 +1,244 @@
-<%= form_for(@patient_info, :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
-  <% if @patient_info.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient_info.errors.count, "error") %> prohibited this patient_info from being saved:</h2>
-      <ul>
-      <% @patient_info.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="widget wgreen">
-      <div class="widget-head">
-        <div class="pull-left">基本信息</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="widget-content">
-        <div class="padd">
-          <!--<br />-->
-
-        <div class="form-group">
-          <%= f.label :patient_id, '患者ID',:class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.text_field :patient_id,:class=>'form-control', :placeholder=>'患者ID' %>
-          </div>
-          <%= f.label :patient_name,'姓名', :class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.text_field :patient_name,:class=>'form-control', :placeholder=>'姓名' %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :gender, '性别',:class=>'col-lg-2 control-label'  %>
-          <div class="col-lg-3">
-            <%= f.text_field :gender,:class=>'form-control', :placeholder=>'性别' %>
-          </div>
-          <%= f.label :birthday,'出生日期', :class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.date_select :birthday,:class=>'form-control', :placeholder=>'出生日期' %>
-          </div>
-          <!--<div id="datetimepicker1" class="input-append input-group dtpicker">-->
-            <!--<input data-format="yyyy-MM-dd" type="text" class="form-control">-->
-						<!--<span class="input-group-addon add-on">-->
-							<!--<i data-time-icon="fa fa-times" data-date-icon="fa fa-calendar"></i>-->
-						<!--</span>-->
-          <!--</div>-->
-        </div>
-
-        <div class="form-group">
-          <%= f.label :cell_phone,'手机', :class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.text_field :cell_phone,:class=>'form-control', :placeholder=>'手机' %>
-          </div>
-          <%= f.label :home_phone, '住址电话',:class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.text_field :home_phone,:class=>'form-control', :placeholder=>'住址电话' %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :other_phone, '其他电话',:class=>'col-lg-2 control-label' %>
-          <div class="col-lg-3">
-            <%= f.text_field :other_phone,:class=>'form-control', :placeholder=>'其他电话' %>
-          </div>
-          <%= f.label :zip_code, '住址邮箱',:class=>'col-lg-2 control-label'  %>
-          <div class="col-lg-3">
-            <%= f.text_field :zip_code,:class=>'form-control', :placeholder=>'住址邮箱' %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :address,'家庭住址', :class=>'col-lg-2 control-label'  %>
-          <div class="col-lg-3">
-            <%= f.text_field :address,:class=>'form-control', :placeholder=>'家庭住址' %>
-          </div>
-
-        </div>
-          <!-- 表单结束-->
-          <div class="clearfix"></div>
-
-        </div>
-      </div>
-      <div class="widget-foot">
-        <!-- Footer goes here -->
-      </div>
-    </div>
-
-    <div class="widget wgreen">
-      <div class="widget-head">
-        <div class="pull-left">公司信息</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-          <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div class="widget-content">
-        <div class="padd">
-          <br />
-          <!--表单开始-->
-          <div class="form-group">
-            <%= f.label :company_name,'工作单位', :class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= f.text_field :company_name,:class=>'form-control', :placeholder=>'工作单位' %>
+<!-- 表单内容 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <%= form_for(@patient_info, :html=>{:class=>'form-horizontal',:role=>'form'}) do |f| %>
+        <% if @patient_info.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@patient_info.errors.count, "error") %> prohibited this patient_info from being saved:</h2>
+              <ul>
+                <% @patient_info.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
             </div>
-            <%= f.label :company_phone, '单位电话',:class=>'col-lg-2 control-label'  %>
-            <div class="col-lg-3">
-              <%= f.text_field :company_phone,:class=>'form-control', :placeholder=>'单位电话' %>
+        <% end %>
+
+        <div class="widget wgreen">
+          <div class="widget-head">
+            <div class="pull-left">基本信息</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="widget-content">
+            <div class="padd">
+              <!--<br />-->
+
+              <div class="form-group">
+                <%= f.label :patient_id, '患者ID',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :patient_id,:class=>'form-control', :placeholder=>'患者ID' %>
+                </div>
+                <%= f.label :patient_name,'姓名', :class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :patient_name,:class=>'form-control', :placeholder=>'姓名' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :gender, '性别',:class=>'col-lg-2 control-label'  %>
+                <div class="col-lg-3">
+                  <%= f.text_field :gender,:class=>'form-control', :placeholder=>'性别' %>
+                </div>
+                <%= f.label :birthday,'出生日期', :class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.date_select :birthday,:class=>'form-control', :placeholder=>'出生日期' %>
+                </div>
+                <!--<div id="datetimepicker1" class="input-append input-group dtpicker">-->
+                <!--<input data-format="yyyy-MM-dd" type="text" class="form-control">-->
+                <!--<span class="input-group-addon add-on">-->
+                <!--<i data-time-icon="fa fa-times" data-date-icon="fa fa-calendar"></i>-->
+                <!--</span>-->
+                <!--</div>-->
+              </div>
+
+              <div class="form-group">
+                <%= f.label :cell_phone,'手机', :class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :cell_phone,:class=>'form-control', :placeholder=>'手机' %>
+                </div>
+                <%= f.label :home_phone, '住址电话',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :home_phone,:class=>'form-control', :placeholder=>'住址电话' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :other_phone, '其他电话',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :other_phone,:class=>'form-control', :placeholder=>'其他电话' %>
+                </div>
+                <%= f.label :zip_code, '住址邮箱',:class=>'col-lg-2 control-label'  %>
+                <div class="col-lg-3">
+                  <%= f.text_field :zip_code,:class=>'form-control', :placeholder=>'住址邮箱' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :address,'家庭住址', :class=>'col-lg-2 control-label'  %>
+                <div class="col-lg-3">
+                  <%= f.text_field :address,:class=>'form-control', :placeholder=>'家庭住址' %>
+                </div>
+
+              </div>
+              <!-- 表单结束-->
+              <div class="clearfix"></div>
+
             </div>
           </div>
-          <div class="form-group">
-            <%= f.label :company_zip, '单位邮编',:class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= f.text_field :company_zip,:class=>'form-control', :placeholder=>'单位邮编' %>
-            </div>
-            <%= f.label :company_address,'单位地址', :class=>'col-lg-2 control-label'  %>
-            <div class="col-lg-3">
-              <%= f.text_field :company_address,:class=>'form-control', :placeholder=>'单位地址' %>
-            </div>
+          <div class="widget-foot">
+            <!-- Footer goes here -->
           </div>
-          <!--表单结束-->
-          <div class="clearfix"></div>
-
         </div>
-      </div>
-      <div class="widget-foot">
-        <!-- Footer goes here -->
-      </div>
-    </div>
 
-    <div class="widget wgreen">
-      <div class="widget-head">
-        <div class="pull-left">亲属信息</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
-          <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
-        </div>
-        <div class="clearfix"></div>
-      </div>
-      <div class="widget-content">
-        <div class="padd">
-          <br />
-          <!-- table starts.  -->
-          <!-- Table Page -->
-          <div class="page-tables">
-            <!-- Table -->
-            <div class="table-responsive">
-
+        <div class="widget wgreen">
+          <div class="widget-head">
+            <div class="pull-left">公司信息</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget-content">
+            <div class="padd">
+              <br />
               <!--表单开始-->
               <div class="form-group">
-                    <%= f.label :relationship_first,'亲友关系',:class=>'col-lg-2 control-label' %>
+                <%= f.label :company_name,'工作单位', :class=>'col-lg-2 control-label' %>
                 <div class="col-lg-3">
-                    <%= f.text_field :relationship_first,:class=>'form-control', :placeholder=>'亲友关系' %>
-                  </div>
-                    <%= f.label :relative_name_first,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
-                  <div class="col-lg-3">
-                    <%= f.text_field :relative_name_first,:class=>'form-control', :placeholder=>'亲友姓名' %>
-                  </div>
-
-              </div>
-              <div class="form-group">
-                  <%= f.label :relative_phone1_first,'亲友电话',:class=>'col-lg-2 control-label'  %>
-                  <div class="col-lg-3">
-                    <%= f.text_field :relative_phone1_first,:class=>'form-control', :placeholder=>'亲友电话' %>
-                  </div>
+                  <%= f.text_field :company_name,:class=>'form-control', :placeholder=>'工作单位' %>
+                </div>
+                <%= f.label :company_phone, '单位电话',:class=>'col-lg-2 control-label'  %>
                 <div class="col-lg-3">
+                  <%= f.text_field :company_phone,:class=>'form-control', :placeholder=>'单位电话' %>
                 </div>
               </div>
-
               <div class="form-group">
-                <%= f.label :relationship_second,'亲友关系',:class=>'col-lg-2 control-label' %>
+                <%= f.label :company_zip, '单位邮编',:class=>'col-lg-2 control-label' %>
                 <div class="col-lg-3">
-                  <%= f.text_field :relationship_second,:class=>'form-control', :placeholder=>'亲友关系' %>
+                  <%= f.text_field :company_zip,:class=>'form-control', :placeholder=>'单位邮编' %>
                 </div>
-                <%= f.label :relative_name_second,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
+                <%= f.label :company_address,'单位地址', :class=>'col-lg-2 control-label'  %>
                 <div class="col-lg-3">
-                  <%= f.text_field :relative_name_second,:class=>'form-control', :placeholder=>'亲友姓名' %>
-                </div>
-
-              </div>
-              <div class="form-group">
-                <%= f.label :relative_phone1_second,'亲友电话',:class=>'col-lg-2 control-label'  %>
-                <div class="col-lg-3">
-                  <%= f.text_field :relative_phone1_second,:class=>'form-control', :placeholder=>'亲友电话' %>
-                </div>
-                <div class="col-lg-3">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <%= f.label :relationship_third,'亲友关系',:class=>'col-lg-2 control-label' %>
-                <div class="col-lg-3">
-                  <%= f.text_field :relationship_third,:class=>'form-control', :placeholder=>'亲友关系' %>
-                </div>
-                <%= f.label :relative_name_third,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
-                <div class="col-lg-3">
-                  <%= f.text_field :relative_name_third,:class=>'form-control', :placeholder=>'亲友姓名' %>
-                </div>
-
-              </div>
-              <div class="form-group">
-                <%= f.label :relative_phone1_third,'亲友电话',:class=>'col-lg-2 control-label'  %>
-                <div class="col-lg-3">
-                  <%= f.text_field :relative_phone1_third,:class=>'form-control', :placeholder=>'亲友电话' %>
-                </div>
-                <%= f.label :relative_phone2_third,'亲友电话',:class=>'col-lg-2 control-label'  %>
-                <div class="col-lg-3">
-                  <%= f.text_field :relative_phone2_third,:class=>'form-control', :placeholder=>'亲友电话' %>
+                  <%= f.text_field :company_address,:class=>'form-control', :placeholder=>'单位地址' %>
                 </div>
               </div>
               <!--表单结束-->
               <div class="clearfix"></div>
+
             </div>
           </div>
+          <div class="widget-foot">
+            <!-- Footer goes here -->
+          </div>
         </div>
-      </div>
-      <div class="widget-foot">
-        <!-- Footer goes here -->
-      </div>
+
+        <div class="widget wgreen">
+          <div class="widget-head">
+            <div class="pull-left">亲属信息</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="widget-content">
+            <div class="padd">
+              <br />
+              <!-- table starts.  -->
+              <!-- Table Page -->
+              <div class="page-tables">
+                <!-- Table -->
+                <div class="table-responsive">
+
+                  <!--表单开始-->
+                  <div class="form-group">
+                    <%= f.label :relationship_first,'亲友关系',:class=>'col-lg-2 control-label' %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relationship_first,:class=>'form-control', :placeholder=>'亲友关系' %>
+                    </div>
+                    <%= f.label :relative_name_first,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_name_first,:class=>'form-control', :placeholder=>'亲友姓名' %>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :relative_phone1_first,'亲友电话',:class=>'col-lg-2 control-label'  %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_phone1_first,:class=>'form-control', :placeholder=>'亲友电话' %>
+                    </div>
+                    <div class="col-lg-3">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :relationship_second,'亲友关系',:class=>'col-lg-2 control-label' %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relationship_second,:class=>'form-control', :placeholder=>'亲友关系' %>
+                    </div>
+                    <%= f.label :relative_name_second,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_name_second,:class=>'form-control', :placeholder=>'亲友姓名' %>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :relative_phone1_second,'亲友电话',:class=>'col-lg-2 control-label'  %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_phone1_second,:class=>'form-control', :placeholder=>'亲友电话' %>
+                    </div>
+                    <div class="col-lg-3">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= f.label :relationship_third,'亲友关系',:class=>'col-lg-2 control-label' %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relationship_third,:class=>'form-control', :placeholder=>'亲友关系' %>
+                    </div>
+                    <%= f.label :relative_name_third,'亲友姓名' ,:class=>'col-lg-2 control-label'%>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_name_third,:class=>'form-control', :placeholder=>'亲友姓名' %>
+                    </div>
+
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :relative_phone1_third,'亲友电话',:class=>'col-lg-2 control-label'  %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_phone1_third,:class=>'form-control', :placeholder=>'亲友电话' %>
+                    </div>
+                    <%= f.label :relative_phone2_third,'亲友电话',:class=>'col-lg-2 control-label'  %>
+                    <div class="col-lg-3">
+                      <%= f.text_field :relative_phone2_third,:class=>'form-control', :placeholder=>'亲友电话' %>
+                    </div>
+                  </div>
+                  <!--表单结束-->
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-foot">
+            <!-- Footer goes here -->
+          </div>
+        </div>
+        <div class="actions">
+          <input type="submit" value="保存" class="btn btn-sm btn-success" />
+        </div>
+    <% end %>
     </div>
-  <div class="actions">
-    <input type="submit" value="保存" class="btn btn-sm btn-success" />
+
   </div>
-<% end %>
+</div>
+<%= javascript_include_tag 'jquery.pjax.js' %>
+<script>
+    $(document).on('submit', 'form', function(event) {
+        $.pjax.submit(event, '#pjax-container')
+    })
+</script>
+

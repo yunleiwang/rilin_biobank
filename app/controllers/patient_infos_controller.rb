@@ -24,6 +24,10 @@ class PatientInfosController < ApplicationController
     #
     #    )
     #  }
+    #pajx请求  如果是pajx请求  不引layout
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
 
   end
 
@@ -31,13 +35,17 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos/1.json
   def show
     session[:patient_info_id]=@patient_info.id
-    render :layout => "rilin_show"
+    #render :layout => "rilin_show"
+    render :layout => false
   end
 
   # GET /patient_infos/new
   def new
     @patient_info = PatientInfo.new
-    render :layout => 'templet_form'
+    #render :layout => 'templet_form'
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   # GET /patient_infos/1/edit
