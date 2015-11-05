@@ -1,162 +1,220 @@
+<!-- Page heading -->
+<div class="page-head">
+  <h2 class="pull-left"><i class="fa fa-home"></i> 信息查询</h2>
 
+  <!-- Breadcrumb -->
+  <div class="bread-crumb pull-right">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Dashboard</a>
+  </div>
+  <div class="clearfix"></div>
 
-<ul id="myTab" class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">样本列表</a></li>
-  <li><a href="#profile" data-toggle="tab">病例列表</a></li>
-  <li><a href="#cont" data-toggle="tab">患者列表</a></li>
-</ul>
-<a class="fancybox" href="#mydiv" data-fancybox-group="gallery" id="fancybox-id"></a>
-
-<div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade in active" id="home">
-    <!--批量出库的action路径-->
-    <!--<input type="hidden" id="button_group" value="/samples／samples_pre_out">-->
-      <div id="mydiv" style="display:none">
-        <form id="samples_from" method="post" action="/samples/1/samples_pre_out" class="form-horizontal">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-            <%= hidden_field :sample_preout_log, :sample_ids %>
-            <input type="hidden" name="sample_ids" id="sample_ids" value="">
-
-            <div class="form-group">
-              <%= label :sample_preout_log, :num , '样本数量',:class=>'col-lg-4 control-label' %>
-              <div class="col-lg-8">
-                <%= text_field :sample_preout_log, :num ,:class=>'form-control', :placeholder=>'样本数量' %>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= label :sample_preout_log, :user_name, '使用人',:class=>'col-lg-4 control-label' %>
-              <div class="col-lg-8">
-                <%= text_field :sample_preout_log, :user_name ,:class=>'form-control', :placeholder=>'使用人' %>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= label :sample_preout_log, :proportpion, '出库比例',:class=>'col-lg-4 control-label' %>
-              <div class="col-lg-8">
-                <%= text_field :sample_preout_log, :proportpion,:class=>'form-control', :placeholder=>'出库比例' %>%
-              </div>
-            </div>
-            <div class="form-group">
-              <%= label :sample_preout_log, :use_for, '出库用途',:class=>'col-lg-4 control-label' %>
-              <div class="col-lg-8">
-                <%= text_area :sample_preout_log, :use_for ,:class=>'form-control', :placeholder=>'出库用途' %>
-              </div>
-            </div>
-          <div>
-            <button type="submit" class="btn btn-primary" id="submit">提交</button>
-            <button type="button" class="btn btn-info" id="cancel">取消</button>
+</div>
+<!-- 表单内容 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget wgreen">
+        <div class="widget-head">
+          <div class="pull-left"></div>
+          <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
           </div>
-        </form>
-      </div>
-      <table cellpadding="0" cellspacing="0" border="0" id="data－table" width="100%">
-          <thead>
-          <tr>
-            <th>
+
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+          <div class="padd">
+            <br />
+            <!-- table starts.  -->
+            <!-- Table Page -->
+            <div class="page-tables">
+              <!-- Table -->
+              <div class="table-responsive">
+                <ul id="myTab" class="nav nav-tabs">
+                  <li class="active"><a href="#home" data-toggle="tab">样本列表</a></li>
+                  <li><a href="#profile" data-toggle="tab">病例列表</a></li>
+                  <li><a href="#cont" data-toggle="tab">患者列表</a></li>
+                </ul>
+                <a class="fancybox" href="#mydiv" data-fancybox-group="gallery" id="fancybox-id"></a>
+
+                <div id="myTabContent" class="tab-content">
+                  <div class="tab-pane fade in active" id="home">
+                    <!--批量出库的action路径-->
+                    <!--<input type="hidden" id="button_group" value="/samples／samples_pre_out">-->
+                    <div id="mydiv" style="display:none">
+                      <form id="samples_from" method="post" action="/samples/1/samples_pre_out" class="form-horizontal">
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                        <%= hidden_field :sample_preout_log, :sample_ids %>
+                        <input type="hidden" name="sample_ids" id="sample_ids" value="">
+
+                        <div class="form-group">
+                          <%= label :sample_preout_log, :num , '样本数量',:class=>'col-lg-4 control-label' %>
+                          <div class="col-lg-8">
+                            <%= text_field :sample_preout_log, :num ,:class=>'form-control', :placeholder=>'样本数量' %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <%= label :sample_preout_log, :user_name, '使用人',:class=>'col-lg-4 control-label' %>
+                          <div class="col-lg-8">
+                            <%= text_field :sample_preout_log, :user_name ,:class=>'form-control', :placeholder=>'使用人' %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <%= label :sample_preout_log, :proportpion, '出库比例',:class=>'col-lg-4 control-label' %>
+                          <div class="col-lg-8">
+                            <%= text_field :sample_preout_log, :proportpion,:class=>'form-control', :placeholder=>'出库比例' %>%
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <%= label :sample_preout_log, :use_for, '出库用途',:class=>'col-lg-4 control-label' %>
+                          <div class="col-lg-8">
+                            <%= text_area :sample_preout_log, :use_for ,:class=>'form-control', :placeholder=>'出库用途' %>
+                          </div>
+                        </div>
+                        <div>
+                          <button type="submit" class="btn btn-primary" id="submit">提交</button>
+                          <button type="button" class="btn btn-info" id="cancel">取消</button>
+                        </div>
+                      </form>
+                    </div>
+                    <table cellpadding="0" cellspacing="0" border="0" id="data－table" width="100%">
+                      <thead>
+                      <tr>
+                        <th>
               <span>
                 <input type='checkbox' name='all_sample_ids' id="all_check" onclick="checkbox_All(this)"/>
               </span>
-            </th>
-            <th>样本号</th>
-            <th>样本ID</th>
-            <th>存储状态</th>
-            <th>位置</th>
-            <th>操作</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @samples.each do |sample| %>
-              <tr>
-                <td>
+                        </th>
+                        <th>样本号</th>
+                        <th>样本ID</th>
+                        <th>存储状态</th>
+                        <th>位置</th>
+                        <th>操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <% @samples.each do |sample| %>
+                          <tr>
+                            <td>
                   <span class="uni">
                     <input type='checkbox' name="sample_ids[]" value='<%= sample.id %>' status="<%= sample.storage_status %>" />
                   </span>
-                </td>
+                            </td>
 
-                <td><%= sample.sample_no %></td>
-                <td><%= sample.sample_seq %></td>
-                <td><%= sample.position %></td>
-                <td><span class="label label-success"><%= sample.storage_status %></span></td>
-                <td>
-                  <%= link_to '', sample,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
-                  <%= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out ",:title=>"出库" %>
-                  <%= link_to '', sample, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除"  %>
-                </td>
-              </tr>
-          <% end %>
-          </tbody>
-          <tfoot>
-      </table>
-  </div>
-  <div class="tab-pane fade" id="profile">
-    <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-      <thead>
-      <tr>
-        <th>病例编号</th>
-        <th>患者姓名</th>
-        <th>状态</th>
-        <th>操作</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @patient_cases.each do |patient_case| %>
-          <tr>
-            <td><%= patient_case.case_number %></td>
-            <td><%= patient_case.patient_info.patient_name %></td>
-            <td><span class="label label-success">Active</span></td>
-            <td>
-            <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
-            <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil ",:title=>"编辑" %>
-            <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-      <tfoot>
+                            <td><%= sample.sample_no %></td>
+                            <td><%= sample.sample_seq %></td>
+                            <td><%= sample.position %></td>
+                            <td><span class="label label-success"><%= sample.storage_status %></span></td>
+                            <td>
+                              <%= link_to '', sample,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
+                              <%= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out ",:title=>"出库" %>
+                              <%= link_to '', sample, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除"  %>
+                            </td>
+                          </tr>
+                      <% end %>
+                      </tbody>
+                      <tfoot>
+                    </table>
+                  </div>
+                  <div class="tab-pane fade" id="profile">
+                    <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
+                      <thead>
+                      <tr>
+                        <th>病例编号</th>
+                        <th>患者姓名</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <% @patient_cases.each do |patient_case| %>
+                          <tr>
+                            <td><%= patient_case.case_number %></td>
+                            <td><%= patient_case.patient_info.patient_name %></td>
+                            <td><span class="label label-success">Active</span></td>
+                            <td>
+                              <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
+                              <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil ",:title=>"编辑" %>
+                              <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
+                            </td>
+                          </tr>
+                      <% end %>
+                      </tbody>
+                      <tfoot>
 
-      </tfoot>
-    </table>
-  </div>
-  <div class="tab-pane fade" id="cont">
-    <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-      <thead>
-      <tr>
-        <th>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <div class="tab-pane fade" id="cont">
+                    <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
+                      <thead>
+                      <tr>
+                        <th>
           <span class="uni">
             <input type='checkbox' value='check1' />
           </span>
-        </th>
-        <th>患者ID</th>
-        <th>姓名</th>
-        <th>性别</th>
-        <th>出生日期</th>
-        <th>状态</th>
-        <th>操作</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @patient_infos.each do |patient_info| %>
-          <tr>
-            <td>
+                        </th>
+                        <th>患者ID</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>出生日期</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <% @patient_infos.each do |patient_info| %>
+                          <tr>
+                            <td>
                 <span class="uni">
                     <input type='checkbox' value='check1' />
                 </span>
-            </td>
-            <td><%= patient_info.patient_id %></td>
-            <td><%= patient_info.patient_name %></td>
-            <td><%= patient_info.gender %></td>
-            <td><%= patient_info.birthday %></td>
-            <td><span class="label label-success">Active</span></td>
-            <td>
-              <%= link_to '', patient_info,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看" %>
-              <%= link_to '', edit_patient_info_path(patient_info),:class=>"btn btn-xs btn-warning fa fa-pencil ",:title=>"编辑" %>
-              <%= link_to '', patient_info, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-      <tfoot>
-    </table>
+                            </td>
+                            <td><%= patient_info.patient_id %></td>
+                            <td><%= patient_info.patient_name %></td>
+                            <td><%= patient_info.gender %></td>
+                            <td><%= patient_info.birthday %></td>
+                            <td><span class="label label-success">Active</span></td>
+                            <td>
+                              <%= link_to '', patient_info,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看" %>
+                              <%= link_to '', edit_patient_info_path(patient_info),:class=>"btn btn-xs btn-warning fa fa-pencil ",:title=>"编辑" %>
+                              <%= link_to '', patient_info, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
+                            </td>
+                          </tr>
+                      <% end %>
+                      </tbody>
+                      <tfoot>
+                    </table>
+                  </div>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="widget-foot">-->
+        <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
   </div>
 </div>
+<!-- Matter -->
+<div class="matter">
+
+</div>
+<!-- Matter ends -->
+
+
+
+
 
 <script>
 
@@ -179,6 +237,7 @@
         }
 
     } );
+
 
     //datatable中添加按钮
     if($('#samples_form')!=undefined){

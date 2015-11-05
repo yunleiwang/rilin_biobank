@@ -1,34 +1,112 @@
-<input type="hidden" id="add_url" value="/patient_cases/new">
-<table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-  <thead>
-  <tr>
-    <th>病例编号</th>
-    <th>患者姓名</th>
-    <th>状态</th>
-    <th>操作</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @patient_cases.each do |patient_case| %>
-      <tr>
-        <td><%= patient_case.case_number %></td>
-        <td><%= patient_case.patient_info.patient_name %></td>
-        <td><span class="label label-success">Active</span></td>
-        <td>
-          <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check" %>
-          <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil" %>
-          <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times" %>
+<!-- Page heading -->
+<div class="page-head">
+  <h2 class="pull-left"><i class="fa fa-home"></i> 病例列表</h2>
 
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-  <tfoot>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb pull-right">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Dashboard</a>
+  </div>
+  <div class="clearfix"></div>
 
-  </tfoot>
-</table>
+</div>
+<!-- 表单内容 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget wgreen">
+        <div class="widget-head">
+          <div class="pull-left"></div>
+          <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+          <div class="padd">
+            <br />
+            <!-- table starts.  -->
+            <!-- Table Page -->
+            <div class="page-tables">
+              <!-- Table -->
+              <div class="table-responsive">
+                <input type="hidden" id="add_url" value="/patient_cases/new">
+                <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
+                  <thead>
+                  <tr>
+                    <th>病例编号</th>
+                    <th>患者姓名</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @patient_cases.each do |patient_case| %>
+                      <tr>
+                        <td><%= patient_case.case_number %></td>
+                        <td><%= patient_case.patient_info.patient_name %></td>
+                        <td><span class="label label-success">Active</span></td>
+                        <td>
+                          <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check pjax-link" %>
+                          <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil pjax-link" %>
+                          <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times pjax-link" %>
+
+                        </td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                  <tfoot>
+
+                  </tfoot>
+                </table>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="widget-foot">-->
+        <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- Matter -->
+<div class="matter">
+
+</div>
+<!-- Matter ends -->
+
+
 <script>
     $(document).ready(function() {
+        $('#data－table-1').dataTable( {
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sSearch": "搜索",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sZeroRecords": "没有检索到数据",
+                "sProcessing": "<img src='./loading.gif' />"
+            }
+
+        } );
         $('#data－table-1_filter').prepend(
                 '<a href="patient_infos/new"><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
         )

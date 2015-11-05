@@ -3,6 +3,7 @@ class PatientCasesController < ApplicationController
   before_filter :set_patient_info, only: [:new]
   # GET /patient_cases
   # GET /patient_cases.json
+  layout false
   def index
     @patient_cases = PatientCase.all.order('id desc')
   end
@@ -10,7 +11,7 @@ class PatientCasesController < ApplicationController
   # GET /patient_cases/1
   # GET /patient_cases/1.json
   def show
-    render :layout => 'layouts/rilin_show'
+
   end
 
   # GET /patient_cases/new
@@ -18,7 +19,7 @@ class PatientCasesController < ApplicationController
     @patient_case = PatientCase.new
     @samples = []
     @sample = Sample.new
-    render :layout => 'templet_form'
+
   end
 
   # GET /patient_cases/1/edit
@@ -30,7 +31,7 @@ class PatientCasesController < ApplicationController
     else
       @sample = @samples[0]
     end
-    render :layout => 'templet_form'
+
   end
 
   # POST /patient_cases

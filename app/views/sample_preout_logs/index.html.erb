@@ -1,43 +1,133 @@
 <%#= javascript_include_tag 'jquery.fancybox.js' %>
 <%#= stylesheet_link_tag 'jquery.fancybox.css' %>
+<!-- Page heading -->
+<div class="page-head">
+  <h2 class="pull-left"><i class="fa fa-home"></i> 病例列表</h2>
 
-<table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-  <thead>
-  <tr>
-    <th>操作时间</th>
-    <th>操作人</th>
-    <th>使用人</th>
-    <th>样本数量</th>
-    <th>状态</th>
-    <th>操作</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @sample_preout_logs.each do |sample_preout_log| %>
-      <tr>
-        <td><%= sample_preout_log.updated_at %></td>
-        <td><%= sample_preout_log.operator_name %></td>
-        <td><%= sample_preout_log.user_name %></td>
-        <td><%= sample_preout_log.num %></td>
-        <!--<td><%#= sample_preout_log.status %></td>-->
-        <td><span class="label label-success"><%= sample_preout_log.status %></span></td>
-        <td>
-          <a class="fancybox_frame btn btn-xs btn-success fa fa-check" href="/sample_preout_logs/<%= sample_preout_log.id%>" title="查看"></a>
-          <%#= link_to 'Show', :action=>'show', :class=> "fancybox" %>
-          <%#= link_to 'Edit', edit_sample_preout_log_path(sample_preout_log) %>
-          <%= link_to '', sample_preout_log, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb pull-right">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Dashboard</a>
+  </div>
+  <div class="clearfix"></div>
 
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-  <tfoot>
-  <!--  <tr>
-      <th>患者ID</th>
-      <th>姓名</th>
-      <th>性别</th>
-      <th>出生日期</th>
-      <th>操作</th>
-    </tr>-->
-  </tfoot>
-</table>
+</div>
+<!-- 表单内容 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget wgreen">
+        <div class="widget-head">
+          <div class="pull-left"></div>
+          <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+          <div class="padd">
+            <br />
+            <!-- table starts.  -->
+            <!-- Table Page -->
+            <div class="page-tables">
+              <!-- Table -->
+              <div class="table-responsive">
+                <input type="hidden" id="add_url" value="/patient_cases/new">
+                <table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
+                  <thead>
+                  <tr>
+                    <th>操作时间</th>
+                    <th>操作人</th>
+                    <th>使用人</th>
+                    <th>样本数量</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @sample_preout_logs.each do |sample_preout_log| %>
+                      <tr>
+                        <td><%= sample_preout_log.updated_at %></td>
+                        <td><%= sample_preout_log.operator_name %></td>
+                        <td><%= sample_preout_log.user_name %></td>
+                        <td><%= sample_preout_log.num %></td>
+                        <!--<td><%#= sample_preout_log.status %></td>-->
+                        <td><span class="label label-success"><%= sample_preout_log.status %></span></td>
+                        <td>
+                          <a class="fancybox_frame btn btn-xs btn-success fa fa-check" href="/sample_preout_logs/<%= sample_preout_log.id%>" title="查看"></a>
+                          <%#= link_to 'Show', :action=>'show', :class=> "fancybox" %>
+                          <%#= link_to 'Edit', edit_sample_preout_log_path(sample_preout_log) %>
+                          <%= link_to '', sample_preout_log, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
+
+                        </td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                  <tfoot>
+                  <!--  <tr>
+                      <th>患者ID</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>出生日期</th>
+                      <th>操作</th>
+                    </tr>-->
+                  </tfoot>
+                </table>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="widget-foot">-->
+        <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- Matter -->
+<div class="matter">
+
+</div>
+<!-- Matter ends -->
+<script>
+    $(document).ready(function() {
+        $('#data－table-1').dataTable( {
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sSearch": "搜索",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sZeroRecords": "没有检索到数据",
+                "sProcessing": "<img src='./loading.gif' />"
+            }
+
+        } );
+
+
+
+
+
+
+
+    } );
+
+</script>
+
+

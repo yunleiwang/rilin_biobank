@@ -1,32 +1,70 @@
-<!--title标题-->
-<% content_for :title do %>
-    <h2 class="pull-left"><i class="fa fa-home"></i> 患者信息</h2>
-<% end %>
-<% content_for :clearfix do %>
-    <%= @patient_info.patient_name%>
-<% end %>
-<!-- Widget内容 -->
-<% content_for :detail do %>
-  <div class="support-contact">
-    <!-- Phone, email and address with font awesome icon -->
-    <p><i class="fa  fa-sort-numeric-asc "></i>&nbsp; 患者ID<strong>:</strong> <%= @patient_info.patient_id%></p></p>
-    <hr />
-    <p><i class="fa <%= @patient_info.gender=="女"? "fa-female ":"fa-male "%>"></i>&nbsp; 性别<strong>:</strong> <%= @patient_info.gender%></p>
-    <hr />
-    <p><i class="fa fa-calendar "></i>&nbsp; 出生日期<strong>:</strong> <%= @patient_info.birthday%></p>
-    <hr />
-    <p><i class="fa fa-mobile-phone "></i>&nbsp; 手机<strong>:</strong> <%= @patient_info.cell_phone%></p>
-    <hr />
-    <p><i class="fa fa-phone"></i>&nbsp; 住址电话<strong>:</strong> <%= @patient_info.home_phone%></p>
-    <hr />
-    <p><i class="fa fa-mobile-phone "></i>&nbsp; 其他电话<strong>:</strong> <%= @patient_info.home_phone%></p>
-    <hr />
-    <p><i class="fa fa-envelope-o"></i>&nbsp; 住址邮箱<strong>:</strong> <%= @patient_info.home_phone%></p>
-    <hr />
-    <p><i class="fa  fa-home  "></i>&nbsp; 家庭住址<strong>:</strong> <%= @patient_info.address%></p>
-    <hr />
-    <!-- Button按钮 -->
-    <%= link_to "编辑" ,edit_patient_info_path(@patient_info),:class=>"btn btn-sm btn-info"%>&nbsp;
-    <%= link_to "返回" ,patient_info_path,:class=>"btn btn-sm btn-success"%>
+<!-- Page heading -->
+<div class="page-head">
+  <h2 class="pull-left"><i class="fa fa-home"></i> 患者信息</h2>
+  <!-- Breadcrumb -->
+  <div class="bread-crumb pull-right">
+    <a href="index.html"><i class="fa fa-home"></i> Home</a>
+    <!-- Divider -->
+    <span class="divider">/</span>
+    <a href="#" class="bread-current">Dashboard</a>
   </div>
-<% end %>
+  <div class="clearfix"></div>
+
+</div>
+<!-- Page heading ends -->
+
+<!-- Matter -->
+<div class="matter" id="ajax-content">
+  <!-- 表单内容 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="widget">
+          <div class="widget-head">
+            <div class="pull-left"></div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+            </div>
+
+            <div class="clearfix"><%= @patient_info.patient_name%></div>
+          </div>
+
+          <div class="widget-content">
+            <div class="padd">
+              <!-- show starts.  -->
+              <div class="support-contact">
+                <!-- Phone, email and address with font awesome icon -->
+                <p><i class="fa  fa-sort-numeric-asc "></i>&nbsp; 患者ID<strong>:</strong> <%= @patient_info.patient_id%></p></p>
+                <hr />
+                <p><i class="fa <%= @patient_info.gender=="女"? "fa-female ":"fa-male "%>"></i>&nbsp; 性别<strong>:</strong> <%= @patient_info.gender%></p>
+                <hr />
+                <p><i class="fa fa-calendar "></i>&nbsp; 出生日期<strong>:</strong> <%= @patient_info.birthday%></p>
+                <hr />
+                <p><i class="fa fa-mobile-phone "></i>&nbsp; 手机<strong>:</strong> <%= @patient_info.cell_phone%></p>
+                <hr />
+                <p><i class="fa fa-phone"></i>&nbsp; 住址电话<strong>:</strong> <%= @patient_info.home_phone%></p>
+                <hr />
+                <p><i class="fa fa-mobile-phone "></i>&nbsp; 其他电话<strong>:</strong> <%= @patient_info.home_phone%></p>
+                <hr />
+                <p><i class="fa fa-envelope-o"></i>&nbsp; 住址邮箱<strong>:</strong> <%= @patient_info.home_phone%></p>
+                <hr />
+                <p><i class="fa  fa-home  "></i>&nbsp; 家庭住址<strong>:</strong> <%= @patient_info.address%></p>
+                <hr />
+                <!-- Button按钮 -->
+                <%= link_to "编辑" ,edit_patient_info_path(@patient_info),:class=>"btn btn-sm btn-info"%>&nbsp;
+                <%= link_to "返回" ,patient_info_path,:class=>"btn btn-sm btn-success"%>
+              </div>
+            </div>
+          </div>
+          <!--<div class="widget-foot">-->
+          <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
+          <!--</div>-->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Matter ends -->

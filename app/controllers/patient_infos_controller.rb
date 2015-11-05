@@ -51,7 +51,9 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos/1/edit
   def edit
     session[:patient_info_id] ||= @patient_info.id
-    render :layout => 'templet_form'
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   # POST /patient_infos

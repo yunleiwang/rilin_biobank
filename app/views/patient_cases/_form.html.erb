@@ -55,148 +55,152 @@
     }
 
 </script>
-
-
-<%= form_for(@patient_case, :html=>{:class=>'form-horizontal', :role=>'form'}) do |f| %>
-  <% if @patient_case.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
-      <ul>
-      <% @patient_case.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+    <%= form_for(@patient_case, :html=>{:class=>'form-horizontal', :role=>'form'}) do |f| %>
+      <% if @patient_case.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@patient_case.errors.count, "error") %> prohibited this patient_case from being saved:</h2>
+          <ul>
+          <% @patient_case.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%#= f.hidden_field :patient_info_id,:value=>1%>
-    <div class="widget wgreen">
-      <div class="widget-head">
-        <div class="pull-left">病例信息</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+      <%#= f.hidden_field :patient_info_id,:value=>1%>
+        <div class="widget wgreen">
+          <div class="widget-head">
+            <div class="pull-left">病例信息</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
 
-        </div>
-
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="widget-content">
-        <div class="padd">
-          <!--<br />-->
-          <div class="form-group">
-            <%= label :case_number, '病例编号',:class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= f.text_field :case_number,:class=>'form-control', :placeholder=>'病例编号' %>
             </div>
 
+            <div class="clearfix"></div>
           </div>
 
-          <!-- 表单结束-->
-          <div class="clearfix"></div>
+          <div class="widget-content">
+            <div class="padd">
+              <!--<br />-->
+              <div class="form-group">
+                <%= label :case_number, '病例编号',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= f.text_field :case_number,:class=>'form-control', :placeholder=>'病例编号' %>
+                </div>
 
-        </div>
-      </div>
-      <div class="widget-foot">
-        <!-- Footer goes here -->
-      </div>
-    </div>
-    <div class="widget wgreen">
-      <div class="widget-head">
-        <div class="pull-left">样本信息</div>
-        <div class="widget-icons pull-right">
-          <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+              </div>
 
-        </div>
-
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="widget-content">
-        <div class="padd">
-          <!--<br />-->
-          <div class="form-group">
-            <%= label :sample, :sample_no, '样本号',:class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) ,:class=>'form-control', :placeholder=>'sample_no' %>
-            </div>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-3">
-              <% if !@samples.empty? %>
-                <input type="button" value="打印样本标签" onclick="print_sample()">
-              <% end %>
-            </div>
+              <!-- 表单结束-->
+              <div class="clearfix"></div>
 
             </div>
           </div>
+          <div class="widget-foot">
+            <!-- Footer goes here -->
+          </div>
+        </div>
+        <div class="widget wgreen">
+          <div class="widget-head">
+            <div class="pull-left">样本信息</div>
+            <div class="widget-icons pull-right">
+              <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
 
-          <div id="sample_info">
-            <div class="form-group">
-              <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
-              <div class="col-lg-3">
-                <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
-              </div>
+            </div>
 
-              <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
-              <div class="col-lg-3">
-                <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
-              </div>
-            </div>
-            <div class="form-group">
-              <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
-              <div class="col-lg-3">
-                <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
-              </div>
-              <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
-              <div class="col-lg-3">
-                <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
-              </div>
-            </div>
-            <div class="form-group">
-                <%= label :sample,:current_sample_volume, '剩余量',:class=>'col-lg-2 control-label' %>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="widget-content">
+            <div class="padd">
+              <!--<br />-->
+              <div class="form-group">
+                <%= label :sample, :sample_no, '样本号',:class=>'col-lg-2 control-label' %>
                 <div class="col-lg-3">
-                  <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'剩余量' %>
+                  <%= select :sample,:sample_no, (@samples.collect{|sample|[sample.sample_no,sample.sample_no]}<<['--new sample--','0'] ) ,:class=>'form-control', :placeholder=>'sample_no' %>
                 </div>
-                <%= label :sample,:sample_storage_id, '位置',:class=>'col-lg-2 control-label' %>
+                <div class="col-lg-2"></div>
                 <div class="col-lg-3">
-                    <%= text_field :sample,:sample_storage_id,:class=>'form-control', :placeholder=>'位置' %>
-                </div>
-            </div>
-            <div class="form-group">
-              <%= label :sample,:previous, '样本',:class=>'col-lg-2 control-label' %>
-              <div class="col-lg-3">
-
-                  <% if !@sample.blank? && !@sample.id.nil? %>
-                      <%=link_to '←', "javascript:void(0)", id: 'previous',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
-                      <%=link_to '→', "javascript:void(0)", id: 'next',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+                  <% if !@samples.empty? %>
+                    <input type="button" value="打印样本标签" onclick="print_sample()">
                   <% end %>
+                </div>
+
+                </div>
               </div>
-              <div class="col-lg-3">
+
+              <div id="sample_info">
+                <div class="form-group">
+                  <%= label :sample, :sample_seq , '样本ID',:class=>'col-lg-2 control-label' %>
+                  <div class="col-lg-3">
+                    <%= text_field :sample, :sample_seq ,:class=>'form-control', :placeholder=>'样本ID' %>
+                  </div>
+
+                  <%= label :sample, :storage_status , '存储状态',:class=>'col-lg-2 control-label' %>
+                  <div class="col-lg-3">
+                    <%= text_field :sample, :storage_status ,:class=>'form-control', :placeholder=>'存储状态' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <%= label :sample, :freezing_thawing_times, '冻融次数',:class=>'col-lg-2 control-label' %>
+                  <div class="col-lg-3">
+                    <%= text_field :sample, :freezing_thawing_times,:class=>'form-control', :placeholder=>'冻融次数' %>
+                  </div>
+                  <%= label :sample,:initial_sample_volume, '样本初始量',:class=>'col-lg-2 control-label' %>
+                  <div class="col-lg-3">
+                    <%= text_field :sample,:initial_sample_volume,:class=>'form-control', :placeholder=>'样本初始量' %>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <%= label :sample,:current_sample_volume, '剩余量',:class=>'col-lg-2 control-label' %>
+                    <div class="col-lg-3">
+                      <%= text_field :sample,:current_sample_volume,:class=>'form-control', :placeholder=>'剩余量' %>
+                    </div>
+                    <%= label :sample,:sample_storage_id, '位置',:class=>'col-lg-2 control-label' %>
+                    <div class="col-lg-3">
+                        <%= text_field :sample,:sample_storage_id,:class=>'form-control', :placeholder=>'位置' %>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <%= label :sample,:previous, '样本',:class=>'col-lg-2 control-label' %>
+                  <div class="col-lg-3">
+
+                      <% if !@sample.blank? && !@sample.id.nil? %>
+                          <%=link_to '←', "javascript:void(0)", id: 'previous',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.previous_sample_no}')" %>
+                          <%=link_to '→', "javascript:void(0)", id: 'next',:class=>"btn btn-sm btn-info", :onclick=> "gotoSample('#{@sample.next_sample_no}')" %>
+                      <% end %>
+                  </div>
+                  <div class="col-lg-3">
+
+                  </div>
+                </div>
 
               </div>
+              <div class="form-group">
+                <%= label_tag :batch_add_num, '批量添加', :class=>'col-lg-2 control-label' %>
+                <div class="col-lg-3">
+                  <%= text_field_tag :batch_add_num,nil, :class=>'form-control', :placeholder=>'批量添加'  %>
+                </div>
+              </div>
+              <!-- 表单结束-->
+              <div class="clearfix"></div>
+
             </div>
-
           </div>
-          <div class="form-group">
-            <%= label_tag :batch_add_num, '批量添加', :class=>'col-lg-2 control-label' %>
-            <div class="col-lg-3">
-              <%= text_field_tag :batch_add_num,nil, :class=>'form-control', :placeholder=>'批量添加'  %>
-            </div>
+          <div class="widget-foot">
+
+            <!-- Footer goes here -->
           </div>
-          <!-- 表单结束-->
-          <div class="clearfix"></div>
 
-        </div>
+
+      <div class="actions">
+        <input type="submit" value="保存" class="btn btn-sm btn-success" />
       </div>
-      <div class="widget-foot">
-
-        <!-- Footer goes here -->
-      </div>
-
-
-  <div class="actions">
-    <input type="submit" value="保存" class="btn btn-sm btn-success" />
+    <% end %>
+    </div>
   </div>
-<% end %>
+</div>
 <script>
     function print_sample(){
         var sample_seq=$("#sample_sample_seq").val()
