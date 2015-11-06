@@ -1,6 +1,6 @@
 class SamplePreoutLogsController < ApplicationController
   before_action :set_sample_preout_log, only: [:show, :edit, :update, :destroy]
-  layout false
+  #layout false
   # GET /sample_preout_logs
   # GET /sample_preout_logs.json
   def index
@@ -15,18 +15,24 @@ class SamplePreoutLogsController < ApplicationController
   def show
     sample_ids = @sample_preout_log.sample_ids.split(',')
     @samples = Sample.where("id in (?)",sample_ids)
-
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   # GET /sample_preout_logs/new
   def new
     @sample_preout_log = SamplePreoutLog.new
-
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   # GET /sample_preout_logs/1/edit
   def edit
-
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 
   # POST /sample_preout_logs
