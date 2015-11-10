@@ -1,24 +1,28 @@
 class ContainerTypesController < ApplicationController
   before_action :set_container_type, only: [:show, :edit, :update, :destroy]
-
   # GET /container_types
   # GET /container_types.json
   def index
     @container_types = ContainerType.all
+    @patient_infos = PatientInfo.all
+    render_layout?
   end
 
   # GET /container_types/1
   # GET /container_types/1.json
   def show
+    render_layout?
   end
 
   # GET /container_types/new
   def new
     @container_type = ContainerType.new
+    render_layout?
   end
 
   # GET /container_types/1/edit
   def edit
+    render_layout?
   end
 
   # POST /container_types

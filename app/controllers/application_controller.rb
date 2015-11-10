@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
 
   def authorize
-    p session[:sys_user_id]
     if session[:sys_user_id].nil?
       redirect_to sys_account_sign_in_path
     end
@@ -18,7 +17,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def none_layout
-    render :layout => false
+  #pajx请求  如果是pajx请求  不引layout
+  def render_layout?
+    if request.headers['X-PJAX']
+      render :layout => false
+    end
   end
 end
+

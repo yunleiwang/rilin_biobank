@@ -1,6 +1,6 @@
 class FrameStoragesController < ApplicationController
   before_action :set_frame_storage, only: [:show, :edit, :update, :destroy]
-  layout 'rilin_freezer'
+  #layout 'rilin_freezer'
   # GET /frame_storages
   # GET /frame_storages.json
   def index

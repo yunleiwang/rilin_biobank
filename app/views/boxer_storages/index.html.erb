@@ -18,9 +18,13 @@
                 <% (0...@frame.frame_columns).each do |j| %>
                     <% boxer_storage = @boxer_storages[i*@frame.frame_columns+j] %>
                     <% if boxer_storage.boxer_id %>
-                        <a class="fancybox<%= get_css_class2(boxer_storage,j) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+
+                        <a class="<%= get_css_class2(boxer_storage,j%@frame.frame_columns) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
                     <% else %>
-                        <a class="fancybox_frame<%= get_css_class2(boxer_storage,j) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
+                        <%#= j%@frame.frame_columns %>
+                        <%#= @frame.frame_columns %>
+                        <%#= @frame.frame_rows %>
+                        <a class="fancybox_frame<%= get_css_class2(boxer_storage,j%@frame.frame_columns) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
                     <% end %>
                 <% end %>
               </div>

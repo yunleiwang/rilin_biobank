@@ -496,7 +496,7 @@ text-decoration:none;
 
 header{
 	border-top: 1px solid #ccc;
-	padding: 0px 0px 15px 0px;
+	padding: 25px 0px 15px 0px;
 	background: #fafafa url("img/cream.png") repeat;
 	border-bottom: 1px solid #ddd;
 }
@@ -769,24 +769,13 @@ header .header-data .hdata em{
 
 .sidebar #nav li ul li a { 
   display: block; 
-  /*float:left;*/
+  float:left;
   background: none;
   padding: 10px 0px;
   padding-left: 30px;
   text-decoration: none;
   color: #777;
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
-}
-/*王云磊添加，避免与普通菜单的float导致的冲突*/
-.r_shelf_name a {
-    display: block;
-    float:left;
-    background: none;
-    padding: 10px 0px;
-    padding-left: 30px;
-    text-decoration: none;
-    color: #777;
-    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
 
 .sidebar #nav li ul li a:hover {
@@ -2007,13 +1996,13 @@ display:inline-block;
 float:right;
 width:42px;
 height:42px;
-background:url(r_savespace/shelf_slidedown.png) no-repeat center;
+background:url(img/r_savespace/shelf_slidedown.png) no-repeat center;
 cursor:pointer;
 }
 .sidebar #nav li .r_shelf_box .r_shelf_name .shelf_arrow:hover{
 width:42px;
 height:42px;
-background:url(r_savespace/shelf_slidedown_hover.png) no-repeat center;
+background:url(img/r_savespace/shelf_slidedown_hover.png) no-repeat center;
 cursor:pointer;
 }
 
@@ -2201,7 +2190,7 @@ margin-bottom:0;
 width:80px;
 height:40px;
 margin:0 auto;
-background:url(r_savespace/add_off.png) no-repeat center;
+background:url(img/r_savespace/add_off.png) no-repeat center;
 }							
 
 	/*立式冰箱*/	
@@ -2253,7 +2242,7 @@ margin:5px 0 5px 0;
 display:block;
 width:99%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2274,7 +2263,7 @@ margin-left:1%;
 display:block;
 width:49%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2295,7 +2284,7 @@ margin-left:1%;
 display:block;
 width:32%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2317,7 +2306,7 @@ margin-left:1%;
 display:block;
 width:24%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2338,7 +2327,7 @@ margin-left:1%;
 display:block;
 width:19%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2360,7 +2349,7 @@ margin-left:1%;
 display:block;
 width:15%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2382,7 +2371,7 @@ margin-left:1%;
 display:block;
 width:13%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2404,7 +2393,7 @@ margin-left:1%;
 display:block;
 width:11.5%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2426,7 +2415,7 @@ margin-left:1%;
 display:block;
 width:10%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2449,10 +2438,10 @@ margin-left:0;
 margin-left:0;
 }
 .freezer_box_big .freezer .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .freezer_box_big .freezer .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 		/*大冰箱底部*/
 .freezer_box_big .freezer .bottom{
@@ -2463,13 +2452,13 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,stre
 -moz-box-shadow: 2px 10px 10px #808080;
 -webkit-box-shadow: 2px 10px 10px #808080;
 box-shadow:2px 10px 10px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 .freezer_box_big .freezer .bottom .hour_icon{
 width:108px;
 height:108px;
-background:url(r_savespace/hour_icon.png) no-repeat center;
+background:url(img/r_savespace/hour_icon.png) no-repeat center;
 float:left;
 }
 .freezer_box_big .freezer .bottom .heat_dissipation{
@@ -2626,7 +2615,7 @@ margin:2px 0 2px 0;
 display:block;
 width:99%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2647,7 +2636,7 @@ margin-left:1%;
 display:block;
 width:49%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2668,7 +2657,7 @@ margin-left:1%;
 display:block;
 width:32%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2690,7 +2679,7 @@ margin-left:1%;
 display:block;
 width:24%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2711,7 +2700,7 @@ margin-left:1%;
 display:block;
 width:19%;
 height:20px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2733,7 +2722,7 @@ margin-left:1%;
 display:block;
 width:15%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2755,7 +2744,7 @@ margin-left:1%;
 display:block;
 width:13%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2777,7 +2766,7 @@ margin-left:1%;
 display:block;
 width:11.5%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2799,7 +2788,7 @@ margin-left:1%;
 display:block;
 width:10%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2831,10 +2820,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .freezer_box_small .freezer .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .freezer_box_small .freezer .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 		/*立式小冰箱底部*/
 .freezer_box_small .freezer .bottom{
@@ -2847,13 +2836,13 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,stren
 -moz-box-shadow: 1px 5px 5px #808080;
 -webkit-box-shadow: 1px 5px 5px #808080;
 box-shadow:1px 5px 5px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 .freezer_box_small .freezer .bottom .hour_icon{
 width:50px;
 height:50px;
-background:url(r_savespace/hour_icon.png) no-repeat center;
+background:url(img/r_savespace/hour_icon.png) no-repeat center;
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2930,7 +2919,7 @@ margin:5px 0 5px 0;
 display:block;
 width:99%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2951,7 +2940,7 @@ margin-left:1%;
 display:block;
 width:49%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2972,7 +2961,7 @@ margin-left:1%;
 display:block;
 width:32%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -2994,7 +2983,7 @@ margin-left:1%;
 display:block;
 width:24%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3015,7 +3004,7 @@ margin-left:1%;
 display:block;
 width:19%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3036,7 +3025,7 @@ margin-left:1%;
 display:block;
 width:15%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3058,7 +3047,7 @@ margin-left:1%;
 display:block;
 width:13%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3080,7 +3069,7 @@ margin-left:1%;
 display:block;
 width:11.5%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3102,7 +3091,7 @@ margin-left:1%;
 display:block;
 width:10%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3126,10 +3115,10 @@ margin-left:0;
 margin-left:0;
 }
 .shelf_box_big .shelf .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .shelf_box_big .shelf .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .shelf_box_big .shelf .top .layer .current_box{
 background:none;
@@ -3147,7 +3136,7 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,stre
 -moz-box-shadow: 2px 10px 10px #808080;
 -webkit-box-shadow: 2px 10px 10px #808080;
 box-shadow:2px 10px 10px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 
@@ -3201,7 +3190,7 @@ margin: 2px 0 2px 0;
 display:block;
 width:99%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3222,7 +3211,7 @@ margin-left:1%;
 display:block;
 width:49%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3243,7 +3232,7 @@ margin-left:1%;
 display:block;
 width:32%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3265,7 +3254,7 @@ margin-left:1%;
 display:block;
 width:24%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3286,7 +3275,7 @@ margin-left:1%;
 display:block;
 width:19%;
 height:20px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3307,7 +3296,7 @@ margin-left:1%;
 display:block;
 width:15%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3329,7 +3318,7 @@ margin-left:1%;
 display:block;
 width:13%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3351,7 +3340,7 @@ margin-left:1%;
 display:block;
 width:11.5%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3373,7 +3362,7 @@ margin-left:1%;
 display:block;
 width:10%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3402,10 +3391,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .shelf_box_small .shelf .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .shelf_box_small .shelf .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 		/*立式冰箱小架子底部*/
 .shelf_box_small .shelf .bottom{
@@ -3418,7 +3407,7 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,stren
 -moz-box-shadow: 1px 5px 5px #808080;
 -webkit-box-shadow: 1px 5px 5px #808080;
 box-shadow:1px 5px 5px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 
@@ -3500,7 +3489,7 @@ margin:5px 0 5px 0;
 display:block;
 width:10%;
 height:50px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3528,10 +3517,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .box_box_big .box .layer_box .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .box_box_big .box .layer_box .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 
 
@@ -3607,7 +3596,7 @@ margin:2px 0 2px 0;
 display:block;
 width:10%;
 height:24px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3635,10 +3624,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .box_box_small .box .layer_box .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .box_box_small .box .layer_box .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 
 
@@ -3703,7 +3692,7 @@ float:right;
 display:block;
 height:99%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3722,7 +3711,7 @@ margin-top:2px;
 display:block;
 height:49%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3741,7 +3730,7 @@ margin-top:2px;
 display:block;
 height:32%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3761,7 +3750,7 @@ margin-top:2px;
 display:block;
 height:24%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3780,7 +3769,7 @@ margin-top:2px;
 display:block;
 height:19%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3800,7 +3789,7 @@ margin-top:2px;
 display:block;
 height:15%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3819,7 +3808,7 @@ margin-top:2px;
 display:block;
 height:13%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3839,7 +3828,7 @@ margin-top:2px;
 display:block;
 height:11.5%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3859,7 +3848,7 @@ margin-top:2px;
 display:block;
 height:10%;
 width:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -3880,10 +3869,10 @@ margin-top:0;
 margin-top:0;
 }
 .s_freezer_box_big .freezer .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .s_freezer_box_big .freezer .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 		/*卧式大冰箱底部*/
 .s_freezer_box_big .freezer .bottom{
@@ -3895,14 +3884,14 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,stre
 -moz-box-shadow: 2px 10px 10px #808080;
 -webkit-box-shadow: 2px 10px 10px #808080;
 box-shadow:2px 10px 10px #808080;
-background-image:url(r_savespace/sleep_freezer_bg.png);
+background-image:url(img/r_savespace/sleep_freezer_bg.png);
 background-repeat:repeat-y;
 }
 
 .s_freezer_box_big .freezer .bottom .hour_icon{
 width:108px;
 height:108px;
-background:url(r_savespace/hour_icon.png) no-repeat center;
+background:url(img/r_savespace/hour_icon.png) no-repeat center;
 }
 .s_freezer_box_big .freezer .bottom .heat_dissipation{
 width:70px;
@@ -4068,7 +4057,7 @@ float:right;
 display:block;
 width:99%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4089,7 +4078,7 @@ margin-left:1%;
 display:block;
 width:49%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4110,7 +4099,7 @@ margin-left:1%;
 display:block;
 width:32%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4133,7 +4122,7 @@ margin-left:1%;
 display:block;
 width:24%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4154,7 +4143,7 @@ margin-left:1%;
 display:block;
 height:19%;
 width:20px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4174,7 +4163,7 @@ margin-top:1px;
 display:block;
 width:15%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4196,7 +4185,7 @@ margin-left:1%;
 display:block;
 width:13%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4218,7 +4207,7 @@ margin-left:1%;
 display:block;
 width:11.5%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4240,7 +4229,7 @@ margin-left:1%;
 display:block;
 width:10%;
 height:46px;
-background-image:url(r_savespace/box_bg.png);
+background-image:url(img/r_savespace/box_bg.png);
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4268,10 +4257,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .s_freezer_box_small .freezer .top .layer .full_box{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 .s_freezer_box_small .freezer .top .layer .full_box:hover{
-background-image:url(r_savespace/box_full_bg.png);
+background-image:url(img/r_savespace/box_full_bg.png);
 }
 		/*卧式小冰箱底部*/
 .s_freezer_box_small .freezer .bottom{
@@ -4283,14 +4272,14 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,stren
 -moz-box-shadow: 1px 5px 5px #808080;
 -webkit-box-shadow: 1px 5px 5px #808080;
 box-shadow:1px 5px 5px #808080;
-background-image:url(r_savespace/sleep_freezer_bg.png);
+background-image:url(img/r_savespace/sleep_freezer_bg.png);
 background-repeat:repeat-y;
 }
 
 .s_freezer_box_small .freezer .bottom .hour_icon{
 width:50px;
 height:50px;
-background:url(r_savespace/hour_icon.png) no-repeat center;
+background:url(img/r_savespace/hour_icon.png) no-repeat center;
 background-size:100% 100%;
 -webkit-background-size:100% 100%;
 -moz-background-size:100% 100%;
@@ -4363,7 +4352,7 @@ margin:5px 0 5px 0;
 display:block;
 width:100%;
 height:46px;
-background-image:url(r_savespace/s_shelf_bg.png);
+background-image:url(img/r_savespace/s_shelf_bg.png);
 float:left;
 margin:0 auto;
 border:1px #808080 solid;
@@ -4377,10 +4366,10 @@ background-color:#8c8c8c;
 float:left;
 }
 .s_shelf_box_big .shelf .top .layer .full_box{
-background-image:url(r_savespace/s_shelf_bg_full.jpg);
+background-image:url(img/r_savespace/s_shelf_bg_full.jpg);
 }
 .s_shelf_box_big .shelf .top .layer .full_box:hover{
-background-image:url(r_savespace/s_shelf_bg_full.jpg);
+background-image:url(img/r_savespace/s_shelf_bg_full.jpg);
 }
 		/*卧式冰箱大架子底部*/
 .s_shelf_box_big .shelf .bottom{
@@ -4391,7 +4380,7 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=120,stre
 -moz-box-shadow: 2px 10px 10px #808080;
 -webkit-box-shadow: 2px 10px 10px #808080;
 box-shadow:2px 10px 10px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 
@@ -4445,7 +4434,7 @@ margin: 2px 0 2px 0;
 display:block;
 width:100%;
 height:20px;
-background-image:url(r_savespace/s_shelf_bg.png);
+background-image:url(img/r_savespace/s_shelf_bg.png);
 margin:0 auto;
 }
 .s_shelf_box_small .shelf .top .layer a:hover{
@@ -4468,10 +4457,10 @@ background-image:none;
 background-color:#4ac344;
 }
 .s_shelf_box_small .shelf .top .layer .full_box{
-background-image:url(r_savespace/s_shelf_bg_full.jpg);
+background-image:url(img/r_savespace/s_shelf_bg_full.jpg);
 }
 .s_shelf_box_small .shelf .top .layer .full_box:hover{
-background-image:url(r_savespace/s_shelf_bg_full.jpg);
+background-image:url(img/r_savespace/s_shelf_bg_full.jpg);
 }
 		/*卧式冰箱小架子底部*/
 .s_shelf_box_small .shelf .bottom{
@@ -4484,7 +4473,7 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#808080,direction=60,stren
 -moz-box-shadow: 1px 5px 5px #808080;
 -webkit-box-shadow: 1px 5px 5px #808080;
 box-shadow:1px 5px 5px #808080;
-background-image:url(r_savespace/upright_freezer_bg.png);
+background-image:url(img/r_savespace/upright_freezer_bg.png);
 }
 
 

@@ -1,39 +1,110 @@
-<input type="hidden" id="add_url" value="/container_types/new">
-<%= link_to 'new', new_container_type_url %>
-<table cellpadding="0" cellspacing="0" border="0" id="data－table-1" width="100%">
-  <thead>
-  <tr>
-    <th>容器种类</th>
-    <th>容器图片</th>
-    <th>种类别名</th>
-    <th>操作</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @container_types.each do |container_type| %>
-      <tr>
-        <td><%= container_type.container_catalog %></td>
-        <td><%= image_tag container_type.container_icon, :height => 200, :width => 200 %></td>
-        <td><%= container_type.alia_name %></td>
-        <td><%= container_type.add_link_url %></td>
-        <td>
-          <%= link_to 'Show', container_type %>
-          <%= link_to 'Edit', edit_container_type_path(container_type) %>
-          <%= link_to 'Destroy', container_type, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <%= link_to '添加该种类容器', :controller => 'containers', :action => 'new', :container_type_id=>container_type.id  %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-  <tfoot>
+<!-- 表单内容 -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="widget wgreen">
+        <div class="widget-head">
+          <div class="pull-left">患者列表</div>
+          <div class="widget-icons pull-right">
+            <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+            <!--<a href="#" class="wclose"><i class="fa fa-times"></i></a>-->
+          </div>
 
-  </tfoot>
-</table>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+          <div class="padd">
+            <br />
+            <!-- table starts.  -->
+            <!-- Table Page -->
+            <div class="page-tables">
+              <!-- Table -->
+              <div class="table-responsive">
+
+                <input type="hidden" id="add_url" value="/patient_infos/new">
+
+                <table cellpadding="0" cellspacing="0" border="0" id="data-table-1" width="100%">
+                  <thead>
+                  <tr>
+                    <th>容器种类</th>
+                    <th>容器图片</th>
+                    <th>种类别名</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @container_types.each do |container_type| %>
+                      <tr>
+                        <td><%= container_type.container_catalog %></td>
+                        <td><%= container_type.alia_name %></td>
+                        <td><%= container_type.add_link_url %></td>
+                        <td>
+                          <%= link_to 'Show', container_type %>
+                          <%= link_to 'Edit', edit_container_type_path(container_type) %>
+                          <%= link_to 'Destroy', container_type, method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <%= link_to '添加该种类容器', :controller => 'containers', :action => 'new', :container_type_id=>container_type.id  %>
+                        </td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                  <tfoot>
+                  <!--  <tr>
+                      <th>患者ID</th>
+                      <th>姓名</th>
+                      <th>性别</th>
+                      <th>出生日期</th>
+                      <th>操作</th>
+                    </tr>-->
+                  </tfoot>
+                </table>
+
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="widget-foot">-->
+        <!--&lt;!&ndash; Footer goes here &ndash;&gt;-->
+        <!--</div>-->
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- Matter -->
+<div class="matter">
+
+</div>
+<!-- Matter ends -->
 <script>
     $(document).ready(function() {
-        $('#data－table-1_filter').prepend(
-                '<a href="/container_types/new"><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
-        )
+        $('#data-table-1').dataTable( {
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "sSearch": "搜索",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+                "sZeroRecords": "没有检索到数据",
+                "sProcessing": "<img src='./loading.gif' />"
+            }
 
+        } );
+        if($('#add_url').val()!=undefined){
+            var add_url = $('#add_url').val();
+            $('#data-table-1_filter').prepend(
+                            '<a href='+add_url+' class=pjax-link><button class="btn btn-sm btn-default" name="button">添加</button></a>&nbsp;&nbsp;'
+            )
+        }
     } );
 </script>
+

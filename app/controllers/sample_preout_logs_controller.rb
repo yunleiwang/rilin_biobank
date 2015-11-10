@@ -17,6 +17,8 @@ class SamplePreoutLogsController < ApplicationController
     @samples = Sample.where("id in (?)",sample_ids)
     if request.headers['X-PJAX']
       render :layout => false
+    else
+      render :layout => 'blank_templet'
     end
   end
 

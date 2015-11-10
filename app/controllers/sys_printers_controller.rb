@@ -8,7 +8,7 @@ class SysPrintersController < ApplicationController
   def setting_index
     @sys_table_columns=SysTableColumn.all()
     @setting1=YAML.load_file(File.join(Rails.root, 'config', 'printer.yml'))
-    render :layout => 'templet_form'
+    render_layout?
   end
   def setting_test
     begin

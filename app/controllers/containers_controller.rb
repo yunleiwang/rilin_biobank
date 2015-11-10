@@ -5,6 +5,7 @@ class ContainersController < ApplicationController
   # GET /containers.json
   def index
     @containers = Container.all
+    render_layout?
   end
 
   # GET /containers/1
@@ -16,11 +17,12 @@ class ContainersController < ApplicationController
   def new
     #@container_type = ContainerType.find(params[:container_type_id].to_i)
     @container = Container.new
-    render layout: 'templet_form'
+    render_layout?
   end
 
   # GET /containers/1/edit
   def edit
+    render_layout?
   end
 
   # POST /containers
