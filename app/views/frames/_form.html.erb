@@ -56,39 +56,48 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-sm-2">
-                <%= f.label :horizontal_direction, '水平方向',:class=>'col-lg-2 control-label' %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.text_field :horizontal_direction,:class=>'form-control', :placeholder=>'水平方向' %>
-            </div>
-            <div class="col-sm-2">
-              <%= f.label :vertiacal_direction,'垂直方向', :class=>'col-lg-2 control-label' %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.text_field :vertiacal_direction,:class=>'form-control', :placeholder=>'垂直方向' %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-2">
-             <%= f.label :frame_rows, '层数(行数)',:class=>'col-lg-2 control-label' %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.text_field :frame_rows,:class=>'form-control', :placeholder=>'层数(行数)' %>
-            </div>
-            <div class="col-sm-2">
-            <%= f.label :frame_columns,'每层数量(列数)', :class=>'col-lg-2 control-label' %>
-            </div>
-            <div class="col-sm-4">
-              <%= f.text_field :frame_columns,:class=>'form-control', :placeholder=>'每层数量(列数)' %>
-            </div>
-          </div>
-
-
-
-
+          <!--立式冰箱中架子规格内容-->
+          <% if @container_type.container_catalog.include?('立式') %>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <%= f.label :horizontal_direction, '水平方向',:class=>'col-lg-2 control-label' %>
+                </div>
+                <div class="col-sm-4">
+                  <%= f.text_field :horizontal_direction,:class=>'form-control', :placeholder=>'水平方向' %>
+                </div>
+                <div class="col-sm-2">
+                  <%= f.label :vertiacal_direction,'垂直方向', :class=>'col-lg-2 control-label' %>
+                </div>
+                <div class="col-sm-4">
+                  <%= f.text_field :vertiacal_direction,:class=>'form-control', :placeholder=>'垂直方向' %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <%= f.label :frame_rows, '层数(行数)',:class=>'col-lg-2 control-label' %>
+                </div>
+                <div class="col-sm-4">
+                  <%= f.text_field :frame_rows,:class=>'form-control', :placeholder=>'层数(行数)' %>
+                </div>
+                <div class="col-sm-2">
+                  <%= f.label :frame_columns,'每层数量(列数)', :class=>'col-lg-2 control-label' %>
+                </div>
+                <div class="col-sm-4">
+                  <%= f.text_field :frame_columns,:class=>'form-control', :placeholder=>'每层数量(列数)' %>
+                </div>
+              </div>
+          <% else %><!--卧式冰箱和液氮罐中架子规格内容-->
+              <div class="form-group">
+                <div class="col-sm-2">
+                  <%= f.label :frame_rows, '行数',:class=>'col-lg-2 control-label' %>
+                </div>
+                <div class="col-sm-4">
+                  <%= f.text_field :frame_rows,:class=>'form-control', :placeholder=>'行数' %>
+                </div>
+                  <%= f.hidden_field :frame_columns, :value=>1, :class=>'form-control' %>
+                </div>
+              </div>
+          <% end %>
           </div>
         </div>
      </div>

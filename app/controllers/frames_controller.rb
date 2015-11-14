@@ -14,6 +14,8 @@ class FramesController < ApplicationController
 
   # GET /frames/new
   def new
+    frame_storage = FrameStorage.find(params[:frame_storage_id])
+    @container_type = frame_storage.container.container_type # 用于判断容器类型
     @frame = Frame.new
     render layout: 'blank_templet'
   end

@@ -6,20 +6,24 @@ class FrameStoragesController < ApplicationController
   def index
     @container = Container.find(params[:container_id])
     @frame_storages = FrameStorage.where(:container_id => params[:container_id]).order('id asc')
+    render_layout?
   end
 
   # GET /frame_storages/1
   # GET /frame_storages/1.json
   def show
+    render_layout?
   end
 
   # GET /frame_storages/new
   def new
     @frame_storage = FrameStorage.new
+    render_layout?
   end
 
   # GET /frame_storages/1/edit
   def edit
+    render_layout?
   end
 
   # POST /frame_storages

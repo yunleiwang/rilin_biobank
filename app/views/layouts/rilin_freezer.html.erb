@@ -33,6 +33,7 @@
   <%= stylesheet_link_tag 'style_old.css' %>
   <%#= stylesheet_link_tag 'rilin_old.css' %>
   <%= javascript_include_tag 'respond.min.js' %>
+  <%= javascript_include_tag 'jquery.pjax.js' %>
   <!--[if lt IE 9]>
     <script src="/assets/javascript/html5shiv.js"></script>
   <![endif]-->
@@ -63,13 +64,13 @@
               <li class="r_save_space_tittle"><a href="#"><i class="fa fa-list-alt r_save_space"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a></li>
               <% Container.order('id asc').each do |container| %>
                   <li class="<%= 'has_sub' if container.frames.count>0 %> r_equipment<%"open" if params[:container_id]==container.id%>">
-                    <a href="/frame_storages?container_id=<%= container.id %>">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="window.open('r_save_space_s_freezer.html')"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+                    <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="to_freezer(this)"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
                     <ul class="r_shelf_box">
                       <% container.frames.each do |frame| %>
-                          <li class="r_shelf_name r_shelf_name_on"><a href="/boxer_storages?frame_id=<%= frame.id%>"><%= frame.frame_name %></a><div class="shelf_arrow"></div></li>
+                          <li class="r_shelf_name r_shelf_name_on"><a href="/boxer_storages?frame_id=<%= frame.id%>" class="pjax-link"><%= frame.frame_name %></a><div class="shelf_arrow"></div></li>
                           <div class="r_box_nav_box" style="display:none;">
                             <% frame.boxers.each do |boxer| %>
-                                <div><a href="/sample_storages?boxer_id=<%= boxer.id%>">&nbsp;&nbsp;&nbsp;&nbsp;<%= boxer.box_name %></a></div>
+                                <div><a href="/sample_storages?boxer_id=<%= boxer.id%>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<%= boxer.box_name %></a></div>
                             <% end %>
                           </div>
                       <% end %>
@@ -128,6 +129,11 @@
     });
     //pjax局部刷新
     $(document).pjax('a.pjax-link', '#pjax-container')
+    function to_freezer(obj){
+
+        obj.parentNode.click();
+    }
+
 </script>
 </body>
 </html>

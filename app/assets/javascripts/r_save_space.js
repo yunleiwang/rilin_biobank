@@ -64,10 +64,15 @@ $(function(){
     $(".shelf_arrow").click(function(){
         /*哪个a？*/
         var n = $(".shelf_arrow").index($(this));
-        /*所有内容都隐藏*/
-        $(".r_box_nav_box").hide(200);
-        /*让对应的内容显示*/
-        $(".r_box_nav_box").eq(n).show(300);
+
+        if(!$(".r_box_nav_box").is(':visible')){
+            /*让对应的内容显示*/
+            $(".r_box_nav_box").eq(n).show(300);
+        }else{
+            /*所有内容都隐藏*/
+            $(".r_box_nav_box").hide(200);
+        }
+
     });
     /*右侧有项目后点添加项目击*/
     $(".r_add_btn").click(function(){
@@ -89,13 +94,3 @@ $(function(){
     });
 
 })
-	
-
-
-
-
-
-
-
-
-

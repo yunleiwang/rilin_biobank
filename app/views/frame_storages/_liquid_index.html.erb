@@ -1,0 +1,118 @@
+<!-- 液氮罐、架子、盒子 -->
+<div class="r_upright_freezer_box_big">
+  <div class="bocal_<%= @container.frame_num %>_box_big">
+    <div class="bocal_<%= @container.frame_num %>_big">
+     <!-- <img src="/assets/images/r_savespace/Bocal_3.png" border="0" usemap="#bocal_3_big_map" alt="bocal_3" >-->
+      <% if @container.frame_num==6 %>
+          <%= image_tag "r_savespace/Bocal_#{@container.frame_num}_big.png",:border => '0', :usemap => "#bocal_#{@container.frame_num}_big_map", :alt => "bocal_#{@container.frame_num}" %>
+      <% else %>
+          <%= image_tag "r_savespace/Bocal_#{@container.frame_num}.png",:border => '0', :usemap => "#bocal_#{@container.frame_num}_big_map", :alt => "bocal_#{@container.frame_num}" %>
+    <% end %>
+      <map name="bocal_<%= @container.frame_num %>_big_map" id="bocal_<%=@container.frame_num %>_big_map">
+        <!--coords中每相邻两个数为一个多边形的点坐标-->
+        <% if @container.frame_num==1 %>
+            <area shape="circle" coords="150,150,150" href ="Bocal_1_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==2%>
+            <area shape="poly" coords="0,150,45,45,150,0,255,45,300,150" href ="Bocal_2_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="300,150,255,255,150,300,45,255,0,150" href ="Bocal_2_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==3%>
+            <area shape="poly" coords="150,150,20,75,150,0,280,75" href ="Bocal_3_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,280,75,255,255,150,300" href ="Bocal_3_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,300,45,255,20,75" href ="Bocal_3_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==4%>
+            <area shape="poly" coords="150,150,0,150,45,45,150,0" href ="bocal_4_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,0,255,45,300,150" href ="bocal_4_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,300,150,255,255,150,300" href ="bocal_4_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,300,45,255,0,150" href ="bocal_4_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==5%>
+            <area shape="poly" coords="150,150,10,102,45,45,150,0" href ="bocal_5_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,0,255,45,292,102" href ="bocal_5_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,292,102,290,200,240,272" href ="bocal_5_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,240,272,150,300,60,270" href ="bocal_5_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,60,270,10,200,10,102" href ="bocal_5_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==6%>
+            <area shape="poly" coords="75,20,150,150,225,20" href ="Bocal_6_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="225,20,150,150,300,150" href ="Bocal_6_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="300,150,150,150,225,280" href ="Bocal_6_shelf.html" alt="shelf"/>
+            <area shape="poly" coords="225,280,150,150,75,280" href ="Bocal_6_shelf.html" alt="shelf"/>
+            <area shape="poly" coords="75,280,150,150,0,150" href ="Bocal_6_shelf.html" alt="shelf"/>
+            <area shape="poly" coords="0,150,150,150,75,20" href ="Bocal_6_shelf.html" alt="shelf"/>
+        <% elsif @container.frame_num==7%>
+            <area shape="poly" coords="150,150,20,85,5,118" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,5,118,242,35" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,242,35,300,150" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,300,150,245,270" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,245,270,115,295" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,115,295,15,215" href ="bocal_7_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,15,215,20,85" href ="bocal_7_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==8%>
+            <area shape="poly" coords="150,150,45,45,150,0" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,0,255,45" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,255,45,150,300" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,300,255,255" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,255,255,150,300" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,300,45,255" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,45,255,0,150" href ="bocal_8_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,0,150,45,45" href ="bocal_8_shelf.html"  alt="shelf"/>
+        <% elsif @container.frame_num==9%>
+            <area shape="poly" coords="150,150,100,10,202,10" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,202,10,280,75" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,280,75,298,175" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,298,175,247,265" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,247,265,150,300" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,150,300,55,265" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,55,265,5,178" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,5,178,20,75" href ="bocal_9_shelf.html"  alt="shelf"/>
+            <area shape="poly" coords="150,150,20,75,100,10" href ="bocal_9_shelf.html"  alt="shelf"/>
+        <% end %>
+      </map>
+    </div>
+  </div>
+  <div class="r_freezer_rolling_box">
+    <ul>
+      <li>设备ID</li>
+      <li>设备名称</li>
+      <li>使用率</li>
+    </ul>
+    <marquee direction="up" scrollamount="3" loop="-1">
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+    </marquee >
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_shelf_box_small">
+
+  <div class="r_name_path">
+    <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_box_box_small">
+  <div class="r_name_path">
+    <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>

@@ -4,6 +4,7 @@
 ****************************/
 
 body{
+
 	font-size: 12px;
 	line-height: 22px;
 	color: #666;
@@ -13,7 +14,6 @@ body{
 	-webkit-font-smoothing: antialiased;
 	font-family:"微软雅黑";
 }
-
 
 h1,h2,h3,h4,h5,h6{
 	padding: 2px 0px;
@@ -774,6 +774,7 @@ header .header-data .hdata em{
   padding: 10px 0px;
   padding-left: 30px;
   text-decoration: none;
+  border-bottom: 1px solid #ddd;
   color: #777;
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
@@ -3696,7 +3697,7 @@ height:290px;
 width:46px;
 overflow:hidden;
 margin:0 5px 0 0 ;
-float:right;
+float:left;
 }
 		/*每行1个架子*/
 /*.s_freezer_box_big .freezer .top .layer a{
@@ -4528,7 +4529,9 @@ width:240px;
 height:240px;
 }
 
-
+a:visited{
+    text-decoration:none;
+}
 
 
 

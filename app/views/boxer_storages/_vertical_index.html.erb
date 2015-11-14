@@ -1,0 +1,326 @@
+<!--立式冰箱架子-->
+<!-- 架子、冰箱、盒子 -->
+<div class="r_upright_shelf_box_big">
+  <div class="shelf_box_big">
+    <div class="shelf">
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@frame.frame_rows).each do |i| %>
+              <div class="layer">
+                <% (0...@frame.frame_columns).each do |j| %>
+                    <% boxer_storage = @boxer_storages[i*@frame.frame_columns+j] %>
+                    <% if boxer_storage.boxer_id %>
+                       <a class="<%= get_css_class2(boxer_storage,j%@frame.frame_columns) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+                    <% else %>
+                       <a class="fancybox_frame<%= get_css_class2(boxer_storage,j%@frame.frame_columns) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
+                    <% end %>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="bottom">
+      </div>
+    </div>
+  </div>
+  <div class="r_freezer_rolling_box">
+    <ul>
+      <li>设备ID</li>
+      <li>设备名称</li>
+      <li>使用率</li>
+    </ul>
+    <marquee direction="up" scrollamount="3" loop="-1">
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
+    </marquee >
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_freezer_box_small">
+  <div class="freezer_box_small">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@container.container_rows).each do |i| %>
+              <div class="layer">
+                <% (0...@container.container_columns).each do |j| %>
+                    <% frame_storage = @frame_storages[i*@container.container_columns + j] %>
+                    <% if frame_storage.frame_id %>
+                        <a class="fancybox<%= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                    <% else %>
+                        <a class="fancybox<%= get_frame_css_class(frame_storage,j) %>" href="#"></a>
+                    <% end %>
+
+                <% end %>
+              </div>
+          <% end %>
+
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_box_box_small">
+  <div class="box_box_small">
+    <div class="freezer">
+      <div class="top">
+        <div class="layer_box">
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a class="full_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+          <div class="layer">
+            <a class="first_box" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+
+
+
+
+
+
+<!--<div class="r_upright_box_box_small">-->
+  <!--<div class="box_box_digital_small">-->
+    <!--<ul>-->
+      <!--<li>1</li>-->
+      <!--<li>2</li>-->
+      <!--<li>3</li>-->
+      <!--<li>4</li>-->
+      <!--<li>5</li>-->
+      <!--<li>6</li>-->
+      <!--<li>7</li>-->
+      <!--<li>8</li>-->
+      <!--<li>9</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="box_box_small">-->
+    <!--<div class="box">-->
+      <!--<div class="box_box_letter_small">-->
+        <!--<ul>-->
+          <!--<li>A</li>-->
+          <!--<li>B</li>-->
+          <!--<li>C</li>-->
+          <!--<li>D</li>-->
+          <!--<li>E</li>-->
+          <!--<li>F</li>-->
+          <!--<li>G</li>-->
+          <!--<li>H</li>-->
+          <!--<li>I</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <!--<div class="layer_box">-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a class="full_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a class="take_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+        <!--<div class="layer">-->
+          <!--<a class="first_box" href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+          <!--<a href="#"></a>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="r_name_path">-->
+    <!--<i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>-->
+  <!--</div>-->
+<!--</div>-->
+
