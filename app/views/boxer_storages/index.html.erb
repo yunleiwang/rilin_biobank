@@ -8,7 +8,13 @@
   </div>
 </div>
 <!-- 架子、冰箱、盒子 -->
-<%  %>
+<% if @container.container_type.container_catalog.include?('立式') %>
+    <%= render 'vertical_index' %>
+<% elsif @container.container_type.container_catalog.include?('卧式') %>
+    <%= render 'horizontal_index' %>
+<% else %>
+    <%= render 'liquid_index' %>
+<% end %>
 
 
 

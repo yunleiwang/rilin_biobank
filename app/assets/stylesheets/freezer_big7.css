@@ -134,9 +134,9 @@
  width:13%;
  height:46px;
  background-image:url(r_savespace/box_bg.png);
- background-size:100%;
- -webkit-background-size:100%;
- -moz-background-size:100%;
+ background-size:100% 100%;
+ -webkit-background-size:100% 100%;
+ -moz-background-size:100% 100%;
  float:left;
  margin-left:1%;
  }
