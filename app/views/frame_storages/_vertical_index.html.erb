@@ -12,9 +12,9 @@
                     <% frame_storage = @frame_storages[(i*@container.container_columns)+j] %>
 
                     <% if frame_storage.frame_id %>
-                        <a class="<%= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                        <a class="<%= get_frame_css_class(frame_storage,j, nil) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
                     <% else %>
-                        <a class="fancybox_frame<%= get_frame_css_class(frame_storage,j) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
+                        <a class="fancybox_frame<%= get_frame_css_class(frame_storage,j,nil) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
                     <% end %>
 
                 <% end %>

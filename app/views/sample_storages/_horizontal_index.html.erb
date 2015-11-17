@@ -1,0 +1,110 @@
+<!-- 冰箱、架子、盒子 -->
+<div class="r_upright_box_box_big">
+  <div class="box_box_digital_big">
+    <ul>
+      <%b = 'a'%>
+      <% @boxer.box_column.times do %>
+          <li><%= b %></li>
+          <% b.next! %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="box_box_big">
+    <div class="box">
+      <div class="box_box_letter_big">
+        <ul>
+          <% (1..@boxer.box_row).each do |i|%>
+              <li><%= i %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="layer_box">
+        <% (0...@boxer.box_row).each do |i| %>
+            <div class="layer">
+              <% (0...@boxer.box_column).each do |j| %>
+                  <% sample_storage = @sample_storages[i*@boxer.box_column+j] %>
+                  <% if sample_storage.sample_id %>
+                      <a class="fancybox_frame<%= get_sample_css_class(sample_storage,j) %>" href="/samples/<%= sample_storage.sample_id%>"></a>
+                  <% else %>
+                      <a class="fancybox_frame<%= get_sample_css_class(sample_storage,j) %>" href="/sample_storages/<%= sample_storage.id%>/edit" ></a>
+                  <% end %>
+              <% end %>
+              <!--<a class="take_box" href="#"></a>-->
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_sleep_freezer_box_small">
+  <div class="s_freezer_box_small">
+    <div class="freezer">
+      <div class="bottom">
+        <div class="hour_icon"></div>
+        <ul class="heat_dissipation">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@container.container_columns).each do |i| %>  <!--列数-->
+              <div class="layer">
+                <% (0...@container.container_rows).each do |j| %>
+                    <% frame_storage = @frame_storages[(j*@container.container_columns)+i] %>
+                    <% if frame_storage.frame_id %>
+                        <a class="<%= get_frame_css_class(frame_storage, j, @frame.id) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                    <% else %>
+                        <a class="fancybox_frame<%= get_frame_css_class(frame_storage, j, @frame.id) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
+                    <% end %>
+                <% end %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
+<div class="r_upright_shelf_box_small">
+  <div class="s_shelf_box_small">
+    <div class="shelf">
+      <div class="top">
+        <div class="layer_box">
+          <% (0...@frame.frame_rows).each do |i|  %>
+              <div class="layer">
+                <% boxer_storage = @boxer_storages[i] %>
+                <% if boxer_storage.boxer_id %>
+                    <a class="<%= get_css_class2(boxer_storage, i%@frame.frame_columns, @boxer.id) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+                <% else %>
+                    <a class="fancybox_frame<%= get_css_class2(boxer_storage,i%@frame.frame_columns, @boxer.id) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
+                <% end %>
+
+              </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="bottom">
+      </div>
+    </div>
+  </div>
+  <div class="r_name_path">
+    <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
+  </div>
+</div>
