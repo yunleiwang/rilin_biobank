@@ -69,13 +69,16 @@
               <li class="r_save_space_tittle"><a href="#"><i class="fa fa-list-alt r_save_space"></i> <%= menu_lib.name_zh %>  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a></li>
               <% Container.order('id asc').each do |container| %>
                   <li class="<%= 'has_sub' if container.frames.count>0 %> r_equipment<%"open" if params[:container_id]==container.id%>">
-                    <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="window.open('/frame_storages?container_id=<%= container.id %>','_self')"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+<!--
+                    <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link container_id">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="window.open('/frame_storages?container_id=<%= container.id %>','_self')"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+-->
+                    <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="javascript:container_show(<%= container.id %>)"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
                     <ul class="r_shelf_box">
                       <% container.frames.each do |frame| %>
                           <li class="r_shelf_name r_shelf_name_on"><a href="/boxer_storages?frame_id=<%= frame.id%>" class="pjax-link"><%= frame.frame_name %></a><div class="shelf_arrow"></div></li>
                           <div class="r_box_nav_box" style="display:none;">
                             <% frame.boxers.each do |boxer| %>
-                                <div><a href="/sample_storages?boxer_id=<%= boxer.id%>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<%= boxer.box_name %></a></div>
+                                <div><a href="/sample_storages?boxer_id=<%= boxer.id%>"  class="pjax-link boxer_a">&nbsp;&nbsp;&nbsp;&nbsp;<%= boxer.box_name %></a></div>
                             <% end %>
                           </div>
                       <% end %>
@@ -134,10 +137,22 @@
 
     });
     //pjax局部刷新
-    $(document).pjax('a.pjax-link', '#pjax-container')
+    $(document).pjax('a.pjax-link', '#pjax-container');
+    $(".container_id").unbind();
     function to_freezer(obj){
         alert(obj.parentNode.href)
         obj.parentNode.click();
+    }
+
+    function container_show(container_id){
+        $.ajax({
+            type: 'GET',
+            url: '/frame_storages/index_ajax',
+            data: "container_id="+container_id,
+            success: function(msg) {
+
+            }
+        });
     }
 </script>
 

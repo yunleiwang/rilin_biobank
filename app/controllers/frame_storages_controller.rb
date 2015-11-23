@@ -9,6 +9,12 @@ class FrameStoragesController < ApplicationController
     render_layout?
   end
 
+  def index_ajax
+    @container = Container.find(params[:container_id])
+    @frame_storages = FrameStorage.where(:container_id => params[:container_id]).order('id asc')
+
+  end
+
   # GET /frame_storages/1
   # GET /frame_storages/1.json
   def show
