@@ -23,5 +23,13 @@ class ApplicationController < ActionController::Base
       render :layout => false
     end
   end
+
+  def render(*args, &block)
+    if request.headers['X-PJAX']
+      args[0] ||= {}
+      args[0][:layout] = false
+    end
+    super(*args, &block)
+  end
 end
 

@@ -33,15 +33,8 @@
       </div>
     </div>
 
-    <div id="freeze_horizontal" style="display: none">
-      <%#= render 'freeze_horizontal' %>
-    </div>
-    <div id="liquid_nitrogen_tank" style="display: none">
-      <%= render 'liquid_nitrogen_tank' %>
-    </div>
-    <div id="freeze_vertical" style="display: none">
-      <%#= render :partial => 'freeze_vertical' %>
-    </div>
+    <div id="container_type"></div>
+
     <div class="actions">
       <%= f.submit %>
     </div>
@@ -50,24 +43,16 @@
 <script>
     $("#container_container_type_id").change(function(){
         var text = $("#container_container_type_id :selected").text()
-        if(text=='立式冰箱'){
-            $("#freeze_horizontal").hide();
-            $("#liquid_nitrogen_tank").hide();
-            $("#freeze_vertical").show();
-        }else if(text=='卧式冰箱'){
-            $("#liquid_nitrogen_tank").hide();
-            $("#freeze_vertical").hide();
-            $("#freeze_horizontal").show();
-        }else if(text=='液氮罐'){
-            $("#freeze_vertical").hide();
-            $("#freeze_horizontal").hide();
-            $("#liquid_nitrogen_tank").show();
-        }
-        else{
-            $("#freeze_vertical").hide();
-            $("#freeze_horizontal").hide();
-            $("#liquid_nitrogen_tank").hide();
-        }
+
+        $.ajax({
+            type: "post",
+
+            url: '/containers/1/select_container',
+            data: "container_type="+text,
+            success: function (data) {
+
+            }
+        });
     })
 </script>
 

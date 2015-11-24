@@ -1,0 +1,8 @@
+<% if container_type==ContainerType::LISHIBINGXIANG %>
+    <%= render :partial => 'freeze_vertical' %>
+<% elsif container_type==ContainerType::WOSHIBINGXIANG%>
+    <%= render 'freeze_horizontal' %>
+<% elsif container_type==ContainerType::YEDANGUAN %>
+    <%= render 'liquid_nitrogen_tank' %>
+<% end %>
+

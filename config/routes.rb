@@ -47,7 +47,11 @@ Rails.application.routes.draw do
       get 'index_ajax'
     end
   end
-  resources :containers
+  resources :containers do
+    member do
+      post 'select_container'
+    end
+  end
   resources :container_types
   resources :patient_infos
   # The priority is based upon order of creation: first created -> highest priority.

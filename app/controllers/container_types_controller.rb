@@ -5,24 +5,23 @@ class ContainerTypesController < ApplicationController
   def index
     @container_types = ContainerType.all
     @patient_infos = PatientInfo.all
-    render_layout?
+
   end
 
   # GET /container_types/1
   # GET /container_types/1.json
   def show
-    render_layout?
+
   end
 
   # GET /container_types/new
   def new
     @container_type = ContainerType.new
-    render_layout?
   end
 
   # GET /container_types/1/edit
   def edit
-    render_layout?
+
   end
 
   # POST /container_types
