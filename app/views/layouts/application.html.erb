@@ -38,7 +38,7 @@
   <!-- Main stylesheet -->
   <%= stylesheet_link_tag 'style.css' %>
   <%= stylesheet_link_tag 'rilin_old' %>
-  <%= javascript_include_tag 'respond.min.js' %>
+  <%#= javascript_include_tag 'respond.min.js' %>
   <!--[if lt IE 9]>
     <script src="/assets/javascript/html5shiv.js"></script>
   <![endif]-->
@@ -145,14 +145,15 @@
     }
 
     function container_show(container_id){
-        $.ajax({
-            type: 'GET',
-            url: '/frame_storages/index_ajax',
-            data: "container_id="+container_id,
-            success: function(msg) {
-
-            }
-        });
+//        $.ajax({
+//            type: 'GET',
+//            url: '/frame_storages/index_ajax?_pjax=#pjax-container',
+//            data: "container_id="+container_id,
+//            success: function(msg) {
+//
+//            }
+//        });
+      $.pjax({ url: '/frame_storages',data: "container_id="+container_id, container: '#pjax-container' })
     }
 </script>
 
