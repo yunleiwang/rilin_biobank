@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :authorize
 
   def authorize
-    p 1
-    p 2
     if session[:sys_user_id].nil?
       redirect_to sys_account_sign_in_path
     end

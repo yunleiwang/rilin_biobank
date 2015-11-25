@@ -66,35 +66,7 @@
 </div>
 <div class="r_upright_freezer_box_small">
   <div class="freezer_box_small">
-    <div class="freezer">
-      <div class="top">
-        <div class="layer_box">
-          <% (0...@container.frame_num).each do |i| %>
-              <div class="layer">
-
-                    <% frame_storage = @frame_storages[i] %>
-                    <% if frame_storage.frame_id %>
-                        <a class="fancybox<%#= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
-                    <% else %>
-                        <a class="fancybox<%#= get_frame_css_class(frame_storage,j) %>" href="#"></a>
-                    <% end %>
-
-
-              </div>
-          <% end %>
-
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="hour_icon"></div>
-        <ul class="heat_dissipation">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-    </div>
+     <%= render :partial => "liquid_svg",:locals => {:frame_storages=>@container.frame_storages}%>
   </div>
   <div class="r_name_path">
     <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>

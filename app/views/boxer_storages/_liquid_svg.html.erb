@@ -1,5 +1,4 @@
 <script type="text/ecmascript" a3:scriptImplementation="Adobe">
-
   function svg_click(evt,frame_storage_id,frame_id){
     //为空创建
     if(frame_id==""||frame_id==null){
@@ -9,18 +8,17 @@
       $.pjax({ url: '/boxer_storages?frame_id='+frame_id, container: '#pjax-container' })
     }
   }
-
 </script>
  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400">
    <% x=20 %>
-   <% y=200 %>
+   <% y=150 %>
     <!-- Pie chart sample -->
    <% frame_num=frame_storages.length %>
     <% frame_storages.each_with_index do |frame_storage,i| %>
        <% n=i+1 %>
-       <% x1=200-Math.cos((Math::PI)*2*n / frame_num)*180%>
-       <% y1=200-Math.sin((Math::PI)*2*n / frame_num)*180%>
-        <path d="M200,200 L<%= x%>,<%= y%> A180,180 0 0,1 <%= x1%>,<%= y1%> z"
+       <% x1=150-Math.cos((Math::PI)*2*n / frame_num)*130%>
+       <% y1=150-Math.sin((Math::PI)*2*n / frame_num)*130%>
+        <path d="M150,150 L<%= x%>,<%= y%> A130,130 0 0,1 <%= x1%>,<%= y1%> z"
               fill="<%= frame_storage.frame_id.blank?? "#ffffff":"#00ff00"%>"
               style="fill-opacity: 1;
                   stroke:black;
