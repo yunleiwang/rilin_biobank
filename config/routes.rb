@@ -42,16 +42,8 @@ Rails.application.routes.draw do
   resources :boxers
   resources :boxer_storages
   resources :frames
-  resources :frame_storages do
-    collection do
-      get 'index_ajax'
-    end
-  end
-  resources :containers do
-    member do
-      post 'select_container'
-    end
-  end
+  resources :frame_storages
+  resources :containers
   resources :container_types
   resources :patient_infos
   # The priority is based upon order of creation: first created -> highest priority.

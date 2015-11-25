@@ -2,7 +2,7 @@
 <%#= link_to '架子存储盒子空间', :controller => 'boxer_storages', :action => 'index', :frame_id => frame_storage.frame_id %>
 <%= javascript_include_tag 'jquery.fancybox.js' %>
 <%= stylesheet_link_tag 'jquery.fancybox.css' %>
-<%= stylesheet_link_tag "freezer_big#{@container.container_columns}" %>
+<%#= stylesheet_link_tag "freezer_big#{@container.container_columns}" %>
 
 <% if @container.container_type.container_catalog.include?('立式') %>
     <%= render 'vertical_index' %>
