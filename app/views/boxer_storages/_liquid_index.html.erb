@@ -1,23 +1,17 @@
 <!--立式冰箱架子-->
 <!-- 架子、冰箱、盒子 -->
 <div class="r_upright_shelf_box_big">
-  <div class="shelf_box_big">
+  <div class="s_shelf_box_big">
     <div class="shelf">
       <div class="top">
         <div class="layer_box">
           <% (0...@frame.frame_rows).each do |i| %>
               <div class="layer">
-                <% (0...@frame.frame_columns).each do |j| %>
-                    <% boxer_storage = @boxer_storages[i*@frame.frame_columns+j] %>
-                    <% if boxer_storage.boxer_id %>
-
-                        <a class="<%= get_css_class2(boxer_storage,j%@frame.frame_columns,boxer_storage.boxer_id) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
-                    <% else %>
-                        <%#= j%@frame.frame_columns %>
-                        <%#= @frame.frame_columns %>
-                        <%#= @frame.frame_rows %>
-                        <a class="fancybox_frame<%= get_css_class2(boxer_storage,j%@frame.frame_columns,nil) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
-                    <% end %>
+                <% boxer_storage = @boxer_storages[i] %>
+                <% if boxer_storage.boxer_id %>
+                    <a class="<%= get_css_class2(boxer_storage,i%@frame.frame_columns,nil) %>" href="/sample_storages?boxer_id=<%= boxer_storage.boxer_id%>"></a>
+                <% else %>
+                    <a class="fancybox_frame<%= get_css_class2(boxer_storage,i%@frame.frame_columns,nil) %>" href="/boxers/new?boxer_storage_id=<%= boxer_storage.id%>" ></a>
                 <% end %>
               </div>
           <% end %>
@@ -27,75 +21,55 @@
       </div>
     </div>
   </div>
-  <div class="r_freezer_rolling_box">
-    <ul>
-      <li>设备ID</li>
-      <li>设备名称</li>
-      <li>使用率</li>
-    </ul>
-    <marquee direction="up" scrollamount="3" loop="-1">
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-    </marquee >
-  </div>
+
   <div class="r_name_path">
     <i>名称：</i><span>架子1</span><i>路径：</i><span>abcdefg</span>
   </div>
 </div>
 <div class="r_upright_freezer_box_small">
-  <div class="freezer_box_small">
-    <div class="freezer">
-      <div class="top">
-        <div class="layer_box">
-          <% (0...@container.frame_num).each do |i| %>
-              <div class="layer">
+      <script type="text/ecmascript" a3:scriptImplementation="Adobe">
 
-                    <% frame_storage = @frame_storages[i] %>
-                    <% if frame_storage.frame_id %>
-                        <a class="fancybox<%#= get_frame_css_class(frame_storage,j) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
-                    <% else %>
-                        <a class="fancybox<%#= get_frame_css_class(frame_storage,j) %>" href="#"></a>
-                    <% end %>
+          function svg_click(evt,frame_storage_id,frame_id){
+              //为空创建
+              if(frame_id==""||frame_id==null){
+                  $("#boxes").attr("href","/frames/new?frame_storage_id="+frame_storage_id);
+                  $("#boxes").click();
+              }else{
+                  $.pjax({ url: '/boxer_storages?frame_id='+frame_id, container: '#pjax-container' })
+              }
+          }
 
+      </script>
+  <center>
+    <div>
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="280" height="280">
+        <% x=20 %>
+        <% y=150 %>
+        <!-- Pie chart sample -->
+        <% frame_num=@frame_storages.length %>
+        <% @frame_storages.each_with_index do |frame_storage,i| %>
+            <% n=i+1 %>
+            <% x1=150-Math.cos((Math::PI)*2*n / frame_num)*130%>
+            <% y1=150-Math.sin((Math::PI)*2*n / frame_num)*130%>
+            <path id="textPath" d="M150,150 L<%= x%>,<%= y%> A130,130 0 0,1 <%= x1%>,<%= y1%> z"
+                  fill="<%= liquid_style(frame_storage,@frame.id) %>"
+                  style="fill-opacity: 1;
+                          stroke:black;
+                          stroke-width: 1"
+                  onclick= "svg_click(evt,<%= frame_storage.id%>,'<%= frame_storage.frame_id%>')"/>
+            <% x= x1 %>
+            <% y= y1 %>
+            <text x="x1" y="y1"><textPath xlink:href="#textPath" startOffset="0" >here goes my text</textPath></text>
+        <% end %>
 
-              </div>
-          <% end %>
+      </svg>
 
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="hour_icon"></div>
-        <ul class="heat_dissipation">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
     </div>
-  </div>
+  </center>
+      <a id="boxes" class="fancybox_frame" ></a>
+
+
+
   <div class="r_name_path">
     <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>
   </div>
@@ -185,146 +159,4 @@
     <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
   </div>
 </div>
-
-
-
-
-
-
-<!--<div class="r_upright_box_box_small">-->
-  <!--<div class="box_box_digital_small">-->
-    <!--<ul>-->
-      <!--<li>1</li>-->
-      <!--<li>2</li>-->
-      <!--<li>3</li>-->
-      <!--<li>4</li>-->
-      <!--<li>5</li>-->
-      <!--<li>6</li>-->
-      <!--<li>7</li>-->
-      <!--<li>8</li>-->
-      <!--<li>9</li>-->
-    <!--</ul>-->
-  <!--</div>-->
-  <!--<div class="box_box_small">-->
-    <!--<div class="box">-->
-      <!--<div class="box_box_letter_small">-->
-        <!--<ul>-->
-          <!--<li>A</li>-->
-          <!--<li>B</li>-->
-          <!--<li>C</li>-->
-          <!--<li>D</li>-->
-          <!--<li>E</li>-->
-          <!--<li>F</li>-->
-          <!--<li>G</li>-->
-          <!--<li>H</li>-->
-          <!--<li>I</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-      <!--<div class="layer_box">-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a class="full_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a class="take_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-        <!--<div class="layer">-->
-          <!--<a class="first_box" href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-          <!--<a href="#"></a>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="r_name_path">-->
-    <!--<i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>-->
-  <!--</div>-->
-<!--</div>-->
 

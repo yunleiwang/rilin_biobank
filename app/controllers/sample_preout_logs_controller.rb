@@ -5,9 +5,7 @@ class SamplePreoutLogsController < ApplicationController
   # GET /sample_preout_logs.json
   def index
     @sample_preout_logs = SamplePreoutLog.all
-    if request.headers['X-PJAX']
-      render :layout => false
-    end
+
   end
 
   # GET /sample_preout_logs/1
@@ -25,16 +23,12 @@ class SamplePreoutLogsController < ApplicationController
   # GET /sample_preout_logs/new
   def new
     @sample_preout_log = SamplePreoutLog.new
-    if request.headers['X-PJAX']
-      render :layout => false
-    end
+
   end
 
   # GET /sample_preout_logs/1/edit
   def edit
-    if request.headers['X-PJAX']
-      render :layout => false
-    end
+
   end
 
   # POST /sample_preout_logs

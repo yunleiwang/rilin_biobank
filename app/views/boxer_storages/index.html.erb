@@ -1,21 +1,37 @@
-<%= stylesheet_link_tag "box_big#{@frame.frame_columns}" %>
-<%#= stylesheet_link_tag "box_small#{@frame.frame_columns}" %>
-<%#= stylesheet_link_tag "freezer_small#{@container.container_columns}" %>
 <div class="row">
   <div class="col-md-12">
     <input class="r_add_btn" type="button" value="添加项目 +">
     <input class="r_modify_btn" type="button" value="修改项目 ✎">
   </div>
 </div>
+
 <!-- 架子、冰箱、盒子 -->
-<% if @container.container_type.container_catalog.include?('立式') %>
-    <%= render 'vertical_index' %>
-<% elsif @container.container_type.container_catalog.include?('卧式') %>
+<% if @container.container_type.container_catalog.include?('卧式') %>
+    <!--s_shelf_big大架子的样式，只有一种，css中可以删掉所有，该样式在style中-->
+    <%= stylesheet_link_tag "s_shelf_big" %>
+    <%= stylesheet_link_tag "s_freezer_small#{@container.container_rows}" %>
     <%= render 'horizontal_index' %>
+<% elsif @container.container_type.container_catalog.include?('立式') %>
+    <%= stylesheet_link_tag "shelf_big#{@frame.frame_columns}" %>
+    <%= stylesheet_link_tag "freezer_small#{@container.container_columns}" %>
+    <%= render 'vertical_index' %>
 <% else %>
+    <%= stylesheet_link_tag "s_shelf_big" %>
+    <script type="text/ecmascript" a3:scriptImplementation="Adobe">
+
+        function svg_click(evt,frame_storage_id,frame_id){
+            //为空创建
+            if(frame_id==""||frame_id==null){
+                $("#boxes").attr("href","/frames/new?frame_storage_id="+frame_storage_id);
+                $("#boxes").click();
+            }else{
+                $.pjax({ url: '/boxer_storages?frame_id='+frame_id, container: '#pjax-container' })
+            }
+        }
+
+    </script>
     <%= render 'liquid_index' %>
 <% end %>
-
 
 
 

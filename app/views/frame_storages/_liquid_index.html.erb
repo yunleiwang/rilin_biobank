@@ -2,7 +2,27 @@
 <div class="r_upright_freezer_box_big">
   <div class="bocal_<%= @container.frame_num %>_box_big">
     <div class="bocal_<%= @container.frame_num %>_big">
-      <%= render :partial => "liquid_svg",:locals => {:frame_storages=>@container.frame_storages}%>
+      <!--svg实现液氮罐圆形展现-->
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400">
+        <% x=20 %>
+        <% y=200 %>
+        <!-- Pie chart sample -->
+        <% frame_num=@frame_storages.length %>
+        <% @frame_storages.each_with_index do |frame_storage,i| %>
+            <% n=i+1 %>
+            <% x1=200-Math.cos((Math::PI)*2*n / frame_num)*180%>
+            <% y1=200-Math.sin((Math::PI)*2*n / frame_num)*180%>
+            <path d="M200,200 L<%= x%>,<%= y%> A180,180 0 0,1 <%= x1%>,<%= y1%> z"
+                  fill="<%= liquid_style(frame_storage,nil)%>"
+                  style="fill-opacity: 1;
+                          stroke:black;
+                          stroke-width: 1"
+                  onclick= "svg_click(evt,<%= frame_storage.id%>,'<%= frame_storage.frame_id%>')"/>
+            <% x= x1 %>
+            <% y= y1 %>
+        <% end %>
+      </svg>
+
     </div>
   </div>
   <div class="r_name_path">
@@ -20,3 +40,16 @@
     <i>名称：</i><span>盒子1</span><i>路径：</i><span>abcdefg</span>
   </div>
 </div>
+
+<!--svg液氮罐点击效果js-->
+<script type="text/ecmascript" a3:scriptImplementation="Adobe">
+    function svg_click(evt,frame_storage_id,frame_id){
+        //为空创建
+        if(frame_id==""||frame_id==null){
+            $("#boxes").attr("href","/frames/new?frame_storage_id="+frame_storage_id);
+            $("#boxes").click();
+        }else{
+            $.pjax({ url: '/boxer_storages?frame_id='+frame_id, container: '#pjax-container' })
+        }
+    }
+</script>

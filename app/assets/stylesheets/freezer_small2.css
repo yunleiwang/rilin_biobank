@@ -24,7 +24,7 @@
 .freezer_box_small .freezer .top .layer a{
  display:block;
  width:49%;
- height:46px;
+ height:20px;
  background-image:url(r_savespace/box_bg.png);
     background-size:100% 100%;
     -webkit-background-size:100% 100%;
@@ -35,7 +35,7 @@
  .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:49%;
- height:46px;
+ height:20px;
  background-image:none;
  background-color:#8c8c8c;
  float:left;

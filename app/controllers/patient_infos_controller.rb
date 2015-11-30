@@ -5,28 +5,26 @@ class PatientInfosController < ApplicationController
   # GET /patient_infos.json
   def index
     @patient_infos = PatientInfo.order('id desc')
-    render_layout?
+
   end
 
   # GET /patient_infos/1
   # GET /patient_infos/1.json
   def show
     session[:patient_info_id]=@patient_info.id
-    #render :layout => "rilin_show"
-    render_layout?
+
   end
 
   # GET /patient_infos/new
   def new
     @patient_info = PatientInfo.new
-    #render :layout => 'templet_form'
-    render_layout?
+
   end
 
   # GET /patient_infos/1/edit
   def edit
     session[:patient_info_id] ||= @patient_info.id
-    render_layout?
+
   end
 
   # POST /patient_infos
@@ -82,12 +80,6 @@ class PatientInfosController < ApplicationController
     def patient_info_params
       params.require(:patient_info).permit(:patient_id, :patient_name, :gender, :birthday, :cell_phone, :home_phone, :other_phone, :zip_code, :address, :company_name, :company_phone, :company_zip, :company_address, :relationship_first, :relative_name_first, :relative_phone1_first, :relative_phone2_first, :relationship_second, :relative_name_second, :relative_phone1_second, :relative_phone2_second, :relationship_third, :relative_name_third, :relative_phone1_third, :relative_phone2_third)
     end
-    #pajx请求  如果是pajx请求  不引layout
-    def render_layout?
-      if request.headers['X-PJAX']
-        render :layout => false
-      end
-      p 1111111111111111
-    end
+
 
 end

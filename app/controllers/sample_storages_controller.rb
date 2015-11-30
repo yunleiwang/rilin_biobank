@@ -12,19 +12,19 @@ class SampleStoragesController < ApplicationController
     @container = frame_storage.container
     @frame_storages = @container.frame_storages.order('id asc')
     @sample_storages = SampleStorage.where('boxer_id = ?',@boxer.id).order('id asc')
-    render_layout?
+
   end
 
   # GET /sample_storages/1
   # GET /sample_storages/1.json
   def show
-    render_layout?
+
   end
 
   # GET /sample_storages/new
   def new
     @sample_storage = SampleStorage.new
-    render_layout?
+
   end
 
   # GET /sample_storages/1/edit

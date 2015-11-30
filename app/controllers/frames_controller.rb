@@ -10,7 +10,7 @@ class FramesController < ApplicationController
   # GET /frames/1
   # GET /frames/1.json
   def show
-    render_layout?
+
   end
 
   # GET /frames/new

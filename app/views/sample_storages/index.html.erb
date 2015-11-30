@@ -1,7 +1,3 @@
-<%= stylesheet_link_tag "boxer_small#{@boxer.box_column}" %>
-<%= stylesheet_link_tag "freezer_small#{@container.container_columns}" %>
-<%= stylesheet_link_tag "boxer_small#{@frame.frame_columns}" %>
-
 <div class="row">
   <div class="col-md-12">
     <input class="r_add_btn" type="button" value="添加项目 +">
@@ -9,8 +5,10 @@
   </div>
 </div>
 
-
 <% if @container.container_type.container_catalog.include?('立式') %>
+    <%#= stylesheet_link_tag "shelf_small#{@boxer.box_column}" %>
+    <%= stylesheet_link_tag "freezer_small#{@container.container_columns}" %>
+    <%= stylesheet_link_tag "shelf_small#{@frame.frame_columns}" %>
     <%= render 'vertical_index' %>
 <% elsif @container.container_type.container_catalog.include?('卧式') %>
     <%= render 'horizontal_index' %>

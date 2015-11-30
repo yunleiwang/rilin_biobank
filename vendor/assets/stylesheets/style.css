@@ -2215,12 +2215,19 @@ margin-top:20px;
 background-color:#efeff0;
 float:left;
 }
-.freezer_box_big{
+/*有滚动效果时的冰箱*/
+/*.freezer_box_big{
 width:320px;
 height:600px;
 float:left;
 margin:20px 0 0 10px;
+}*/
+.freezer_box_big{
+	width:320px;
+	height:600px;
+	margin:20px auto;
 }
+
 .freezer_box_big .freezer{
 width:320px;
 height:620px;
@@ -2503,12 +2510,21 @@ margin-top:20px;
 background-color:#efeff0;
 float:left;
 }
-.shelf_box_big{
+
+/*有滚动效果时架子样式*/
+/*.shelf_box_big{
 width:320px;
 height:600px;
 float:left;
 margin:20px 0 0 10px;
+}*/
+/*无滚动效果时架子的样式*/
+.shelf_box_big{
+	width:320px;
+	height:600px;
+	margin:20px auto;
 }
+
 .shelf_box_big .shelf{
 width:320px;
 height:600px;
@@ -2720,6 +2736,9 @@ width:96%;
 overflow:hidden;
 margin:0 auto;
 }
+
+/*10*10盒子*/
+/*
 .box_box_big .box .layer_box .layer{
 width:100%;
 height:50px;
@@ -2744,7 +2763,53 @@ background-image:none;
 background-color:#8c8c8c;
 float:left;
 margin-left:1%;
+}*/
+
+/*12乘12*/
+.box_box_big .box .layer_box .layer{
+	width:100%;
+	height:40px;
+	margin:5px 0 5px 0;
 }
+.box_box_big .box .layer_box .layer a{
+	display:block;
+	width:7%;
+	height:40px;
+	background-image:url(r_savespace/box_bg.png);
+	background-size:100% 100%;
+	-webkit-background-size:100% 100%;
+	-moz-background-size:100% 100%;
+	float:left;
+	margin-left:1%;
+}
+.box_box_big .box .layer_box .layer a:hover{
+	display:block;
+	width:7%;
+	height:40px;
+	background-image:none;
+	background-color:#8c8c8c;
+	float:left;
+	margin-left:1%;
+}
+.box_box_digital_big ul li{
+	width:38px;
+	height:20px;
+	float:left;
+	line-height:20px;
+	text-align:center;
+	font-size:12px;
+	color:#808080;
+}
+.box_box_letter_big ul li{
+	width:20px;
+	height:45px;
+	line-height:52px;
+	text-align:center;
+	font-size:12px;
+	color:#808080
+}
+
+
 .box_box_big .box .layer_box .layer .first_box{
 margin-left:0;
 }
@@ -2762,6 +2827,15 @@ background-image:url(r_savespace/box_full_bg.png);
 .box_box_big .box .layer_box .layer .full_box:hover{
 background-image:url(r_savespace/box_full_bg.png);
 }
+
+
+
+
+
+
+
+
+
 
 
 		/*小盒子*/
@@ -3005,7 +3079,7 @@ background-color:#8c8c8c;
 margin-top:2px;
 }*/
 		/*每行5个架子*/
-.s_freezer_box_big .freezer .top .layer a{
+/*.s_freezer_box_big .freezer .top .layer a{
 display:block;
 height:19%;
 width:46px;
@@ -3022,7 +3096,7 @@ width:46px;
 background-image:none;
 background-color:#8c8c8c;
 margin-top:2px;
-}
+}*/
 
 		/*每行6个架子*/
 /*.s_freezer_box_big .freezer .top .layer a{
@@ -3552,12 +3626,20 @@ margin-top:20px;
 background-color:#efeff0;
 float:left;
 }
-.s_shelf_box_big{
+/*卧式冰箱架子，右侧有滚动效果时的css样式*/
+/*.s_shelf_box_big{
 width:320px;
 height:600px;
 float:left;
 margin:20px 0 0 10px;
+}*/
+/*卧式冰箱架子，右侧没有滚动效果时的css样式*/
+.s_shelf_box_big{
+	width:320px;
+	height:600px;
+	margin:20px auto;
 }
+
 .s_shelf_box_big .shelf{
 width:320px;
 height:600px;
@@ -3604,6 +3686,11 @@ height:46px;
 background-image:none;
 background-color:#8c8c8c;
 float:left;
+}
+
+.s_shelf_box_big .shelf .top .layer .current_box{
+	background-image:none;
+	background-color:#4ac344;
 }
 .s_shelf_box_big .shelf .top .layer .full_box{
 background-image:url(r_savespace/s_shelf_bg_full.jpg);
@@ -3728,11 +3815,17 @@ background-image:url(r_savespace/upright_freezer_bg.png);
 
 /*液氮罐*/
 	/*液氮罐-大罐*/
-.bocal_1_box_big,.bocal_2_box_big,.bocal_3_box_big,.bocal_4_box_big,.bocal_5_box_big,.bocal_6_box_big,.bocal_7_box_big,.bocal_8_box_big,.bocal_9_box_big{
+/*.bocal_1_box_big,.bocal_2_box_big,.bocal_3_box_big,.bocal_4_box_big,.bocal_5_box_big,.bocal_6_box_big,.bocal_7_box_big,.bocal_8_box_big,.bocal_9_box_big{
 width:310px;
 height:310px;
 float:left;
 margin:20px 0 0 10px;	
+}*/
+
+.bocal_1_box_big,.bocal_2_box_big,.bocal_3_box_big,.bocal_4_box_big,.bocal_5_box_big,.bocal_6_box_big,.bocal_7_box_big,.bocal_8_box_big,.bocal_9_box_big{
+	width:310px;
+	height:310px;
+	margin:20px auto;
 }
 .bocal_1_big,.bocal_2_big,.bocal_3_big,.bocal_4_big,.bocal_5_big,.bocal_6_big,.bocal_7_big,.bocal_8_big,.bocal_9_big{
 width:310px;

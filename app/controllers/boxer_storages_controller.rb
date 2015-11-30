@@ -9,24 +9,24 @@ class BoxerStoragesController < ApplicationController
     @container = frame_storage.container
     @frame_storages = @container.frame_storages.order('id asc')
     @boxer_storages = BoxerStorage.all.where(:frame_id => params[:frame_id].to_i).order('id asc')
-    render_layout?
+
   end
 
   # GET /boxer_storages/1
   # GET /boxer_storages/1.json
   def show
-    render_layout?
+
   end
 
   # GET /boxer_storages/new
   def new
     @boxer_storage = BoxerStorage.new
-    render_layout?
+
   end
 
   # GET /boxer_storages/1/edit
   def edit
-    render_layout?
+
   end
 
   # POST /boxer_storages

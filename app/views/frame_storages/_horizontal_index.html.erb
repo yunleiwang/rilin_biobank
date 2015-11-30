@@ -18,14 +18,19 @@
           <li></li>
         </ul>
       </div>
+     <!--卧式冰箱css展现顺序有些特殊,如下,
+     1 4    但是最终展现应为 1 2
+     2 5                   3 4
+     3 6                   5 6
+     -->
       <div class="top">
         <div class="layer_box">
           <% (0...@container.container_columns).each do |i| %>  <!--列数-->
               <div class="layer">
-                <% (0...@container.container_rows).each do |j| %>
+                <% (0...@container.container_rows).each do |j| %><!--行数-->
                     <% frame_storage = @frame_storages[(j*@container.container_columns)+i] %>
                     <% if frame_storage.frame_id %>
-                        <a class="<%= get_frame_css_class(frame_storage, j, nil) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
+                       <a class="<%= get_frame_css_class(frame_storage, j, nil) %>" href="/boxer_storages?frame_id=<%= frame_storage.frame_id%>"></a>
                     <% else %>
                         <a class="fancybox_frame<%= get_frame_css_class(frame_storage, j, nil) %>" href="/frames/new?frame_storage_id=<%= frame_storage.id%>" ></a>
                     <% end %>
@@ -35,39 +40,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="r_s_freezer_rolling_box">
-    <ul>
-      <li>设备ID</li>
-      <li>设备名称</li>
-      <li>使用率</li>
-    </ul>
-  <!--  <marquee direction="up" scrollamount="3" loop="-1">
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-      <p><font color="#ff6600"><i>id1</i><a>架子1</a><span>20%</span></font ></p >
-    </marquee >-->
   </div>
   <div class="r_name_path">
     <i>名称：</i><span>冰箱1</span><i>路径：</i><span>abcdefg</span>

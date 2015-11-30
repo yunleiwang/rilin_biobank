@@ -1,5 +1,6 @@
-/*每行1个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+
+/*每行1个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:99%;
  height:46px;
@@ -10,7 +11,7 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:99%;
  height:46px;
@@ -19,8 +20,8 @@
  float:left;
  margin-left:1%;
  }*/
-/*每行2个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+/*每行2个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:49%;
  height:46px;
@@ -31,7 +32,7 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:49%;
  height:46px;
@@ -40,8 +41,8 @@
  float:left;
  margin-left:1%;
  }*/
-/*每行3个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+/*每行3个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:32%;
  height:46px;
@@ -52,7 +53,7 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:32%;
  height:46px;
@@ -62,19 +63,19 @@
  margin-left:1%;
  }*/
 
-/*每行4个盒子*/
-.shelf_box_small .freezer .top .layer a{
+/*每行4个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:24%;
  height:46px;
  background-image:url(r_savespace/box_bg.png);
-    background-size:100% 100%;
-    -webkit-background-size:100% 100%;
-    -moz-background-size:100% 100%;
+ background-size:100%;
+ -webkit-background-size:100%;
+ -moz-background-size:100%;
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:24%;
  height:46px;
@@ -82,9 +83,10 @@
  background-color:#8c8c8c;
  float:left;
  margin-left:1%;
- }
-/*一行有5个盒子*/
-/*.shelf_box_small .shelf .top .layer a{
+ }*/
+/*每行5个架子*/
+/*
+.freezer_box_small .freezer .top .layer a{
     display:block;
     width:19%;
     height:20px;
@@ -95,7 +97,7 @@
     float:left;
     margin-left:1%;
 }
-.shelf_box_small .shelf .top .layer a:hover{
+.freezer_box_small .freezer .top .layer a:hover{
     display:block;
     width:19%;
     height:20px;
@@ -103,9 +105,11 @@
     background-color:#8c8c8c;
     float:left;
     margin-left:1%;
-}*/
-/*每行6个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+}
+*/
+
+/*每行6个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:15%;
  height:46px;
@@ -116,7 +120,7 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:15%;
  height:46px;
@@ -126,8 +130,8 @@
  margin-left:1%;
  }*/
 
-/*每行7个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+/*每行7个架子*/
+/*.freezer_box_small .freezer .top .layer a{
  display:block;
  width:13%;
  height:46px;
@@ -138,7 +142,7 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:13%;
  height:46px;
@@ -148,10 +152,32 @@
  margin-left:1%;
  }
  */
-/*每行8个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
+/*每行8个架子*/
+.s_freezer_box_small .freezer .top .layer a{
+ display:block;
+ height:11.5%;
+ width:20px;
+ background-image:url(r_savespace/box_bg.png);
+    background-size:100% 100%;
+    -webkit-background-size:100% 100%;
+    -moz-background-size:100% 100%;
+ float:left;
+ margin-left:1%;
+ }
+ .s_freezer_box_small .freezer .top .layer a:hover{
  display:block;
  width:11.5%;
+ height:20px;
+ background-image:none;
+ background-color:#8c8c8c;
+ float:left;
+ margin-left:1%;
+ }
+
+/*每行9个架子*/
+/*.freezer_box_small .freezer .top .layer a{
+ display:block;
+ width:10%;
  height:46px;
  background-image:url(r_savespace/box_bg.png);
  background-size:100%;
@@ -160,9 +186,9 @@
  float:left;
  margin-left:1%;
  }
- .shelf_box_small .freezer .top .layer a:hover{
+ .freezer_box_small .freezer .top .layer a:hover{
  display:block;
- width:11.5%;
+ width:10%;
  height:46px;
  background-image:none;
  background-color:#8c8c8c;
@@ -170,25 +196,4 @@
  margin-left:1%;
  }*/
 
-/*每行9个盒子*/
-/*.shelf_box_small .freezer .top .layer a{
- display:block;
- width:10%;
- height:46px;
- background-image:url(r_savespace/box_bg.png);
- background-size:100%;
- -webkit-background-size:100%;
- -moz-background-size:100%;
- float:left;
- margin-left:1%;
- }
- .shelf_box_small .freezer .top .layer a:hover{
- display:block;
- width:10%;
- height:46px;
- background-image:none;
- background-color:#8c8c8c;
- float:left;
- margin-left:1%;
- }*/
 

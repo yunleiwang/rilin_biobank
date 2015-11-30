@@ -6,13 +6,13 @@ class PatientCasesController < ApplicationController
 
   def index
     @patient_cases = PatientCase.all.order('id desc')
-    render_layout?
+
   end
 
   # GET /patient_cases/1
   # GET /patient_cases/1.json
   def show
-    render_layout?
+
   end
 
   # GET /patient_cases/new
@@ -20,7 +20,7 @@ class PatientCasesController < ApplicationController
     @patient_case = PatientCase.new
     @samples = []
     @sample = Sample.new
-    render_layout?
+
   end
 
   # GET /patient_cases/1/edit
@@ -32,7 +32,7 @@ class PatientCasesController < ApplicationController
     else
       @sample = @samples[0]
     end
-    render_layout?
+
   end
 
   # POST /patient_cases
