@@ -1,17 +1,4 @@
-<!-- Page heading -->
-<div class="page-head">
-  <h2 class="pull-left"><i class="fa fa-home"></i> 信息查询</h2>
 
-  <!-- Breadcrumb -->
-  <div class="bread-crumb pull-right">
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
-    <!-- Divider -->
-    <span class="divider">/</span>
-    <a href="#" class="bread-current">Dashboard</a>
-  </div>
-  <div class="clearfix"></div>
-
-</div>
 <!-- 表单内容 -->
 <div class="container">
   <div class="row">
@@ -112,7 +99,7 @@
                             <td><span class="label label-success"><%= sample.storage_status %></span></td>
                             <td>
                               <%= link_to '', sample,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
-                              <%= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out ",:title=>"出库" %>
+                              <%= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out fancybox",:title=>"出库" %>
                               <%= link_to '', sample, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除"  %>
                             </td>
                           </tr>
@@ -138,7 +125,7 @@
                             <td><%= patient_case.patient_info.patient_name %></td>
                             <td><span class="label label-success">Active</span></td>
                             <td>
-                              <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
+                              <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check fancybox",:title=>"查看"  %>
                               <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil ",:title=>"编辑" %>
                               <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除" %>
                             </td>

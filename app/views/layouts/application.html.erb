@@ -48,7 +48,7 @@
   <!--<link rel="shortcut icon" href="img/favicon/favicon.png">-->
 </head>
 
-<body>
+<body >
 <%= render 'layouts/navbar' %>
 
 <!-- Header starts -->
@@ -72,7 +72,7 @@
               <% Container.order('id asc').each do |container| %>
                   <li class="<%= 'has_sub' if container.frames.count>0 %> r_equipment<%"open" if params[:container_id]==container.id%>">
 <!--
-                    <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link container_id">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="window.open('/frame_storages?container_id=<%= container.id %>','_self')"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+                    <a href="/frame_storages?container_id=<%#= container.id %>" class="pjax-link container_id">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="window.open('/frame_storages?container_id=<%= container.id %>','_self')"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
 -->
                     <a href="/frame_storages?container_id=<%= container.id %>" class="pjax-link">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list-alt r_equipment_icon"></i><div style="display:inline-block" onClick="javascript:container_show(<%= container.id %>)"><%= container.container_name %></div> <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
                     <ul class="r_shelf_box">
@@ -103,7 +103,7 @@
   <!-- Sidebar ends -->
 
   <!-- Main bar -->
-  <div class="mainbar"  id="pjax-container">
+  <div class="mainbar" id="pjax-container">
     <%= yield %>
   </div>
   <!-- Mainbar ends -->

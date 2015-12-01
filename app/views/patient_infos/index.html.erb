@@ -43,9 +43,9 @@
                         <td><%= patient_info.birthday %></td>
                         <td><span class="label label-success">Active</span></td>
                         <td>
-                          <%= link_to '', patient_info,:class=>"btn btn-xs btn-success fa fa-check pjax-link" %>
-                          <%= link_to '', edit_patient_info_path(patient_info),:class=>"btn btn-xs btn-warning fa fa-pencil pjax-link" %>
-                          <%= link_to '', patient_info, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times pjax-link" %>
+                          <%= link_to '', patient_info,:class=>"btn btn-xs btn-success fa fa-check" %>
+                          <%= link_to '', edit_patient_info_path(patient_info),:class=>"btn btn-xs btn-warning fa fa-pencil " %>
+                          <%= link_to '', patient_info, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times" %>
                         </td>
                       </tr>
                   <% end %>

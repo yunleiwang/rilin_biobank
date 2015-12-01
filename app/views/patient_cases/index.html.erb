@@ -38,7 +38,7 @@
                         <td><%= patient_case.patient_info.patient_name %></td>
                         <td><span class="label label-success">Active</span></td>
                         <td>
-                          <%= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check pjax-link" %>
+                          <%#= link_to '', patient_case,:class=>"btn btn-xs btn-success fa fa-check pjax-link" %>
                           <%= link_to '', edit_patient_case_path(patient_case),:class=>"btn btn-xs btn-warning fa fa-pencil pjax-link" %>
                           <%= link_to '', patient_case, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times pjax-link" %>
 

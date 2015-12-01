@@ -1,17 +1,4 @@
-<!-- Page heading -->
-<div class="page-head">
-  <h2 class="pull-left"><i class="fa fa-home"></i> 病例列表</h2>
 
-  <!-- Breadcrumb -->
-  <div class="bread-crumb pull-right">
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
-    <!-- Divider -->
-    <span class="divider">/</span>
-    <a href="#" class="bread-current">Dashboard</a>
-  </div>
-  <div class="clearfix"></div>
-
-</div>
 <!-- 表单内容 -->
 <div class="container">
   <div class="row">
@@ -112,8 +99,8 @@
                             <td><span class="label label-success"><%= sample.storage_status %></span></td>
                             <td><%= sample.position %></td>
                             <td>
-                              <%= link_to '', sample,:class=>"btn btn-xs btn-success fa fa-check",:title=>"查看"  %>
-                              <%= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out ",:title=>"出库" %>
+                              <%= link_to '', sample,:class=>"btn btn-xs btn-success fa fa-check pjax-link",:title=>"查看"  %>
+                              <%#= link_to '', edit_sample_path(sample),:class=>"btn btn-xs btn-warning fa fa-sign-out ",:title=>"出库" %>
                               <%= link_to '', sample, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-xs btn-danger fa fa-times",:title=>"删除"  %>
                             </td>
                           </tr>
@@ -214,7 +201,7 @@
 </div>
 <!-- Matter ends -->
 
-
+<%#= javascript_include_tag 'jquery.pjax.js' %>
 
 
 
@@ -350,7 +337,7 @@
         $("#samples_from").submit();
     })
 
-
+    //$(document).pjax('a.pjax-link', '#pjax-container');
 
 
 </script>

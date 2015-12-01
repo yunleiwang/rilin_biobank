@@ -201,6 +201,7 @@
     </div>
   </div>
 </div>
+<%= javascript_include_tag 'jquery.pjax.js' %>
 <script>
     function print_sample(){
         var sample_seq=$("#sample_sample_seq").val()
@@ -214,4 +215,10 @@
             }
         });
     }
+
+
+    $(document).on('submit', 'form', function(event) {
+        $.pjax.submit(event, '#pjax-container')
+    })
+
 </script>

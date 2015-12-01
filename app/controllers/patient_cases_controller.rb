@@ -32,7 +32,6 @@ class PatientCasesController < ApplicationController
     else
       @sample = @samples[0]
     end
-
   end
 
   # POST /patient_cases
